@@ -63,35 +63,6 @@ body {
   overflow-x: hidden;
 }
 
-/* --- Urban Grid Overlay --- */
-.grid-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 var(--space-md);
-  pointer-events: none;
-  z-index: 0;
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-
-.grid-line {
-  width: 1px;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    var(--gray-200) 10%,
-    var(--gray-200) 90%,
-    transparent 100%
-  );
-  opacity: 0.5;
-}
-
 /* =========================================
    HERO SECTION
    ========================================= */
@@ -104,6 +75,29 @@ body {
   background: var(--black);
   color: var(--white);
   overflow: hidden;
+}
+
+/* --- Tessellation Grid --- */
+.tessellation {
+  position: absolute;
+  top: 100px;
+  left: 200px;
+  right: 50px;
+  bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 4px;
+  padding: 4px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tile {
+  background: var(--gray-600);
+  border-radius: 2px;
+  transition: opacity 0.15s ease-out, transform 0.2s ease-out;
+  will-change: opacity, transform;
 }
 
 .hero-content {
@@ -199,45 +193,6 @@ body {
   background: var(--white);
   border-color: var(--white);
   color: var(--black);
-}
-
-/* Hero Visual - Urban Blocks Animation */
-.hero-visual {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0.15;
-}
-
-.urban-blocks {
-  position: absolute;
-  top: 50%;
-  right: 10%;
-  transform: translateY(-50%);
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
-  width: 400px;
-}
-
-.urban-block {
-  aspect-ratio: 1;
-  background: var(--white);
-  animation: blockPulse 4s ease-in-out infinite;
-}
-
-@keyframes blockPulse {
-  0%, 100% {
-    opacity: 0.1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.4;
-    transform: scale(0.95);
-  }
 }
 
 /* =========================================
@@ -612,14 +567,9 @@ body {
     padding-bottom: var(--space-lg);
   }
 
-  .hero-visual {
-    width: 100%;
-    opacity: 0.08;
-  }
-
-  .urban-blocks {
-    right: 5%;
-    width: 250px;
+  .tessellation {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(6, 1fr);
   }
 
   .hero-cta {
@@ -657,8 +607,9 @@ body {
     align-items: center;
   }
 
-  .grid-overlay {
-    display: none;
+  .tessellation {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
   }
 }
 
@@ -666,9 +617,8 @@ body {
    REDUCED MOTION
    ========================================= */
 @media (prefers-reduced-motion: reduce) {
-  .urban-block {
-    animation: none;
-    opacity: 0.2;
+  .tile {
+    transition: none;
   }
 
   html {

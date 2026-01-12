@@ -1,32 +1,80 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import './App.css'
 
+// Tessellation grid configuration
+const GRID_COLS = 16
+const GRID_ROWS = 10
+
 function App() {
-  const [scrollY, setScrollY] = useState(0)
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const heroRef = useRef(null)
+  const tilesRef = useRef([])
+
+  // Track mouse position relative to hero
+  const handleMouseMove = useCallback((e) => {
+    if (!heroRef.current) return
+    const rect = heroRef.current.getBoundingClientRect()
+    setMousePos({
+      x: (e.clientX - rect.left) / rect.width,
+      y: (e.clientY - rect.top) / rect.height
+    })
+  }, [])
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    const hero = heroRef.current
+    if (hero) {
+      hero.addEventListener('mousemove', handleMouseMove, { passive: true })
+      return () => hero.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [handleMouseMove])
+
+  // Calculate tile opacity and transform based on mouse distance
+  const getTileStyle = (index) => {
+    const col = index % GRID_COLS
+    const row = Math.floor(index / GRID_COLS)
+    const tileX = (col + 0.5) / GRID_COLS
+    const tileY = (row + 0.5) / GRID_ROWS
+
+    const dx = mousePos.x - tileX
+    const dy = mousePos.y - tileY
+    const distance = Math.sqrt(dx * dx + dy * dy)
+
+    // Proximity effect - tiles closer to mouse are brighter
+    const maxDistance = 0.4
+    const proximity = Math.max(0, 1 - distance / maxDistance)
+    const opacity = 0.03 + proximity * 0.15
+
+    // Subtle shift toward mouse
+    const shiftX = dx * proximity * 3
+    const shiftY = dy * proximity * 3
+
+    return {
+      opacity,
+      transform: `translate(${shiftX}px, ${shiftY}px)`,
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle form submission
     alert('Thank you for reaching out. We will be in touch.')
   }
 
   return (
     <div className="site">
-      {/* Urban Grid Background */}
-      <div className="grid-overlay" aria-hidden="true">
-        {[...Array(12)].map((_, i) => (
-          <div key={i} className="grid-line" />
-        ))}
-      </div>
-
       {/* Hero */}
-      <header className="hero">
+      <header className="hero" ref={heroRef}>
+        {/* Tessellation Grid */}
+        <div className="tessellation" aria-hidden="true">
+          {[...Array(GRID_COLS * GRID_ROWS)].map((_, i) => (
+            <div
+              key={i}
+              className="tile"
+              ref={el => tilesRef.current[i] = el}
+              style={getTileStyle(i)}
+            />
+          ))}
+        </div>
+
         <div className="hero-content">
           <div className="hero-marker">March 24, 2026</div>
           <h1 className="hero-title">
@@ -42,20 +90,6 @@ function App() {
             <a href="#pitches" className="cta-button">Startup Pitches</a>
             <a href="#attend" className="cta-button">Attend</a>
           </nav>
-        </div>
-        <div className="hero-visual" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
-          <div className="urban-blocks">
-            {[...Array(24)].map((_, i) => (
-              <div
-                key={i}
-                className="urban-block"
-                style={{
-                  animationDelay: `${i * 0.15}s`,
-                  opacity: 0.1 + (i % 5) * 0.15
-                }}
-              />
-            ))}
-          </div>
         </div>
       </header>
 
