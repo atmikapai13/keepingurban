@@ -82,8 +82,8 @@ body {
   position: absolute;
   top: 100px;
   left: 200px;
-  right: 50px;
-  bottom: 50px;
+  right: 0px;
+  bottom: 0px;
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(10, 1fr);
@@ -108,7 +108,7 @@ body {
 
 .hero-marker {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 1rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
@@ -137,7 +137,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gray-400);
+  color: var(--gray-100);
   margin-top: var(--space-sm);
 }
 
@@ -240,23 +240,112 @@ body {
   margin-top: var(--space-xs);
 }
 
-.affiliations {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-sm);
-  max-width: var(--max-width);
-  margin: 0 auto;
+/* Partners Section with Animated Line */
+.partners-section {
+  position: relative;
+  margin-top: var(--space-md);
+  padding: var(--space-md) 0;
+  min-height: 200px;
 }
 
-.affiliation-tag {
+.partners-title {
+  text-align: center;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--black);
-  background: var(--white);
+  color: var(--gray-500);
+  margin-bottom: var(--space-md);
+}
+
+.partners-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.line-path {
+  stroke: #d5d5d5;
+  stroke-dasharray: 3000;
+  stroke-dashoffset: 3000;
+}
+
+.partners-line.animate .line-path {
+  animation: drawLine 3s ease-out forwards;
+}
+
+.partners-line.animate .line-path:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.partners-line.animate .line-path:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.partners-logos {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  height: 200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.partner-logo {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.partner-logo:hover {
+  transform: scale(1.1) !important;
+}
+
+.partner-logo img {
+  max-height: 120px;
+  max-width: 240px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Scattered positioning - alternating above/below the line */
+.partner-logo:nth-child(1) {
+  top: 50%;
+  left: 2%;
+  transform: translateY(-50%);
+}
+
+.partner-logo:nth-child(2) {
+  top: 65%;
+  left: 20%;
+}
+
+.partner-logo:nth-child(3) {
+  top: 10%;
+  left: 42%;
+}
+
+.partner-logo:nth-child(4) {
+  top: 55%;
+  right: 18%;
+}
+
+.partner-logo:nth-child(5) {
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
 }
 
 /* =========================================
@@ -331,6 +420,174 @@ body {
   padding: var(--space-xl) var(--space-md);
   background: var(--black);
   color: var(--white);
+  overflow: hidden;
+}
+
+/* Urban Systems Visualization */
+.urban-system {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  opacity: 0.12;
+  z-index: 0;
+}
+
+.urban-top {
+  top: 0;
+  left: 0;
+}
+
+.urban-bottom {
+  bottom: 0;
+  right: 0;
+}
+
+/* Grid layer - city blocks */
+.grid-line {
+  fill: none;
+  stroke: var(--gray-600);
+  stroke-width: 1;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: drawLine 3s ease-out forwards;
+}
+
+.grid-line.delay-1 { animation-delay: 0.2s; }
+.grid-line.delay-2 { animation-delay: 0.4s; }
+
+/* Transit layer - subway routes */
+.transit-line {
+  fill: none;
+  stroke: var(--gray-400);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  animation: drawLine 4s ease-out forwards;
+}
+
+.transit-line.accent {
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.transit-line.delay-1 { animation-delay: 0.5s; }
+.transit-line.delay-2 { animation-delay: 1s; }
+
+/* Data flow layer - information streams */
+.data-flow {
+  fill: none;
+  stroke: var(--gray-500);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 8 4;
+  stroke-dashoffset: 800;
+  animation: drawLine 3s ease-out forwards, flowData 8s linear infinite 3s;
+}
+
+.data-flow.accent {
+  stroke: var(--accent);
+  stroke-dasharray: 6 6;
+}
+
+.data-flow.delay-1 { animation-delay: 0.8s; }
+
+/* Nodes - intersection points */
+.node-hub {
+  fill: var(--gray-500);
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+  animation-delay: 2s;
+}
+
+.node-hub.accent {
+  fill: var(--accent);
+}
+
+.node-point {
+  fill: var(--gray-600);
+  opacity: 0;
+  animation: fadeIn 0.4s ease-out forwards;
+  animation-delay: 2.2s;
+}
+
+.node-point.accent {
+  fill: var(--accent);
+}
+
+/* Pulsing node - agentic systems */
+.node-pulse {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards 2.5s, pulse 3s ease-in-out infinite 3s;
+}
+
+/* Orbital rings - systems within systems */
+.orbital-ring {
+  fill: none;
+  stroke: var(--gray-600);
+  stroke-width: 1;
+  stroke-dasharray: 4 8;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: fadeIn 1s ease-out forwards 1.5s, orbit 25s linear infinite 2.5s;
+}
+
+.orbital-ring.delay-1 {
+  stroke-dasharray: 2 12;
+  animation: fadeIn 1s ease-out forwards 2s, orbitReverse 30s linear infinite 3s;
+}
+
+/* Keyframe animations */
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes flowData {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
 }
 
 .statement-content {
@@ -362,8 +619,17 @@ body {
   margin-bottom: 0;
 }
 
+.text-highlight {
+  color: var(--accent);
+  font-weight: 600;
+  font-style: italic;
+  padding: 0.1em 0.3em;
+  border-radius: 2px;
+}
+
 .statement-close {
   font-family: var(--font-display);
+  
   font-size: 1.25rem;
   font-weight: 500;
   font-style: italic;
@@ -408,6 +674,128 @@ body {
 .placard:hover {
   background: var(--white);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.placard:hover .pixel-icon {
+  animation-play-state: running;
+}
+
+.placard:hover .glitch-layer {
+  opacity: 1;
+}
+
+/* --- Pixel Art Icons --- */
+.pixel-icon {
+  width: 72px;
+  height: 72px;
+  margin-bottom: var(--space-sm);
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.pixel-grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 2px;
+}
+
+.pixel-grid span {
+  background: var(--black);
+  transition: all 0.1s ease;
+}
+
+.pixel-grid span.accent {
+  background: var(--accent);
+}
+
+.glitch-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.glitch-layer::before,
+.glitch-layer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  animation: glitch 0.3s infinite;
+}
+
+.glitch-layer::before {
+  animation-delay: 0.1s;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  transform: translateX(-2px);
+  background: var(--accent);
+  opacity: 0.3;
+}
+
+.glitch-layer::after {
+  animation-delay: 0.2s;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  transform: translateX(2px);
+  background: var(--white);
+  opacity: 0.2;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-2px) skewX(-1deg);
+  }
+  40% {
+    transform: translateX(2px);
+  }
+  60% {
+    transform: translateX(-1px) skewX(1deg);
+  }
+  80% {
+    transform: translateX(1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Individual icon adjustments */
+.pixel-artist .pixel-grid span {
+  border-radius: 1px;
+}
+
+.pixel-founder .pixel-grid span {
+  border-radius: 0;
+}
+
+.pixel-civic .pixel-grid span {
+  border-radius: 1px;
+}
+
+.pixel-community .pixel-grid span {
+  border-radius: 0;
 }
 
 .placard-title {
@@ -588,6 +976,45 @@ body {
     font-size: 2.5rem;
   }
 
+  .partners-logos {
+    height: 280px;
+  }
+
+  .partner-logo img {
+    max-height: 80px;
+    max-width: 160px;
+  }
+
+  .partner-logo:nth-child(1) {
+    top: 10%;
+    left: 5%;
+    transform: none;
+  }
+
+  .partner-logo:nth-child(2) {
+    top: 45%;
+    left: 25%;
+  }
+
+  .partner-logo:nth-child(3) {
+    top: 10%;
+    left: auto;
+    right: 5%;
+  }
+
+  .partner-logo:nth-child(4) {
+    top: 75%;
+    left: 10%;
+    right: auto;
+  }
+
+  .partner-logo:nth-child(5) {
+    top: 60%;
+    left: auto;
+    right: 15%;
+    transform: none;
+  }
+
   .zones {
     grid-template-columns: 1fr;
   }
@@ -629,6 +1056,25 @@ body {
   .placard,
   .cta-button,
   .form-submit {
+    transition: none;
+  }
+
+  .pixel-icon {
+    animation: none;
+  }
+
+  .glitch-layer::before,
+  .glitch-layer::after {
+    animation: none;
+  }
+
+  .line-path {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 0.4;
+  }
+
+  .partner-logo {
     transition: none;
   }
 }
