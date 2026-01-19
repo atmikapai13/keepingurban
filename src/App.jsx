@@ -75,11 +75,6 @@ function App() {
     }
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    alert('Thank you for reaching out. We will be in touch.')
-  }
-
   return (
     <div className="site">
       {/* Hero */}
@@ -99,15 +94,16 @@ function App() {
         <div className="hero-content">
         
           <h1 className="hero-title">
-            <span className="title-main">Keeping Urban</span>
-            <span className="title-sub">Art, Tech, Collective</span>
+            <span className="title-main title-keeping">Keeping it</span>
+            <span className="title-main title-urban">Urban</span>
+            {/* <span className="title-sub">Art, Tech, Collective</span> */}
             
           </h1>
-          <div className="hero-marker" style={{marginBottom: "3px"}}>March 24, 2026 · NYC Open Data Week 2026</div>
+          <div className="hero-marker" style={{ marginBottom: "3px" }}>March 24, 2026 · <span style={{ color: "#fafafa" }}>NYC Open Data Week 2026</span></div>
           <div className="hero-marker" style={{marginTop: "3px"}}>Cornell Tech, NYC</div>
           <nav className="hero-cta">
             <a href="#open-call" className="cta-button cta-primary">Open Call</a>
-            <a href="#pitches" className="cta-button">Startup Pitches</a>
+            <a href="#pitches" className="cta-button cta-primary">Startup Pitches</a>
             <a href="#attend" className="cta-button">Attend</a>
           </nav>
         </div>
@@ -118,15 +114,15 @@ function App() {
         <div className="context-grid">
           <div className="signal">
             <span className="signal-number">150+</span>
-            <span className="signal-label">Participants<br/>within Tech, Civic & Art in NYC</span>
+            <span className="signal-label"><span className="signal-title">Participants</span><br/>within Tech, Civic & Art in NYC</span>
           </div>
           <div className="signal">
             <span className="signal-number">10+</span>
-            <span className="signal-label">Founders<br/>Pitching Urban & Civic Ventures</span>
+            <span className="signal-label"><span className="signal-title">Founders</span><br/>Pitching Urban & Civic Ventures</span>
           </div>
           <div className="signal">
             <span className="signal-number">15+</span>
-            <span className="signal-label">Artists<br/>Showcase in Immersive Gallery</span>
+            <span className="signal-label"><span className="signal-title">Artists</span><br/>Showcase in Immersive Gallery</span>
           </div>
         </div>
         {/* Partner Logos */}
@@ -153,21 +149,21 @@ function App() {
             />
           </svg>
           <div className="partners-logos">
-            <div className="partner-logo">
+            <a href="https://tech.cornell.edu/" target="_blank" rel="noopener noreferrer" className="partner-logo">
               <img src="/keepingurban/cornell.png" alt="Cornell University" />
-            </div>
-            <div className="partner-logo">
+            </a>
+            <a href="https://www.nyc.gov/content/oti/pages/" target="_blank" rel="noopener noreferrer" className="partner-logo">
               <img src="/keepingurban/nyc_oti.png" alt="NYC Office of Technology & Innovation" />
-            </div>
-            <div className="partner-logo">
+            </a>
+            <a href="https://opendata.cityofnewyork.us/" target="_blank" rel="noopener noreferrer" className="partner-logo">
               <img src="/keepingurban/nyc_open_data.png" alt="NYC Open Data" />
-            </div>
-            <div className="partner-logo">
+            </a>
+            <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer" className="partner-logo">
               <img src="/keepingurban/backslash.png" alt="Backslash" />
-            </div>
-            <div className="partner-logo">
+            </a>
+            <a href="https://opendataweek.nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo">
               <img src="/keepingurban/open_data_week.png" alt="Open Data Week" />
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -284,19 +280,22 @@ function App() {
           </g>
         </svg>
         <div className="statement-content">
-          <h2 className="statement-title">On Keeping Urban</h2>
+          <h2 className="statement-title">On Keeping It Urban</h2>
           <div className="statement-text">
             <p>
-            From the string of gentrification across NYC to subway vandalism against Friend.com, representing the larger public backlash against top-down AI, cities are fundamentally ignoring that community, art, and culture are the primary drivers of a city's social vitality.
+            From the string of gentrification across NYC to subway vandalism against Friend.com, representing the larger public backlash against top-down AI, cities are fundamentally ignoring that <span className="text-highlight-inverse">community, art, and culture are the primary drivers of a city's social vitality.</span>
             </p>
             <p>
              These social forces, that drive $135 billion in economic activity and make neighborhoods worth living in, are treated as afterthoughts rather than infrastructure.And, even when the future of cities is being decided, it is in rooms that most New Yorkers can't enter.
             </p>
             <p>
-            <span className="text-highlight">Keeping Urban: Culture, Tech, Collective</span> is a one-day summit reclaiming who gets to shape urban futures. We bring together the three forces that actually build livable cities—cultural creators, civic technologists, and community leaders—for a day of expert panels, startup pitches, and an immersive gallery at Cornell Tech. Timed with NYC Open Data Week, the summit asks one question: What happens when we build cities with art and culture at the center, not the margins? Join 130+ founders, artists, VCs, and civic leaders to find out—and to connect with the collaborators, funders, and platforms that will make it real.
+            <span className="text-highlight-inverse">Keeping it Urban: Culture, Tech, Collective</span> is a one-day summit reclaiming who gets to shape urban futures. We bring together the three forces that actually build livable cities—cultural creators, civic technologists, and community leaders—for a day of expert panels, startup pitches, and an immersive gallery at Cornell Tech.
+            </p>
+            <p>
+            >Timed with NYC Open Data Week, the summit asks one question: What happens when we build cities with art and culture at the center, not the margins? Join 130+ founders, artists, VCs, and civic leaders to find out—and to connect with the collaborators, funders, and platforms that will make it real.
             </p>
             <p className="statement-close">
-              Let's build the future of cities with intention, color, and whimsy.
+              Let's build the future of cities with intention and integrity.
             </p>
           </div>
         </div>
@@ -306,7 +305,7 @@ function App() {
       <section className="belong" id="attend">
         <h2 className="section-marker">You Belong Here</h2>
         <p className="belong-intro">
-          Keeping Urban convenes across sectors. If you work at the intersection
+          Keeping it Urban convenes across sectors. If you work at the intersection
           of cities, culture, and civic life—there is a place for you.
         </p>
         <div className="placards">
@@ -449,30 +448,30 @@ function App() {
       {/* Contact */}
       <section className="contact" id="contact">
         <h2 className="section-marker">Get in Touch</h2>
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="form-field">
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-          <div className="form-field">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <div className="form-field">
-            <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-          </div>
-          <button type="submit" className="form-submit">Send</button>
-        </form>
+        <div className="contact-content">
+          <p className="contact-text">
+            Interested in sponsoring, partnering, or speaking?
+            <br />
+            <span className="contact-highlight">We'd love to hear from you.</span>
+          </p>
+          <a
+            href="mailto:aap253@cornell.edu,msh334@cornell.edu?subject=Keeping it Urban Inquiry"
+            className="contact-button"
+          >
+            Send us an email
+          </a>
+        </div>
       </section>
 
       {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
-          <p className="footer-mark">Keeping Urban 2026</p>
+          <p className="footer-mark">Keeping it Urban 2026</p>
           <p className="footer-location">Cornell Tech, Roosevelt Island, NYC</p>
           <p className="footer-affiliation">
-            Michelle Hui · Atmika Pai
+            <a href="https://www.linkedin.com/in/atmikapai/" target="_blank" rel="noopener noreferrer">Atmika Pai</a>
+            {' · '}
+            <a href="https://www.linkedin.com/in/michelle-hui/" target="_blank" rel="noopener noreferrer">Michelle Hui</a>
           </p>
         </div>
       </footer>

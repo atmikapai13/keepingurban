@@ -6,6 +6,9 @@
    scaffolding, signage, data overlays
    ========================================= */
 
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap');
+
 /* --- CSS Variables --- */
 :root {
   --black: #0a0a0a;
@@ -108,7 +111,7 @@ body {
 
 .hero-marker {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 1.25rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
@@ -122,12 +125,25 @@ body {
 
 .title-main {
   display: block;
-  font-family: var(--font-display);
-  font-size: clamp(3.5rem, 12vw, 9rem);
-  font-weight: 700;
+  font-family: 'Rubik Spray Paint', cursive;
+  font-size: clamp(5rem, 17vw, 12rem);
+  font-weight: 400;
   line-height: 0.9;
-  letter-spacing: -0.03em;
+  font-style: italic;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
+  transform: rotate(-1deg);
+  text-shadow:
+    4px 4px 0 var(--accent),
+    -1px -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.title-keeping {
+  font-size: clamp(3rem, 10vw, 7rem);
+}
+
+.title-urban {
+  padding-left: 30%;
 }
 
 .title-sub {
@@ -224,10 +240,11 @@ body {
 .signal-number {
   display: block;
   font-family: var(--font-display);
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.02em;
+  margin-bottom: var(--space-sm);
 }
 
 .signal-label {
@@ -236,8 +253,12 @@ body {
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--gray-600);
-  margin-top: var(--space-xs);
+}
+
+.signal-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent);
 }
 
 /* Partners Section with Animated Line */
@@ -627,16 +648,26 @@ body {
   border-radius: 2px;
 }
 
+.text-highlight-inverse {
+  color: var(--white);
+  font-weight: 600;
+  font-style: italic;
+  background: var(--accent);
+  padding: 0.1em 0.4em;
+  border-radius: 2px;
+}
+
 .statement-close {
   font-family: var(--font-display);
-  
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 700;
   font-style: italic;
   color: var(--white);
+  background: var(--accent);
+  display: inline;
+  padding: 0.1em 0.4em;
+  border-radius: 2px;
   margin-top: var(--space-lg);
-  padding-top: var(--space-md);
-  border-top: 1px solid var(--gray-800);
 }
 
 /* =========================================
@@ -831,7 +862,7 @@ body {
   position: relative;
   z-index: 1;
   padding: var(--space-xl) var(--space-md);
-  background: var(--gray-100);
+  background: linear-gradient(180deg, var(--gray-100) 0%, var(--white) 100%);
 }
 
 .contact .section-marker {
@@ -840,50 +871,29 @@ body {
   margin-right: auto;
 }
 
-.contact-form {
+.contact-content {
   max-width: 600px;
   margin: 0 auto;
+  text-align: center;
 }
 
-.form-field {
-  margin-bottom: var(--space-md);
-}
-
-.form-field label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+.contact-text {
+  font-size: 1.25rem;
   color: var(--gray-600);
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-lg);
+  line-height: 1.8;
 }
 
-.form-field input,
-.form-field textarea {
-  width: 100%;
-  padding: 1rem;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  border: 1px solid var(--gray-200);
-  background: var(--white);
-  transition: border-color 0.3s ease;
+.contact-highlight {
+  color: var(--black);
+  font-weight: 500;
 }
 
-.form-field input:focus,
-.form-field textarea:focus {
-  outline: none;
-  border-color: var(--black);
-}
-
-.form-field textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.form-submit {
-  display: inline-block;
-  padding: 1rem 3rem;
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 3rem;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 500;
@@ -891,14 +901,43 @@ body {
   text-transform: uppercase;
   color: var(--white);
   background: var(--black);
-  border: 1px solid var(--black);
-  cursor: pointer;
+  border: 2px solid var(--black);
+  text-decoration: none;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.form-submit:hover {
+.contact-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 61, 0, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.contact-button:hover::before {
+  left: 100%;
+}
+
+.contact-button:hover {
   background: var(--accent);
   border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(255, 61, 0, 0.25);
+}
+
+.contact-button::after {
+  content: '\2192';
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.contact-button:hover::after {
+  transform: translateX(4px);
 }
 
 /* =========================================
@@ -939,6 +978,16 @@ body {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--gray-600);
+}
+
+.footer-affiliation a {
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-affiliation a:hover {
+  color: var(--accent);
 }
 
 /* =========================================
