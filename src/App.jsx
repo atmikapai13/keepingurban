@@ -94,7 +94,7 @@ function App() {
         <div className="hero-content">
         
           <h1 className="hero-title">
-            <span className="title-main title-keeping">Keepin' it</span>
+            <span className="title-main title-keeping">Keeping it</span>
             <span className="title-main title-urban">Urban</span>
             {/* <span className="title-sub">Art, Tech, Collective</span> */}
             
