@@ -94,7 +94,7 @@ function App() {
         <div className="hero-content">
         
           <h1 className="hero-title">
-            <span className="title-main title-keeping">Keeping it</span>
+            <span className="title-main title-keeping">Keepin' it</span>
             <span className="title-main title-urban">Urban</span>
             {/* <span className="title-sub">Art, Tech, Collective</span> */}
             
@@ -150,19 +150,19 @@ function App() {
           </svg>
           <div className="partners-logos">
             <a href="https://tech.cornell.edu/" target="_blank" rel="noopener noreferrer" className="partner-logo">
-              <img src="/keepingurban/cornell.png" alt="Cornell University" />
+              <img src="/cornell.png" alt="Cornell University" />
             </a>
             <a href="https://www.nyc.gov/content/oti/pages/" target="_blank" rel="noopener noreferrer" className="partner-logo">
-              <img src="/keepingurban/nyc_oti.png" alt="NYC Office of Technology & Innovation" />
+              <img src="/nyc_oti.png" alt="NYC Office of Technology & Innovation" />
             </a>
             <a href="https://opendata.cityofnewyork.us/" target="_blank" rel="noopener noreferrer" className="partner-logo">
-              <img src="/keepingurban/nyc_open_data.png" alt="NYC Open Data" />
+              <img src="/nyc_open_data.png" alt="NYC Open Data" />
             </a>
             <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer" className="partner-logo">
-              <img src="/keepingurban/backslash.png" alt="Backslash" />
+              <img src="/backslash.png" alt="Backslash" />
             </a>
             <a href="https://opendataweek.nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo">
-              <img src="/keepingurban/open_data_week.png" alt="Open Data Week" />
+              <img src="/open_data_week.png" alt="Open Data Week" />
             </a>
           </div>
         </div>
@@ -280,21 +280,22 @@ function App() {
           </g>
         </svg>
         <div className="statement-content">
-          <h2 className="statement-title">On Keeping It Urban</h2>
+          <h2 className="statement-title">On Keepin' It Urban</h2>
           <div className="statement-text">
             <p>
-            From the string of gentrification across NYC to subway vandalism against Friend.com, representing the larger public backlash against top-down AI, cities are fundamentally ignoring that <span className="text-highlight-inverse">community, art, and culture are the primary drivers of a city's social vitality.</span>
+            With over half the world population now living in cities, <span className="text-highlight-inverse">Keeping it Urban</span> is not about urbanism itself, but rather the <span className="text-highlight-inverse"> energy of tech, arts, and culture that are born only from the density of cities.</span>
             </p>
             <p>
-             These social forces, that drive $135 billion in economic activity and make neighborhoods worth living in, are treated as afterthoughts rather than infrastructure.And, even when the future of cities is being decided, it is in rooms that most New Yorkers can't enter.
+             These social forces, that drive <span className="text-highlight-inverse">$135 billion in economic activity</span> and make neighborhoods worth living in, are treated as afterthoughts rather than infrastructure. And, even when the future of cities is being decided, it is in rooms that most New Yorkers can't enter.
             </p>
             <p>
-            <span className="text-highlight-inverse">Keeping it Urban: Culture, Tech, Collective</span> is a one-day summit reclaiming who gets to shape urban futures. We bring together the three forces that actually build livable cities—cultural creators, civic technologists, and community leaders—for a day of expert panels, startup pitches, and an immersive gallery at Cornell Tech.
+            At our one-day summit, <span className="text-highlight-inverse">we reclaim who gets to shape urban futures.</span> We bring together the three forces that actually build livable cities—cultural creators, civic technologists, and community leaders—for a day of expert panels, startup pitches, and an immersive gallery at Cornell Tech.
             </p>
             <p>
-            >Timed with NYC Open Data Week, the summit asks one question: What happens when we build cities with art and culture at the center, not the margins? Join 130+ founders, artists, VCs, and civic leaders to find out—and to connect with the collaborators, funders, and platforms that will make it real.
+            Timed with NYC Open Data Week, the summit asks one question: <span className="text-highlight-inverse">What happens when we build cities with art and culture at the center, not the margins?</span> Join 130+ founders, artists, VCs, and civic leaders to find out—and to connect with the collaborators, funders, and platforms that will make it real.
             </p>
             <p className="statement-close">
+              {/* Let's build the future of cities with intention and integrity.*/}
               Let's build the future of cities with intention and integrity.
             </p>
           </div>

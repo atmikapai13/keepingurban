@@ -649,12 +649,9 @@ body {
 }
 
 .text-highlight-inverse {
-  color: var(--white);
+  color: var(--accent);
   font-weight: 600;
   font-style: italic;
-  background: var(--accent);
-  padding: 0.1em 0.4em;
-  border-radius: 2px;
 }
 
 .statement-close {
