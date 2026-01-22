@@ -1755,7 +1755,7 @@ body {
   }
 
   .statement-text {
-    font-size: 0.55rem;
+    font-size: 0.7rem;
     line-height: 2.2;
     padding: 0;
     max-width: 100%;
@@ -1784,29 +1784,11 @@ body {
   }
 
   .placard {
-    height: 240px;
+    height: 320px;
   }
 
   .placard-front-label {
     font-size: 1.2rem;
-  }
-
-  .placard-title {
-    font-size: 0.7rem;
-  }
-
-  .placard-text {
-    font-size: 0.7rem;
-    line-height: 1.5;
-  }
-
-  .placard-role {
-    font-size: 0.55rem;
-  }
-
-  .pixel-icon {
-    width: 50px;
-    height: 50px;
   }
 
   /* Add spacing before partners */
@@ -1910,7 +1892,7 @@ body {
 
   /* Statement */
   .statement-text {
-    font-size: 0.5rem;
+    font-size: 0.65rem;
   }
 
   /* Partners */
@@ -1926,30 +1908,11 @@ body {
 
   /* Cards */
   .placard {
-    height: 220px;
+    height: 300px;
   }
 
   .placard-front-label {
     font-size: 1rem;
-  }
-
-  .placard-title {
-    font-size: 0.6rem;
-  }
-
-  .placard-text {
-    font-size: 0.6rem;
-    line-height: 1.4;
-  }
-
-  .placard-role {
-    font-size: 0.5rem;
-  }
-
-  .pixel-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: var(--space-xs);
   }
 
   .placard-back-btn {
