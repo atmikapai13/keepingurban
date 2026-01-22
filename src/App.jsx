@@ -612,14 +612,14 @@ function App() {
               <img src="/team/atmika.png" alt="Atmika Pai" className="team-member-photo" />
             </a>
             <a href="https://www.linkedin.com/in/atmikapai/" target="_blank" rel="noopener noreferrer" className="team-member-name">Atmika Pai</a>
-            <p className="team-member-role">Co-Organiser</p>
+            <p className="team-member-role">Lead Organiser</p>
           </div>
           <div className="team-member">
             <a href="https://www.linkedin.com/in/michelle-hui/" target="_blank" rel="noopener noreferrer">
               <img src="/team/michelle.png" alt="Michelle Hui" className="team-member-photo" />
             </a>
             <a href="https://www.linkedin.com/in/michelle-hui/" target="_blank" rel="noopener noreferrer" className="team-member-name">Michelle Hui</a>
-            <p className="team-member-role">Co-Organiser</p>
+            <p className="team-member-role">Lead Organiser</p>
           </div>
           <div className="team-member">
             <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer">

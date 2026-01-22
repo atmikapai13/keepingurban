@@ -444,11 +444,11 @@ body {
 
 .signal-number {
   display: block;
-  font-family: var(--font-display);
-  font-size: 4.5rem;
-  font-weight: 700;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  font-weight: 400;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   margin-bottom: var(--space-sm);
   color: var(--white);
 }
@@ -463,8 +463,9 @@ body {
 }
 
 .signal-title {
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  font-weight: 400;
   color: var(--accent);
 }
 
