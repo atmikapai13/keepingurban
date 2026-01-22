@@ -304,29 +304,13 @@ function App() {
           </div>
         </div>
 
-        <div className="hero-content">
-          <div className="subtitle-marquee-container">
-            <div className="subtitle-marquee-track">
-              <span className="subtitle-item">Art, Tech, Collective</span>
-              <span className="subtitle-dot">·</span>
-              <span className="subtitle-item">Art, Tech, Collective</span>
-              <span className="subtitle-dot">·</span>
-              <span className="subtitle-item">Art, Tech, Collective</span>
-              <span className="subtitle-dot">·</span>
-              <span className="subtitle-item">Art, Tech, Collective</span>
-              <span className="subtitle-dot">·</span>
-              <span className="subtitle-item">Art, Tech, Collective</span>
-              <span className="subtitle-dot">·</span>
-              <span className="subtitle-item">Art, Tech, Collective</span>
-              <span className="subtitle-dot">·</span>
-            </div>
-          </div>
+        <p className="hero-tagline">
+          <span className="tagline-highlight">Keeping It Urban: Art, Tech, Collective</span> is rethinking the future of human-centered cities.
+        </p>
 
-          <div className="hero-event-info">
-            <p className="hero-date">March 24, 2026 · <span className="hero-event-name">NYC Open Data Week</span></p>
-            <p className="hero-location-text">Cornell Tech, NYC</p>
-          </div>
-
+        <div className="hero-event-info">
+          <p className="hero-date">March 24, 2026 · <span className="hero-event-name">NYC Open Data Week</span></p>
+          <p className="hero-location-text">Cornell Tech, NYC</p>
         </div>
 
       </header>
@@ -614,7 +598,7 @@ function App() {
           <article className="zone">
             <div className="zone-index">03</div>
             <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Immersive Gallery</h3>
-            <p className="zone-description" style={{fontFamily: "'Press Start 2P', cursive", fontSize: '0.65rem', lineHeight: '1.8'}}>Explore art as a way of knowing—not illustrating—urban futures.<br /><br />Contemplate, is art dead in the age of AI? And what is to become of cultural institutions that attract urbanites in the first place?</p>
+            <p className="zone-description" style={{fontFamily: "'Press Start 2P', cursive", fontSize: '0.65rem', lineHeight: '1.8'}}>Explore art as a way of knowing—not illustrating—urban futures.<br /><br />Contemplate, is art dying in the age of AI? And what is to become of cultural institutions that attract urbanites in the first place?</p>
           </article>
         </div>
       </section>

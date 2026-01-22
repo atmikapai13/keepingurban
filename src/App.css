@@ -256,13 +256,35 @@ body {
   padding: 0 var(--space-md);
 }
 
+.hero-tagline {
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(0.7rem, 1.8vw, 1.2rem);
+  line-height: 2;
+  color: var(--gray-600);
+  padding: 0 var(--space-md);
+  max-width: 900px;
+  z-index: 2;
+  position: relative;
+  text-align: left;
+  align-self: flex-start;
+  margin-top: -1rem;
+}
+
+.tagline-highlight {
+  color: var(--white);
+}
+
 .hero-event-info {
-  margin-top: var(--space-sm);
+  position: absolute;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  text-align: right;
+  z-index: 2;
 }
 
 .hero-date {
   font-family: 'Press Start 2P', cursive;
-  font-size: clamp(0.5rem, 1.2vw, 0.75rem);
+  font-size: clamp(0.5rem, 1vw, 0.65rem);
   letter-spacing: 0.1em;
   color: var(--gray-400);
   margin-bottom: var(--space-sm);
@@ -274,7 +296,7 @@ body {
 
 .hero-location-text {
   font-family: 'Press Start 2P', cursive;
-  font-size: clamp(0.45rem, 1vw, 0.65rem);
+  font-size: clamp(0.45rem, 0.8vw, 0.55rem);
   letter-spacing: 0.1em;
   color: var(--gray-400);
 }
@@ -831,7 +853,7 @@ body {
 
 .statement-text {
   font-family: 'Press Start 2P', cursive;
-  font-size: clamp(0.75rem, 2.0vw, 1.3rem);
+  font-size: clamp(0.75rem, 2.0vw, 1.3rem); 
   line-height: 2.4;
   color: #525252;
   flex: 1;
@@ -1669,7 +1691,7 @@ body {
 
   /* Hero */
   .hero {
-    min-height: 80vh;
+    min-height: calc(100vh - 52px);
   }
 
   .hero-title {
@@ -1733,15 +1755,15 @@ body {
   }
 
   .statement-text {
-    font-size: 1rem;
-    line-height: 2;
+    font-size: 0.55rem;
+    line-height: 2.2;
     padding: 0;
     max-width: 100%;
   }
 
   /* Partners */
   .partners-section {
-    margin-top: -4rem;
+    margin-top: 0;
   }
 
   .partner-logo {
@@ -1749,8 +1771,9 @@ body {
     margin: 0 1.5rem;
   }
 
-  .partners-marquee {
-    animation-duration: 20s;
+  .marquee-track {
+    animation-duration: 15s;
+    gap: var(--space-sm);
   }
 
   /* Flip Cards */
@@ -1761,11 +1784,34 @@ body {
   }
 
   .placard {
-    height: 220px;
+    height: 240px;
   }
 
   .placard-front-label {
     font-size: 1.2rem;
+  }
+
+  .placard-title {
+    font-size: 0.7rem;
+  }
+
+  .placard-text {
+    font-size: 0.7rem;
+    line-height: 1.5;
+  }
+
+  .placard-role {
+    font-size: 0.55rem;
+  }
+
+  .pixel-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Add spacing before partners */
+  .partners-context {
+    padding-top: var(--space-lg);
   }
 
   /* Zones */
@@ -1864,7 +1910,7 @@ body {
 
   /* Statement */
   .statement-text {
-    font-size: 1.2rem;
+    font-size: 0.5rem;
   }
 
   /* Partners */
@@ -1873,22 +1919,47 @@ body {
     margin: 0 1rem;
   }
 
-  .partners-marquee {
-    animation-duration: 15s;
+  .marquee-track {
+    animation-duration: 12s;
+    gap: var(--space-xs);
   }
 
   /* Cards */
   .placard {
-    height: 200px;
+    height: 220px;
   }
 
   .placard-front-label {
     font-size: 1rem;
   }
 
+  .placard-title {
+    font-size: 0.6rem;
+  }
+
+  .placard-text {
+    font-size: 0.6rem;
+    line-height: 1.4;
+  }
+
+  .placard-role {
+    font-size: 0.5rem;
+  }
+
+  .pixel-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: var(--space-xs);
+  }
+
   .placard-back-btn {
     font-size: 0.5rem;
     padding: 0.3rem 0.6rem;
+  }
+
+  /* Add spacing before partners */
+  .partners-context {
+    padding-top: var(--space-xl);
   }
 
   /* Team */
