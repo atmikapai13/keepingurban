@@ -271,7 +271,7 @@ body {
 }
 
 .tagline-highlight {
-  color: var(--white);
+  color: var(--accent);
 }
 
 .hero-event-info {

@@ -305,11 +305,11 @@ function App() {
         </div>
 
         <p className="hero-tagline">
-          <span className="tagline-highlight">Keeping It Urban: Art, Tech, Collective</span> is rethinking the future of human-centered cities.
+          <span className="tagline-highlight">Keeping It Urban: Art, Tech, Collective</span> is rethinking the <span style={{color: 'white'}}>future of human-centered cities.</span>
         </p>
 
         <div className="hero-event-info">
-          <p className="hero-date">March 24, 2026 · <span className="hero-event-name">NYC Open Data Week</span></p>
+          <p className="hero-date">Tuesday, March 24, 2026 · <span className="hero-event-name">NYC Open Data Week</span></p>
           <p className="hero-location-text">Cornell Tech, NYC</p>
         </div>
 
@@ -362,7 +362,7 @@ function App() {
               The summit reclaims from top-down silos.
             </p>
             <p>
-              It brings together cultural agents - artists, technologists, civic leaders, and funders - that have been independently shaping livable cities into the same room to <span className="text-highlight-wave orange"><span style={{animationDelay: '0s'}}>NOW</span></span> <span className="text-highlight-wave"><span style={{animationDelay: '0.1s'}}>build</span></span> <span className="text-highlight-wave orange"><span style={{animationDelay: '0.2s'}}>TOGETHER.</span></span>
+              We bring together cultural agents - artists, technologists, civic leaders, and funders - that have been independently shaping livable cities into the same room to <span className="text-highlight-wave orange"><span style={{animationDelay: '0s'}}>NOW</span></span> <span className="text-highlight-wave"><span style={{animationDelay: '0.1s'}}>build</span></span> <span className="text-highlight-wave orange"><span style={{animationDelay: '0.2s'}}>TOGETHER.</span></span>
             </p>
           </div>
         </div>
@@ -491,11 +491,11 @@ function App() {
           <article className="placard">
             <div className="placard-inner">
               <div className="placard-front">
-                <span className="placard-front-label">Civic Leaders</span>
-                <img src="/stakeholders/civic_leaders.png" alt="Civic Leaders" className="placard-front-img" />
+                <span className="placard-front-label">Venture Capitalists</span>
+                <img src="/stakeholders/civic_leaders.png" alt="Venture Capitalists" className="placard-front-img" />
               </div>
               <div className="placard-back">
-                {/* <a href="mailto:aap253@cornell.edu?subject=Civic Leader Inquiry" className="placard-back-btn">Get in Touch</a> */}
+                <a href="mailto:aap253@cornell.edu,msh334@cornell.edu?subject=VC Inquiry" className="placard-back-btn">Get in Touch</a>
                 <div className="pixel-icon pixel-civic" aria-hidden="true">
                   <div className="pixel-grid">
                     <span style={{gridArea: '1/3'}}></span>
@@ -521,23 +521,22 @@ function App() {
                   </div>
                   <div className="glitch-layer"></div>
                 </div>
-                <h3 className="placard-title">Civic Leaders</h3>
+                <h3 className="placard-title">VCs</h3>
                 <p className="placard-text">
-                  Open data stewards, urban planners, policy designers, and public
-                  servants making systems more human.
+                  Investors backing urban innovation, civic tech, and the future of cities.
                 </p>
-                <span className="placard-role">Panelist / Collaborator</span>
+                <span className="placard-role">Judge / Investor</span>
               </div>
             </div>
           </article>
           <article className="placard">
             <div className="placard-inner">
               <div className="placard-front">
-                <span className="placard-front-label">Community</span>
-                <img src="/stakeholders/community.png" alt="Community" className="placard-front-img" />
+                <span className="placard-front-label">Civic Leaders</span>
+                <img src="/stakeholders/community.png" alt="Civic Leaders" className="placard-front-img" />
               </div>
               <div className="placard-back">
-                {/* <a href="https://forms.gle/attend" target="_blank" rel="noopener noreferrer" className="placard-back-btn">Register</a> */}
+                <a href="mailto:aap253@cornell.edu,msh334@cornell.edu?subject=Civic Leader Inquiry" className="placard-back-btn">Get in Touch</a>
                 <div className="pixel-icon pixel-community" aria-hidden="true">
                   <div className="pixel-grid">
                     <span style={{gridArea: '3/1'}}></span>
@@ -570,11 +569,11 @@ function App() {
                   </div>
                   <div className="glitch-layer"></div>
                 </div>
-                <h3 className="placard-title">Community Members</h3>
+                <h3 className="placard-title">Civic Leaders</h3>
                 <p className="placard-text">
-                  Residents, advocates, organizers, students, and anyone interested in Urbanism.
+                  Open data stewards, urban planners, policy designers, and public servants making systems more human.
                 </p>
-                <span className="placard-role">Attendee / Voice</span>
+                <span className="placard-role">Panelist / Collaborator</span>
               </div>
             </div>
           </article>
@@ -653,7 +652,7 @@ function App() {
             href="mailto:aap253@cornell.edu,msh334@cornell.edu?subject=Keeping it Urban Inquiry"
             className="footer-contact"
           >
-            Get in Touch
+            Sponsor & Collaborate With Us
           </a>
         </div>
       </footer>
