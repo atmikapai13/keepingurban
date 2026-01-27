@@ -379,13 +379,13 @@ function App() {
               <a href="https://tech.cornell.edu/" target="_blank" rel="noopener noreferrer" className="partner-logo">
                 <img src="/logo/cornell.png" alt="Cornell University" />
               </a>
-              <a href="https://www.nyc.gov/content/oti/pages/" target="_blank" rel="noopener noreferrer" className="partner-logo">
+              <a href="https://www.nyc.gov/content/oti/pages/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
                 <img src="/logo/nyc_oti.png" alt="NYC Office of Technology & Innovation" />
               </a>
               <a href="https://opendata.cityofnewyork.us/" target="_blank" rel="noopener noreferrer" className="partner-logo">
                 <img src="/logo/nyc_open_data.png" alt="NYC Open Data" />
               </a>
-              <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer" className="partner-logo">
+              <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
                 <img src="/logo/backslash.png" alt="Backslash" />
               </a>
               <a href="https://opendataweek.nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo">
@@ -395,13 +395,13 @@ function App() {
               <a href="https://tech.cornell.edu/" target="_blank" rel="noopener noreferrer" className="partner-logo">
                 <img src="/logo/cornell.png" alt="Cornell University" />
               </a>
-              <a href="https://www.nyc.gov/content/oti/pages/" target="_blank" rel="noopener noreferrer" className="partner-logo">
+              <a href="https://www.nyc.gov/content/oti/pages/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
                 <img src="/logo/nyc_oti.png" alt="NYC Office of Technology & Innovation" />
               </a>
               <a href="https://opendata.cityofnewyork.us/" target="_blank" rel="noopener noreferrer" className="partner-logo">
                 <img src="/logo/nyc_open_data.png" alt="NYC Open Data" />
               </a>
-              <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer" className="partner-logo">
+              <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
                 <img src="/logo/backslash.png" alt="Backslash" />
               </a>
               <a href="https://opendataweek.nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo">
@@ -636,10 +636,10 @@ function App() {
             <p className="team-member-role">Founding Fellow at Cornell Tech,<br />xCTO of Twitter</p>
           </div>
           <div className="team-member">
-            <a href="https://tech.cornell.edu/people/ariel-kennan/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer">
               <img src="/team/ariel.png" alt="Ariel Kennan" className="team-member-photo" />
             </a>
-            <a href="https://tech.cornell.edu/people/ariel-kennan/" target="_blank" rel="noopener noreferrer" className="team-member-name">Ariel Kennan</a>
+            <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer" className="team-member-name">Ariel Kennan</a>
             <p className="team-member-role">Sr. Dir. at Georgetown's Beeck Center,<br />xDesign Dir. of Sidewalk Labs</p>
           </div>
         </div>

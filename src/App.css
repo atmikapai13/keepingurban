@@ -470,6 +470,10 @@ body {
 }
 
 /* Partners Section - Infinite Scroll Marquee */
+.partners-context {
+  border-bottom: none;
+}
+
 .partners-section {
   position: relative;
   margin-top: -8rem;
@@ -562,6 +566,10 @@ body {
 }
 
 .partner-logo:hover img {
+  filter: none;
+}
+
+.partner-logo.no-color-hover:hover img {
   filter: brightness(0) invert(1);
 }
 
@@ -929,8 +937,8 @@ body {
 }
 
 .belong .section-marker {
-  border-bottom: none;
-  padding-bottom: 0;
+  border-bottom: 1px solid var(--gray-800);
+  padding-bottom: var(--space-sm);
 }
 
 .belong-intro {
@@ -1235,6 +1243,8 @@ body {
 .team-section {
   padding: var(--space-md) var(--space-md);
   background: var(--black);
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 .team-section .section-marker {
