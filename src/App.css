@@ -1244,11 +1244,23 @@ body {
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   justify-items: center;
   gap: var(--space-md);
-  max-width: 600px;
+  max-width: 900px;
   margin: 0 auto;
+}
+
+.team-member:nth-child(1) {
+  grid-column: 2 / span 2;
+}
+
+.team-member:nth-child(2) {
+  grid-column: 4 / span 2;
+}
+
+.team-member:nth-child(n+3) {
+  grid-column: span 2;
 }
 
 .team-member {
@@ -1820,6 +1832,12 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-xs);
     max-width: 100%;
+  }
+
+  .team-member:nth-child(1),
+  .team-member:nth-child(2),
+  .team-member:nth-child(n+3) {
+    grid-column: span 1;
   }
 
   .team-member-photo {

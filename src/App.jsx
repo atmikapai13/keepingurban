@@ -318,8 +318,8 @@ function App() {
       {/* Sticky Nav Bar with CTA Buttons */}
       <nav className="bottom-nav">
         <div className="nav-cta-buttons">
-          <a href="#attend" className="cta-btn cta-primary">Open Call</a>
-          <a href="#attend" className="cta-btn cta-primary">Startup Pitches</a>
+          <a href="https://forms.gle/CaigJ8xr1Gj4JGJaA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Open Call</a>
+          <a href="https://forms.gle/YwJjzQFw2z2EJwNRA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Startup Pitches</a>
           <a href="#attend" className="cta-btn cta-outline">Attend</a>
         </div>
       </nav>
@@ -423,7 +423,7 @@ function App() {
                 <img src="/stakeholders/artists.png" alt="Artists" className="placard-front-img" />
               </div>
               <div className="placard-back">
-                {/* <a href="https://forms.gle/opencall" target="_blank" rel="noopener noreferrer" className="placard-back-btn">Apply Now</a> */}
+                <a href="https://forms.gle/CaigJ8xr1Gj4JGJaA" target="_blank" rel="noopener noreferrer" className="placard-back-btn">Apply Now</a>
                 <div className="pixel-icon pixel-artist" aria-hidden="true">
                   <div className="pixel-grid">
                     <span style={{gridArea: '1/3'}}></span>
@@ -458,7 +458,7 @@ function App() {
                 <img src="/stakeholders/founders.png" alt="Founders" className="placard-front-img" />
               </div>
               <div className="placard-back">
-                {/* <a href="https://forms.gle/pitches" target="_blank" rel="noopener noreferrer" className="placard-back-btn">Submit Pitch</a> */}
+                <a href="https://forms.gle/YwJjzQFw2z2EJwNRA" target="_blank" rel="noopener noreferrer" className="placard-back-btn">Submit Pitch</a>
                 <div className="pixel-icon pixel-founder" aria-hidden="true">
                   <div className="pixel-grid">
                     <span style={{gridArea: '6/2'}}></span>
@@ -626,7 +626,7 @@ function App() {
               <img src="/team/wendy.png" alt="Wendy Ju" className="team-member-photo" />
             </a>
             <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer" className="team-member-name">Wendy Ju</a>
-            <p className="team-member-role">Associate Professor at Cornell Tech,<br />Center for Design Research at Stanford</p>
+            <p className="team-member-role">Professor at Cornell Tech,<br />Center for Design Research at Stanford</p>
           </div>
           <div className="team-member">
             <a href="https://tech.cornell.edu/people/greg-pass/" target="_blank" rel="noopener noreferrer">
@@ -634,6 +634,13 @@ function App() {
             </a>
             <a href="https://tech.cornell.edu/people/greg-pass/" target="_blank" rel="noopener noreferrer" className="team-member-name">Greg Pass</a>
             <p className="team-member-role">Founding Fellow at Cornell Tech,<br />xCTO of Twitter</p>
+          </div>
+          <div className="team-member">
+            <a href="https://tech.cornell.edu/people/ariel-kennan/" target="_blank" rel="noopener noreferrer">
+              <img src="/team/ariel.png" alt="Ariel Kennan" className="team-member-photo" />
+            </a>
+            <a href="https://tech.cornell.edu/people/ariel-kennan/" target="_blank" rel="noopener noreferrer" className="team-member-name">Ariel Kennan</a>
+            <p className="team-member-role">Sr. Dir. at Georgetown's Beeck Center,<br />xDesign Dir. of Sidewalk Labs</p>
           </div>
         </div>
       </section>
