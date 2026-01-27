@@ -627,13 +627,13 @@ function App() {
             <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer" className="team-member-name">Wendy Ju</a>
             <p className="team-member-role">Professor at Cornell Tech,<br />Center for Design Research at Stanford</p>
           </div>
-          <div className="team-member">
+{/* <div className="team-member">
             <a href="https://tech.cornell.edu/people/greg-pass/" target="_blank" rel="noopener noreferrer">
               <img src="/team/greg.png" alt="Greg Pass" className="team-member-photo" />
             </a>
             <a href="https://tech.cornell.edu/people/greg-pass/" target="_blank" rel="noopener noreferrer" className="team-member-name">Greg Pass</a>
             <p className="team-member-role">Founding Fellow at Cornell Tech,<br />xCTO of Twitter</p>
-          </div>
+          </div> */}
           <div className="team-member">
             <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer">
               <img src="/team/ariel.png" alt="Ariel Kennan" className="team-member-photo" />
@@ -652,7 +652,7 @@ function App() {
             href="mailto:aap253@cornell.edu,msh334@cornell.edu?subject=Keeping it Urban Inquiry"
             className="footer-contact"
           >
-            Sponsor & Collaborate With Us
+           Collaborate With Us
           </a>
         </div>
       </footer>
