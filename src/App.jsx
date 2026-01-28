@@ -587,7 +587,7 @@ function App() {
           <article className="zone">
             <div className="zone-index">01</div>
             <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Multidisciplinary Panels</h3>
-            <p className="zone-description" style={{fontFamily: "'Press Start 2P', cursive", fontSize: '0.65rem', lineHeight: '1.8'}}>Leaders from art, technology, and civic systems in conversation on the future of human-centered cities.<br /><br />Who builds, who benefits, and who decides?</p>
+            <p className="zone-description" style={{fontFamily: "'Press Start 2P', cursive", fontSize: '0.65rem', lineHeight: '1.8'}}>Leaders from art, technology, and civic systems in conversation on the future of human-centered tech.<br /><br />Who builds, who benefits, and who decides?</p>
           </article>
           <article className="zone" id="pitches">
             <div className="zone-index">02</div>
