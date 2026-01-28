@@ -305,7 +305,7 @@ function App() {
         </div>
 
         <p className="hero-tagline">
-          <span className="tagline-highlight">Keeping It Urban: Art, Tech, Collective</span> is rethinking the <span style={{color: 'white'}}>future of human-centered cities.</span>
+          With over half the world population now living in cities, <span className="tagline-highlight">Keeping It Urban</span> is not about urbanism itself, rather  <span className="tagline-highlight">the energy of tech, arts, and culture</span> that is born only from the density of cities.
         </p>
 
         <div className="hero-event-info">
@@ -318,55 +318,11 @@ function App() {
       {/* Sticky Nav Bar with CTA Buttons */}
       <nav className="bottom-nav">
         <div className="nav-cta-buttons">
-          <a href="https://forms.gle/CaigJ8xr1Gj4JGJaA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Open Call</a>
-          <a href="https://forms.gle/YwJjzQFw2z2EJwNRA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Startup Pitches</a>
+          <a href="https://forms.gle/CaigJ8xr1Gj4JGJaA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Artist Call</a>
+          <a href="https://forms.gle/YwJjzQFw2z2EJwNRA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Startup / Research Pitches</a>
           <a href="#attend" className="cta-btn cta-outline">Attend</a>
         </div>
       </nav>
-
-      {/* Stats Section */}
-      <section className="context stats-section">
-        <div className="context-grid">
-          <div className="signal">
-            <span className="signal-number">150+</span>
-            <span className="signal-label"><span className="signal-title">Participants</span></span>
-          </div>
-          <div className="signal">
-            <span className="signal-number">20+</span>
-            <span className="signal-label"><span className="signal-title">Speakers</span></span>
-          </div>
-          <div className="signal">
-            <span className="signal-number">15+</span>
-            <span className="signal-label"><span className="signal-title">Artists</span></span>
-          </div>
-          <div className="signal">
-            <span className="signal-number">12+</span>
-            <span className="signal-label"><span className="signal-title">Pitches</span></span>
-          </div>
-          <div className="signal">
-            <span className="signal-number">4</span>
-            <span className="signal-label"><span className="signal-title">Panels</span></span>
-          </div>
-        </div>
-      </section>
-
-      {/* Curatorial Statement */}
-      <section className="statement" id="open-call">
-        <div className="statement-content">
-          <div className="statement-label">    </div>
-          <div className="statement-text">
-            <p>
-              With over half the world population now living in cities, <span style={{color: '#ff3d00'}}>Keeping It Urban</span> is not about urbanism itself, rather the confluence of <span className="text-highlight-wave"><span style={{animationDelay: '0s'}}>tech,</span> <span style={{animationDelay: '0.1s'}}>arts,</span> <span style={{animationDelay: '0.2s'}}>and</span> <span style={{animationDelay: '0.3s'}}>culture</span></span> that is born only from the <span className="text-highlight-wave"><span style={{animationDelay: '0.4s'}}>density</span> <span style={{animationDelay: '0.5s'}}>of</span> <span style={{animationDelay: '0.6s'}}>cities.</span></span>
-            </p>
-            <p>
-              The summit reclaims from top-down silos.
-            </p>
-            <p>
-              We bring together cultural agents - artists, technologists, civic leaders, and funders - that have been independently shaping livable cities into the same room to <span className="text-highlight-wave orange"><span style={{animationDelay: '0s'}}>NOW</span></span> <span className="text-highlight-wave"><span style={{animationDelay: '0.1s'}}>build</span></span> <span className="text-highlight-wave orange"><span style={{animationDelay: '0.2s'}}>TOGETHER.</span></span>
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* Partners Section */}
       <section className="context partners-context">
@@ -409,6 +365,115 @@ function App() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Curatorial Statement */}
+      <section className="statement" id="open-call">
+        {/* Speakers */}
+        <div className="speakers-section">
+          <h3 className="speakers-title">Speakers</h3>
+          <div className="speakers-grid">
+            <div className="speaker">
+              <a href="https://www.linkedin.com/in/jennyfielding/" target="_blank" rel="noopener noreferrer">
+                <img src="/team/jenny.png" alt="Jenny Fielding" className="speaker-photo" />
+              </a>
+              <a href="https://www.linkedin.com/in/jennyfielding/" target="_blank" rel="noopener noreferrer" className="speaker-name">Jenny Fielding</a>
+              <p className="speaker-role">Co-founder @ Everywhere Ventures,<br />xTechstars</p>
+            </div>
+            <div className="speaker">
+              <a href="https://www.arielnoyman.com/" target="_blank" rel="noopener noreferrer">
+                <img src="/team/ariel_noyman.png" alt="Ariel Noyman" className="speaker-photo" />
+              </a>
+              <a href="https://www.arielnoyman.com/" target="_blank" rel="noopener noreferrer" className="speaker-name">Ariel Noyman</a>
+              <p className="speaker-role">MIT Media Lab,<br />City-Science Living-Labs</p>
+            </div>
+            <div className="speaker">
+              <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer">
+                <img src="/team/ariel.png" alt="Ariel Kennan" className="speaker-photo" />
+              </a>
+              <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer" className="speaker-name">Ariel Kennan</a>
+              <p className="speaker-role">Georgetown's Beeck Center for Social Impact + Innovation,<br />xDesign @ Google's Sidewalk Labs</p>
+            </div>
+            <div className="speaker">
+              <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer">
+                <img src="/team/wendy.png" alt="Wendy Ju" className="speaker-photo" />
+              </a>
+              <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer" className="speaker-name">Wendy Ju</a>
+              <p className="speaker-role">Cornell Tech and AAP,<br />xCenter for Design Research at Stanford</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Program Snapshot */}
+      <section className="program" id="program">
+        <h2 className="section-marker">Program</h2>
+        <div className="context-grid program-stats">
+          <div className="signal">
+            <span className="signal-number">150+</span>
+            <span className="signal-label"><span className="signal-title">Participants</span></span>
+          </div>
+          <div className="signal">
+            <span className="signal-number">20+</span>
+            <span className="signal-label"><span className="signal-title">Speakers</span></span>
+          </div>
+          <div className="signal">
+            <span className="signal-number">15+</span>
+            <span className="signal-label"><span className="signal-title">Artists</span></span>
+          </div>
+          <div className="signal">
+            <span className="signal-number">12+</span>
+            <span className="signal-label"><span className="signal-title">Pitches</span></span>
+          </div>
+          <div className="signal">
+            <span className="signal-number">3</span>
+            <span className="signal-label"><span className="signal-title">Panels</span></span>
+          </div>
+        </div>
+        <div className="zones">
+          <article className="zone">
+            <img src="/program/panels.png" alt="Multidisciplinary Panels" className="zone-image" />
+            <div className="zone-index">01</div>
+            <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Multidisciplinary Panels</h3>
+            <p className="zone-description">Leaders from art, technology, and civic systems in conversation on the future of human-centered tech.<br /><br />Who builds, who benefits, and who decides?</p>
+          </article>
+          <article className="zone" id="pitches">
+            <img src="/program/pitchs.png" alt="Startup/Research Pitches" className="zone-image" />
+            <div className="zone-index">02</div>
+            <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Startup / Research Pitches</h3>
+            <p className="zone-description">Hear from 12+ early-stage urban and civic ventures on how they're reshaping New York City, the mecca of cities.<br /><br />Spotlight on Cornell Tech's Startup Accelerator and Runway Postdocs Program.</p>
+          </article>
+          <article className="zone">
+            <img src="/program/artists.png" alt="Immersive Gallery" className="zone-image" />
+            <div className="zone-index">03</div>
+            <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Immersive Gallery</h3>
+            <p className="zone-description">Explore art as a way of knowing—not illustrating—urban futures.<br /><br />Contemplate, is art dying in the age of AI? And what is to become of cultural institutions that attract urbanites in the first place?</p>
+          </article>
+        </div>
+        <a href="https://www.midjourney.com/@wizardofwoz?tab=spotlight" target="_blank" rel="noopener noreferrer" className="zones-credit">* Picture Credits @wizardofwoz on Midjourney</a>
+
+        {/* Tracks */}
+        <h3 className="tracks-header">Startup / Research / Media Tracks</h3>
+        <div className="tracks">
+          <article className="track">
+            <div className="track-index">01</div>
+            <h4 className="track-title">Agents & Open Systems</h4>
+            <p className="track-tagline">How intelligence coordinates across digital and physical space</p>
+            <p className="track-description">The infrastructure layer—autonomous systems, open protocols, and technology that coordinates complexity. From multi-agent architectures to open-source civic tools to art that questions how our systems work.</p>
+          </article>
+          <article className="track">
+            <div className="track-index">02</div>
+            <h4 className="track-title">Proximity & AR/VR</h4>
+            <p className="track-tagline">How technology transforms shared physical experience</p>
+            <p className="track-description">The experience layer—technology and art that only makes sense when people are together. Platforms for discovery and coordination, XR that layers meaning onto streets and venues, and art that resists or reimagines our algorithmic reality.</p>
+          </article>
+          <article className="track">
+            <div className="track-index">03</div>
+            <h4 className="track-title">Culture & Media</h4>
+            <p className="track-tagline">How communities form, sustain, and tell their stories</p>
+            <p className="track-description">The human layer—tools for creators, infrastructure for community organizers, and art that asks who we are to each other. Technology as cultural infrastructure, storytelling as civic practice.</p>
+          </article>
         </div>
       </section>
 
@@ -532,8 +597,8 @@ function App() {
           <article className="placard">
             <div className="placard-inner">
               <div className="placard-front">
-                <span className="placard-front-label">Civic Leaders</span>
-                <img src="/stakeholders/community.png" alt="Civic Leaders" className="placard-front-img" />
+                <span className="placard-front-label">Urbanists</span>
+                <img src="/stakeholders/community.png" alt="Urbanists" className="placard-front-img" />
               </div>
               <div className="placard-back">
                 <a href="mailto:aap253@cornell.edu,msh334@cornell.edu?subject=Civic Leader Inquiry" className="placard-back-btn">Get in Touch</a>
@@ -569,7 +634,7 @@ function App() {
                   </div>
                   <div className="glitch-layer"></div>
                 </div>
-                <h3 className="placard-title">Civic Leaders</h3>
+                <h3 className="placard-title">Urbanists</h3>
                 <p className="placard-text">
                   Open data stewards, urban planners, policy designers, and public servants making systems more human.
                 </p>
@@ -580,25 +645,21 @@ function App() {
         </div>
       </section>
 
-      {/* Program Snapshot */}
-      <section className="program" id="program">
-        <h2 className="section-marker">Program</h2>
-        <div className="zones">
-          <article className="zone">
-            <div className="zone-index">01</div>
-            <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Multidisciplinary Panels</h3>
-            <p className="zone-description" style={{fontFamily: "'Press Start 2P', cursive", fontSize: '0.65rem', lineHeight: '1.8'}}>Leaders from art, technology, and civic systems in conversation on the future of human-centered tech.<br /><br />Who builds, who benefits, and who decides?</p>
-          </article>
-          <article className="zone" id="pitches">
-            <div className="zone-index">02</div>
-            <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Startup Pitches</h3>
-            <p className="zone-description" style={{fontFamily: "'Press Start 2P', cursive", fontSize: '0.65rem', lineHeight: '1.8'}}>Hear from 12+ early-stage urban and civic ventures on how they're reshaping New York City, the mecca of cities.<br /><br />Spotlight on Cornell Tech's Startup Accelerator and Runway Postdocs Program.</p>
-          </article>
-          <article className="zone">
-            <div className="zone-index">03</div>
-            <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Immersive Gallery</h3>
-            <p className="zone-description" style={{fontFamily: "'Press Start 2P', cursive", fontSize: '0.65rem', lineHeight: '1.8'}}>Explore art as a way of knowing—not illustrating—urban futures.<br /><br />Contemplate, is art dying in the age of AI? And what is to become of cultural institutions that attract urbanites in the first place?</p>
-          </article>
+      {/* About */}
+      <section className="statement" id="about">
+        <h2 className="section-marker">About</h2>
+        <div className="statement-content">
+          <div className="statement-text">
+            <p>
+              With over half the world population now living in cities, <span style={{color: '#ff3d00'}}>Keeping It Urban</span> is not about urbanism itself, rather the <span className="text-highlight-wave"><span style={{animationDelay: '0s'}}>energy</span> <span style={{animationDelay: '0.1s'}}>of</span> <span style={{animationDelay: '0.2s'}}>tech,</span> <span style={{animationDelay: '0.3s'}}>arts,</span> <span style={{animationDelay: '0.4s'}}>and</span> <span style={{animationDelay: '0.5s'}}>culture</span></span> that is born only from the <span className="text-highlight-wave"><span style={{animationDelay: '0.6s'}}>density</span> <span style={{animationDelay: '0.7s'}}>of</span> <span style={{animationDelay: '0.8s'}}>cities.</span></span>
+            </p>
+            <p>
+              The summit reclaims from top-down silos.
+            </p>
+            <p>
+              We bring together cultural agents - artists, technologists, civic leaders, and funders - that have been independently shaping livable cities into the same room to <span className="text-highlight-wave orange"><span style={{animationDelay: '0s'}}>NOW</span></span> <span className="text-highlight-wave"><span style={{animationDelay: '0.1s'}}>build</span></span> <span className="text-highlight-wave orange"><span style={{animationDelay: '0.2s'}}>TOGETHER.</span></span>
+            </p>
+          </div>
         </div>
       </section>
 
@@ -619,27 +680,6 @@ function App() {
             </a>
             <a href="https://www.linkedin.com/in/michelle-hui/" target="_blank" rel="noopener noreferrer" className="team-member-name">Michelle Hui</a>
             <p className="team-member-role">Lead Organiser</p>
-          </div>
-          <div className="team-member">
-            <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer">
-              <img src="/team/wendy.png" alt="Wendy Ju" className="team-member-photo" />
-            </a>
-            <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer" className="team-member-name">Wendy Ju</a>
-            <p className="team-member-role">Professor at Cornell Tech,<br />Center for Design Research at Stanford</p>
-          </div>
-{/* <div className="team-member">
-            <a href="https://tech.cornell.edu/people/greg-pass/" target="_blank" rel="noopener noreferrer">
-              <img src="/team/greg.png" alt="Greg Pass" className="team-member-photo" />
-            </a>
-            <a href="https://tech.cornell.edu/people/greg-pass/" target="_blank" rel="noopener noreferrer" className="team-member-name">Greg Pass</a>
-            <p className="team-member-role">Founding Fellow at Cornell Tech,<br />xCTO of Twitter</p>
-          </div> */}
-          <div className="team-member">
-            <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer">
-              <img src="/team/ariel.png" alt="Ariel Kennan" className="team-member-photo" />
-            </a>
-            <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer" className="team-member-name">Ariel Kennan</a>
-            <p className="team-member-role">Sr. Dir. at Georgetown's Beeck Center,<br />xDesign Dir. of Sidewalk Labs</p>
           </div>
         </div>
       </section>
