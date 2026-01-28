@@ -309,7 +309,7 @@ function App() {
         </p>
 
         <div className="hero-event-info">
-          <p className="hero-date">Tuesday, March 24, 2026 · <span className="hero-event-name">NYC Open Data Week</span></p>
+          <p className="hero-date">Friday, March 20, 2026 · <span className="hero-event-name">NYC Open Data Week</span></p>
           <p className="hero-location-text">Cornell Tech, NYC</p>
         </div>
 
