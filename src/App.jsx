@@ -615,19 +615,14 @@ function App() {
         <div className="speakers-section">
           <h3 className="speakers-title section-marker"><TypewriterText>Speaker Spotlights</TypewriterText></h3>
           <div className="speakers-split">
-            <div className="speakers-logo-cloud">
-              <img src="/logo/techstars.png" alt="Techstars" className="cloud-logo no-color-hover" />
-              <span className="cloud-logo-swap">
-                <img src="/logo/everywhere.png" alt="Everywhere Ventures" className="cloud-logo cloud-logo-default" />
-                <img src="/logo/everywhere.jpg" alt="Everywhere Ventures" className="cloud-logo cloud-logo-hover" />
-              </span>
-              <img src="/logo/media_lab.png" alt="MIT Media Lab" className="cloud-logo no-color-hover" />
-              <img src="/logo/google.png" alt="Google" className="cloud-logo" />
-              <img src="/logo/sidewalk.png" alt="Sidewalk Labs" className="cloud-logo no-color-hover" />
-              <img src="/logo/stanford.png" alt="Stanford" className="cloud-logo" />
-              <img src="/logo/beeck.png" alt="Beeck Center" className="cloud-logo" />
-            </div>
             <div className="speakers-grid">
+              <div className="speaker">
+                <a href="https://linkedin.com/in/dpstyles" target="_blank" rel="noopener noreferrer">
+                  <img src="/team/dennis.png" alt="Dennis Crowley" className="speaker-photo" />
+                </a>
+                <a href="https://linkedin.com/in/dpstyles" target="_blank" rel="noopener noreferrer" className="speaker-name">Dennis Crowley</a>
+                <p className="speaker-role">Co-Founder @ Foursquare,<br />Hopscotch Labs, Streets FC</p>
+              </div>
               <div className="speaker">
                 <a href="https://www.linkedin.com/in/jennyfielding/" target="_blank" rel="noopener noreferrer">
                   <img src="/team/jenny.png" alt="Jenny Fielding" className="speaker-photo" />
@@ -656,6 +651,20 @@ function App() {
                 <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer" className="speaker-name">Wendy Ju</a>
                 <p className="speaker-role">Cornell Tech and AAP,<br />ex-Director @ Stanford Center for Design Research</p>
               </div>
+            </div>
+            <div className="speakers-logo-cloud">
+              <img src="/logo/techstars.png" alt="Techstars" className="cloud-logo no-color-hover" />
+              <span className="cloud-logo-swap">
+                <img src="/logo/everywhere.png" alt="Everywhere Ventures" className="cloud-logo cloud-logo-default" />
+                <img src="/logo/everywhere.jpg" alt="Everywhere Ventures" className="cloud-logo cloud-logo-hover" />
+              </span>
+              <img src="/logo/media_lab.png" alt="MIT Media Lab" className="cloud-logo no-color-hover" />
+              <img src="/logo/google.png" alt="Google" className="cloud-logo" />
+              <img src="/logo/sidewalk.png" alt="Sidewalk Labs" className="cloud-logo no-color-hover" />
+              <img src="/logo/stanford.png" alt="Stanford" className="cloud-logo" />
+              <img src="/logo/beeck.png" alt="Beeck Center" className="cloud-logo" />
+              <img src="/logo/Foursquare_logo.png" alt="Foursquare" className="cloud-logo" />
+              <img src="/logo/hopscotch.png" alt="Hopscotch Labs" className="cloud-logo" style={{transform: 'scale(1.3)'}} />
             </div>
           </div>
         </div>
@@ -763,7 +772,6 @@ function App() {
 
       {/* Our Team */}
       <section className="team-section" id="team">
-        <h2 className="section-marker">Our Team</h2>
         <div className="team-grid">
           <div className="team-member">
             <a href="https://www.linkedin.com/in/atmikapai/" target="_blank" rel="noopener noreferrer">
@@ -780,6 +788,7 @@ function App() {
             <p className="team-member-role">Lead Organiser</p>
           </div>
         </div>
+        <h2 className="section-marker">Our Team</h2>
       </section>
 
       {/* Footer */}
