@@ -703,7 +703,7 @@ function App() {
             <p className="zone-description">Leading voices in startups, venture, cities, and culture. <br></br> <br></br> Each panel tackles themes from the role of AR/VR in public space to how autonomous robots and physical AI is reshaping mobility. </p>
           </article>
           <article className="zone" id="pitches">
-            <img src="/program/pitchs.png" alt="Startup/Research Pitches" className="zone-image" />
+            <img src="/program/pitches.png" alt="Startup/Research Pitches" className="zone-image" />
             <div className="zone-index">02</div>
             <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Startup / Research Pitches</h3>
             <p className="zone-description">Curated cohort of 12+ early-stage startups and civic ventures. <br></br> <br></br> Open-source, physical AI, simulation agents, AR/VR, platforms for artists, musicians, creators. </p>
