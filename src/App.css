@@ -884,7 +884,7 @@ body {
 /* Folder tab - the protruding tab at top-left */
 .carousel-card-tab {
   width: 70px;
-  height: 28px;
+  height: 20px;
   background: #2a2a2a;
   border: 1px solid #444;
   border-bottom: none;
@@ -979,7 +979,7 @@ body {
 
 .carousel-card-title {
   font-family: 'Press Start 2P', cursive;
-  font-size: clamp(0.85rem, 1.6vw, 1.2rem);
+  font-size: clamp(0.7rem, 1.6vw, 0.8rem);
   font-weight: 400;
   color: var(--white);
   line-height: 1.6;
@@ -988,7 +988,7 @@ body {
 
 .carousel-card-tagline {
   font-family: var(--font-mono);
-  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  font-size: clamp(0.7rem, 1.2vw, 0.8rem);
   font-style: italic;
   color: var(--gray-400);
   line-height: 1.5;
@@ -1008,7 +1008,7 @@ body {
   display: inline-block;
   padding: 0.35rem 0.75rem;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.5rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--white);
@@ -1066,7 +1066,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 0.75rem;
-  padding-top: var(--space-md);
+  padding-top: var(--space-xl);
 }
 
 .carousel-dot {
