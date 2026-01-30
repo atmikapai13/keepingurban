@@ -187,6 +187,54 @@ function samplePathPoints(d) {
   return points
 }
 
+// Typewriter text component - types out text when scrolled into view
+function TypewriterText({ children, speed = 100 }) {
+  const ref = useRef(null)
+  const [hasTriggered, setHasTriggered] = useState(false)
+  const [displayText, setDisplayText] = useState('')
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasTriggered) {
+          setHasTriggered(true)
+        }
+      },
+      { threshold: 0.5 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [hasTriggered])
+
+  useEffect(() => {
+    if (!hasTriggered) return
+    const text = children
+    let i = 0
+    const interval = setInterval(() => {
+      i++
+      setDisplayText(text.slice(0, i))
+      if (i >= text.length) {
+        clearInterval(interval)
+      }
+    }, speed)
+    return () => clearInterval(interval)
+  }, [hasTriggered, children, speed])
+
+  return (
+    <span ref={ref} className="typewriter-wrapper">
+      <span className={hasTriggered ? 'typewriter-hidden' : ''}>{children}</span>
+      {hasTriggered && (
+        <span className="typewriter-overlay">
+          {displayText}
+          <span className="typewriter-cursor" />
+        </span>
+      )}
+    </span>
+  )
+}
+
 function App() {
   const [mousePos, setMousePos] = useState({ x: -1, y: -1 })
   const heroRef = useRef(null)
@@ -305,7 +353,7 @@ function App() {
         </div>
 
         <p className="hero-tagline">
-          With over half the world population now living in cities, <span className="tagline-highlight">Keeping It Urban</span> is not about urbanism itself, rather  <span className="tagline-highlight">the energy of tech, arts, and culture</span> that is born only from the density of cities.
+          Not about urbanism itself. <br></br> <br></br> Instead: <span className="tagline-highlight">the energy of tech, arts, and culture</span> born only from the density of cities.
         </p>
 
         <div className="hero-event-info">
@@ -328,7 +376,7 @@ function App() {
       <section className="context partners-context">
         {/* Partner Logos - Infinite Scroll Marquee */}
         <div className="partners-section">
-          <h3 className="partners-title">Backed by</h3>
+          <h3 className="partners-title section-marker">Backed by</h3>
           <div className="marquee-container">
             <div className="marquee-track">
               {/* First set of logos */}
@@ -372,35 +420,35 @@ function App() {
       <section className="statement" id="open-call">
         {/* Speakers */}
         <div className="speakers-section">
-          <h3 className="speakers-title">Speakers</h3>
+          <h3 className="speakers-title section-marker"><TypewriterText>Speaker Spotlights</TypewriterText></h3>
           <div className="speakers-grid">
             <div className="speaker">
               <a href="https://www.linkedin.com/in/jennyfielding/" target="_blank" rel="noopener noreferrer">
                 <img src="/team/jenny.png" alt="Jenny Fielding" className="speaker-photo" />
               </a>
               <a href="https://www.linkedin.com/in/jennyfielding/" target="_blank" rel="noopener noreferrer" className="speaker-name">Jenny Fielding</a>
-              <p className="speaker-role">Co-founder @ Everywhere Ventures,<br />xTechstars</p>
+              <p className="speaker-role">Co-founder @ Everywhere Ventures,<br />ex-Managing Director @ Techstars</p>
             </div>
             <div className="speaker">
               <a href="https://www.arielnoyman.com/" target="_blank" rel="noopener noreferrer">
                 <img src="/team/ariel_noyman.png" alt="Ariel Noyman" className="speaker-photo" />
               </a>
               <a href="https://www.arielnoyman.com/" target="_blank" rel="noopener noreferrer" className="speaker-name">Ariel Noyman</a>
-              <p className="speaker-role">MIT Media Lab,<br />City-Science Living-Labs</p>
+              <p className="speaker-role">MIT Media Lab,<br />City Science Lab</p>
             </div>
             <div className="speaker">
               <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer">
                 <img src="/team/ariel.png" alt="Ariel Kennan" className="speaker-photo" />
               </a>
               <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer" className="speaker-name">Ariel Kennan</a>
-              <p className="speaker-role">Georgetown's Beeck Center for Social Impact + Innovation,<br />xDesign @ Google's Sidewalk Labs</p>
+              <p className="speaker-role">Georgetown's Beeck Center for Social Impact + Innovation,<br />ex-Design @ Google's Sidewalk Labs</p>
             </div>
             <div className="speaker">
               <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer">
                 <img src="/team/wendy.png" alt="Wendy Ju" className="speaker-photo" />
               </a>
               <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer" className="speaker-name">Wendy Ju</a>
-              <p className="speaker-role">Cornell Tech and AAP,<br />xCenter for Design Research at Stanford</p>
+              <p className="speaker-role">Cornell Tech and AAP,<br />ex-Director @ Stanford Center for Design Research</p>
             </div>
           </div>
         </div>
@@ -408,7 +456,7 @@ function App() {
 
       {/* Program Snapshot */}
       <section className="program" id="program">
-        <h2 className="section-marker">Program</h2>
+        <h2 className="section-marker"><TypewriterText>What to expect?</TypewriterText></h2>
         <div className="context-grid program-stats">
           <div className="signal">
             <span className="signal-number">150+</span>
@@ -436,29 +484,30 @@ function App() {
             <img src="/program/panels.png" alt="Multidisciplinary Panels" className="zone-image" />
             <div className="zone-index">01</div>
             <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Multidisciplinary Panels</h3>
-            <p className="zone-description">Leaders from art, technology, and civic systems in conversation on the future of human-centered tech.<br /><br />Who builds, who benefits, and who decides?</p>
+            <p className="zone-description">Leading voices in startups, venture, cities, and culture. <br></br> <br></br> Each panel tackles themes from the role of AR/VR in public space to how autonomous robots and physical AI is reshaping mobility. </p>
           </article>
           <article className="zone" id="pitches">
             <img src="/program/pitchs.png" alt="Startup/Research Pitches" className="zone-image" />
             <div className="zone-index">02</div>
             <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Startup / Research Pitches</h3>
-            <p className="zone-description">Hear from 12+ early-stage urban and civic ventures on how they're reshaping New York City, the mecca of cities.<br /><br />Spotlight on Cornell Tech's Startup Accelerator and Runway Postdocs Program.</p>
+            <p className="zone-description">Curated cohort of 12+ early-stage startups and civic ventures. <br></br> <br></br> Open-source, physical AI, simulation agents, AR/VR, platforms for artists, musicians, creators. </p>
           </article>
           <article className="zone">
             <img src="/program/artists.png" alt="Immersive Gallery" className="zone-image" />
             <div className="zone-index">03</div>
             <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Immersive Gallery</h3>
-            <p className="zone-description">Explore art as a way of knowing—not illustrating—urban futures.<br /><br />Contemplate, is art dying in the age of AI? And what is to become of cultural institutions that attract urbanites in the first place?</p>
+            <p className="zone-description">Full-day exhibition featuring 15+ site installations, interactive demos, and research prototypes.
+<br /><br />Non-linear art, novel interaction systems, glitch art, built environment models, data storytelling.</p>
           </article>
         </div>
         <a href="https://www.midjourney.com/@wizardofwoz?tab=spotlight" target="_blank" rel="noopener noreferrer" className="zones-credit">* Picture Credits @wizardofwoz on Midjourney</a>
 
         {/* Tracks */}
-        <h3 className="tracks-header">Startup / Research / Media Tracks</h3>
+        <h3 className="tracks-header section-marker"><TypewriterText>What counts, exactly?</TypewriterText></h3>
         <div className="tracks">
           <article className="track">
             <div className="track-index">01</div>
-            <h4 className="track-title">Agents & Open Systems</h4>
+            <h4 className="track-title">Agents & Physical AI</h4>
             <p className="track-tagline">How intelligence coordinates across digital and physical space</p>
             <p className="track-description">The infrastructure layer—autonomous systems, open protocols, and technology that coordinates complexity. From multi-agent architectures to open-source civic tools to art that questions how our systems work.</p>
           </article>
@@ -479,7 +528,7 @@ function App() {
 
       {/* You Belong Here */}
       <section className="belong" id="attend">
-        <h2 className="section-marker">You Belong Here</h2>
+        <h2 className="section-marker"><TypewriterText>Who Should Join?</TypewriterText></h2>
         <div className="placards fade-in-section" ref={fadeRef}>
           <article className="placard">
             <div className="placard-inner">
@@ -647,7 +696,7 @@ function App() {
 
       {/* About */}
       <section className="statement" id="about">
-        <h2 className="section-marker">About</h2>
+        <h2 className="section-marker"><TypewriterText>Concept</TypewriterText></h2>
         <div className="statement-content">
           <div className="statement-text">
             <p>
