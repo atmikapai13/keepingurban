@@ -235,6 +235,199 @@ function TypewriterText({ children, speed = 100 }) {
   )
 }
 
+// Urban Tech Carousel - 3D circular carousel for "What Counts" section
+function UrbanTechCarousel() {
+  const [rotation, setRotation] = useState(-360)
+  const [isIntroSpinning, setIsIntroSpinning] = useState(false)
+  const [introComplete, setIntroComplete] = useState(false)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false)
+  const carouselRef = useRef(null)
+  const autoPlayRef = useRef(null)
+  const hasTriggered = useRef(false)
+  const touchStartX = useRef(null)
+
+  // Responsive radius — tighter on smaller screens
+  const getRadius = () => {
+    if (typeof window === 'undefined') return 420
+    if (window.innerWidth <= 480) return 180
+    if (window.innerWidth <= 768) return 280
+    return 420
+  }
+  const [radius, setRadius] = useState(getRadius)
+  useEffect(() => {
+    const onResize = () => setRadius(getRadius())
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
+  const cards = [
+    {
+      index: '01',
+      title: 'Physical AI',
+      tagline: 'Intelligence that moves & senses through the world',
+      examples: ['Robotics', 'Spatial Reasoning', 'AV', 'Sensors', 'Digital Twins'],
+    },
+    {
+      index: '02',
+      title: 'Agents',
+      tagline: 'Copilots for the real world',
+      examples: ['Autonomous Flows', 'Simulation Environments', 'Multi-agent coordination'],
+    },
+    {
+      index: '03',
+      title: 'Open Platforms',
+      tagline: 'Built on transparency and collaboration',
+      examples: ['Open-source tools', 'Public Protocals', 'Community-owned'],
+    },
+    {
+      index: '04',
+      title: 'Augmented Reality',
+      tagline: 'Transforms shared physical space',
+      examples: ['Pokemon Go', 'Meta Glasses', 'Google Maps'],
+    },
+    {
+      index: '05',
+      title: 'Culture & Media',
+      tagline: 'Tools that amplify cultural production',
+      examples: ['Substack', 'Luma', 'Podcast Networks', 'Design Tools (Figma, Are.na)'],
+    }
+  ]
+
+  const anglePerCard = 360 / cards.length
+
+  // Trigger intro spin when scrolled into view
+  useEffect(() => {
+    const el = carouselRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasTriggered.current) {
+          hasTriggered.current = true
+          setIsIntroSpinning(true)
+          // After intro spin animation completes, enable auto-play
+          setTimeout(() => {
+            setIsIntroSpinning(false)
+            setIntroComplete(true)
+            setIsAutoPlaying(true)
+          }, 5000)
+        }
+      },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  // Auto-rotate: step one card at a time
+  useEffect(() => {
+    if (!isAutoPlaying || isIntroSpinning) {
+      clearInterval(autoPlayRef.current)
+      return
+    }
+    autoPlayRef.current = setInterval(() => {
+      setRotation((prev) => prev - anglePerCard)
+    }, 4000)
+    return () => clearInterval(autoPlayRef.current)
+  }, [isAutoPlaying, isIntroSpinning, anglePerCard])
+
+  const goTo = (index) => {
+    setRotation(-360 - index * anglePerCard)
+    setIsAutoPlaying(false)
+    setTimeout(() => setIsAutoPlaying(true), 8000)
+  }
+
+  const goNext = () => {
+    setRotation((prev) => prev - anglePerCard)
+    setIsAutoPlaying(false)
+    setTimeout(() => setIsAutoPlaying(true), 8000)
+  }
+
+  const goPrev = () => {
+    setRotation((prev) => prev + anglePerCard)
+    setIsAutoPlaying(false)
+    setTimeout(() => setIsAutoPlaying(true), 8000)
+  }
+
+  // Determine which card index is currently in front
+  const normalizedAngle = (((-(rotation + 360)) % 360) + 360) % 360
+  const activeIndex = Math.round(normalizedAngle / anglePerCard) % cards.length
+
+  return (
+    <div className="carousel-section" ref={carouselRef}>
+      <div
+        className="carousel-viewport"
+        onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX }}
+        onTouchEnd={(e) => {
+          if (touchStartX.current === null) return
+          const diff = e.changedTouches[0].clientX - touchStartX.current
+          touchStartX.current = null
+          if (Math.abs(diff) > 40) {
+            if (diff < 0) goNext()
+            else goPrev()
+          }
+        }}
+      >
+        <button className="carousel-arrow carousel-arrow-left" onClick={goPrev} aria-label="Previous card">
+          &#8592;
+        </button>
+        <div className="carousel-scene">
+          <div
+            className={`carousel-ring ${isIntroSpinning ? 'carousel-intro-spin' : ''}`}
+            style={!isIntroSpinning ? {
+              transform: `rotateY(${rotation}deg)`,
+              transition: introComplete ? 'transform 0.8s cubic-bezier(0.23, 1, 0.32, 1)' : 'none',
+            } : undefined}
+          >
+            {cards.map((card, i) => {
+              const angle = i * anglePerCard
+              return (
+                <article
+                  key={i}
+                  className={`carousel-card ${activeIndex === i ? 'carousel-card-active' : ''}`}
+                  style={{
+                    transform: `translate(-50%, -50%) rotateY(${angle}deg) translateZ(${radius}px)`,
+                  }}
+                  onClick={() => goTo(i)}
+                >
+                  {/* Folder tab */}
+                  <div className="carousel-card-tab">
+                    <span className="carousel-card-tab-label">{card.index}</span>
+                  </div>
+                  <div className="carousel-card-body">
+                    <div className="carousel-card-glitch" aria-hidden="true"></div>
+                    <div className="carousel-card-content">
+                      <h4 className="carousel-card-title">{card.title}</h4>
+                      <p className="carousel-card-tagline">{card.tagline}</p>
+                    </div>
+                    <div className="carousel-card-examples carousel-examples-visible">
+                      {card.examples.map((ex, j) => (
+                        <span key={j} className="carousel-example-tag">{ex}</span>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              )
+            })}
+          </div>
+        </div>
+        <button className="carousel-arrow carousel-arrow-right" onClick={goNext} aria-label="Next card">
+          &#8594;
+        </button>
+      </div>
+      <div className="carousel-dots">
+        {cards.map((_, i) => (
+          <button
+            key={i}
+            className={`carousel-dot ${i === activeIndex ? 'carousel-dot-active' : ''}`}
+            onClick={() => goTo(i)}
+            aria-label={`Go to card ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function App() {
   const [mousePos, setMousePos] = useState({ x: -1, y: -1 })
   const heroRef = useRef(null)
@@ -421,34 +614,48 @@ function App() {
         {/* Speakers */}
         <div className="speakers-section">
           <h3 className="speakers-title section-marker"><TypewriterText>Speaker Spotlights</TypewriterText></h3>
-          <div className="speakers-grid">
-            <div className="speaker">
-              <a href="https://www.linkedin.com/in/jennyfielding/" target="_blank" rel="noopener noreferrer">
-                <img src="/team/jenny.png" alt="Jenny Fielding" className="speaker-photo" />
-              </a>
-              <a href="https://www.linkedin.com/in/jennyfielding/" target="_blank" rel="noopener noreferrer" className="speaker-name">Jenny Fielding</a>
-              <p className="speaker-role">Co-founder @ Everywhere Ventures,<br />ex-Managing Director @ Techstars</p>
+          <div className="speakers-split">
+            <div className="speakers-logo-cloud">
+              <img src="/logo/techstars.png" alt="Techstars" className="cloud-logo no-color-hover" />
+              <span className="cloud-logo-swap">
+                <img src="/logo/everywhere.png" alt="Everywhere Ventures" className="cloud-logo cloud-logo-default" />
+                <img src="/logo/everywhere.jpg" alt="Everywhere Ventures" className="cloud-logo cloud-logo-hover" />
+              </span>
+              <img src="/logo/media_lab.png" alt="MIT Media Lab" className="cloud-logo no-color-hover" />
+              <img src="/logo/google.png" alt="Google" className="cloud-logo" />
+              <img src="/logo/sidewalk.png" alt="Sidewalk Labs" className="cloud-logo no-color-hover" />
+              <img src="/logo/stanford.png" alt="Stanford" className="cloud-logo" />
+              <img src="/logo/beeck.png" alt="Beeck Center" className="cloud-logo" />
             </div>
-            <div className="speaker">
-              <a href="https://www.arielnoyman.com/" target="_blank" rel="noopener noreferrer">
-                <img src="/team/ariel_noyman.png" alt="Ariel Noyman" className="speaker-photo" />
-              </a>
-              <a href="https://www.arielnoyman.com/" target="_blank" rel="noopener noreferrer" className="speaker-name">Ariel Noyman</a>
-              <p className="speaker-role">MIT Media Lab,<br />City Science Lab</p>
-            </div>
-            <div className="speaker">
-              <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer">
-                <img src="/team/ariel.png" alt="Ariel Kennan" className="speaker-photo" />
-              </a>
-              <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer" className="speaker-name">Ariel Kennan</a>
-              <p className="speaker-role">Georgetown's Beeck Center for Social Impact + Innovation,<br />ex-Design @ Google's Sidewalk Labs</p>
-            </div>
-            <div className="speaker">
-              <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer">
-                <img src="/team/wendy.png" alt="Wendy Ju" className="speaker-photo" />
-              </a>
-              <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer" className="speaker-name">Wendy Ju</a>
-              <p className="speaker-role">Cornell Tech and AAP,<br />ex-Director @ Stanford Center for Design Research</p>
+            <div className="speakers-grid">
+              <div className="speaker">
+                <a href="https://www.linkedin.com/in/jennyfielding/" target="_blank" rel="noopener noreferrer">
+                  <img src="/team/jenny.png" alt="Jenny Fielding" className="speaker-photo" />
+                </a>
+                <a href="https://www.linkedin.com/in/jennyfielding/" target="_blank" rel="noopener noreferrer" className="speaker-name">Jenny Fielding</a>
+                <p className="speaker-role">Co-founder @ Everywhere Ventures,<br />ex-Managing Director @ Techstars</p>
+              </div>
+              <div className="speaker">
+                <a href="https://www.arielnoyman.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/team/ariel_noyman.png" alt="Ariel Noyman" className="speaker-photo" />
+                </a>
+                <a href="https://www.arielnoyman.com/" target="_blank" rel="noopener noreferrer" className="speaker-name">Ariel Noyman</a>
+                <p className="speaker-role">MIT Media Lab,<br />City Science Lab</p>
+              </div>
+              <div className="speaker">
+                <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer">
+                  <img src="/team/ariel.png" alt="Ariel Kennan" className="speaker-photo" />
+                </a>
+                <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer" className="speaker-name">Ariel Kennan</a>
+                <p className="speaker-role">Georgetown's Beeck Center for Social Impact + Innovation,<br />ex-Design @ Google's Sidewalk Labs</p>
+              </div>
+              <div className="speaker">
+                <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer">
+                  <img src="/team/wendy.png" alt="Wendy Ju" className="speaker-photo" />
+                </a>
+                <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer" className="speaker-name">Wendy Ju</a>
+                <p className="speaker-role">Cornell Tech and AAP,<br />ex-Director @ Stanford Center for Design Research</p>
+              </div>
             </div>
           </div>
         </div>
@@ -502,195 +709,37 @@ function App() {
         </div>
         <a href="https://www.midjourney.com/@wizardofwoz?tab=spotlight" target="_blank" rel="noopener noreferrer" className="zones-credit">* Picture Credits @wizardofwoz on Midjourney</a>
 
-        {/* Tracks */}
+        {/* Tracks - Rotating Carousel */}
         <h3 className="tracks-header section-marker"><TypewriterText>What counts, exactly?</TypewriterText></h3>
-        <div className="tracks">
-          <article className="track">
-            <div className="track-index">01</div>
-            <h4 className="track-title">Agents & Physical AI</h4>
-            <p className="track-tagline">How intelligence coordinates across digital and physical space</p>
-            <p className="track-description">The infrastructure layer—autonomous systems, open protocols, and technology that coordinates complexity. From multi-agent architectures to open-source civic tools to art that questions how our systems work.</p>
-          </article>
-          <article className="track">
-            <div className="track-index">02</div>
-            <h4 className="track-title">Proximity & AR/VR</h4>
-            <p className="track-tagline">How technology transforms shared physical experience</p>
-            <p className="track-description">The experience layer—technology and art that only makes sense when people are together. Platforms for discovery and coordination, XR that layers meaning onto streets and venues, and art that resists or reimagines our algorithmic reality.</p>
-          </article>
-          <article className="track">
-            <div className="track-index">03</div>
-            <h4 className="track-title">Culture & Media</h4>
-            <p className="track-tagline">How communities form, sustain, and tell their stories</p>
-            <p className="track-description">The human layer—tools for creators, infrastructure for community organizers, and art that asks who we are to each other. Technology as cultural infrastructure, storytelling as civic practice.</p>
-          </article>
-        </div>
+        <UrbanTechCarousel />
       </section>
 
       {/* You Belong Here */}
       <section className="belong" id="attend">
         <h2 className="section-marker"><TypewriterText>Who Should Join?</TypewriterText></h2>
-        <div className="placards fade-in-section" ref={fadeRef}>
-          <article className="placard">
-            <div className="placard-inner">
-              <div className="placard-front">
-                <span className="placard-front-label">Artists</span>
-                <img src="/stakeholders/artists.png" alt="Artists" className="placard-front-img" />
-              </div>
-              <div className="placard-back">
-                <a href="https://forms.gle/CaigJ8xr1Gj4JGJaA" target="_blank" rel="noopener noreferrer" className="placard-back-btn">Apply Now</a>
-                <div className="pixel-icon pixel-artist" aria-hidden="true">
-                  <div className="pixel-grid">
-                    <span style={{gridArea: '1/3'}}></span>
-                    <span style={{gridArea: '2/4'}}></span>
-                    <span style={{gridArea: '3/5'}}></span>
-                    <span style={{gridArea: '4/6'}}></span>
-                    <span style={{gridArea: '2/2'}}></span>
-                    <span style={{gridArea: '3/3'}}></span>
-                    <span style={{gridArea: '4/4'}}></span>
-                    <span style={{gridArea: '5/5'}}></span>
-                    <span className="accent" style={{gridArea: '3/4'}}></span>
-                    <span className="accent" style={{gridArea: '4/3'}}></span>
-                    <span className="accent" style={{gridArea: '5/2'}}></span>
-                    <span style={{gridArea: '6/1'}}></span>
-                    <span style={{gridArea: '6/6'}}></span>
-                  </div>
-                  <div className="glitch-layer"></div>
+        <div className="rolodex-grid" ref={fadeRef}>
+          {[
+            { title: 'Founders', tagline: 'Hire top AI talent early, pilot with users, pitch to funders.' },
+            { title: 'Investors', tagline: 'Curated early-stage deal flow in AI and cultural startups.' },
+            { title: 'Urbanists & Organizers', tagline: 'Move from policy papers to pilots. Stay fluent in the tech reshaping cities.' },
+            { title: 'Artists & Designers', tagline: 'Collaborate with engineers who build tools, not just use them.' },
+            { title: 'Engineers & Researchers', tagline: 'Demo prototypes to partners who can greenlight pilots.' },
+          
+          ].map((card, i) => (
+            <article key={i} className="rolodex-card">
+              <div className="rolodex-card-inner">
+                <div className="rolodex-card-header">
+                  <span className="rolodex-card-index">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="rolodex-card-why">Why Join?</span>
                 </div>
-                <h3 className="placard-title">Artists</h3>
-                <p className="placard-text">
-                  Working with space, data, public intervention, or urban narrative.
-                  Your practice is research. Your work is evidence.
-                </p>
-                <span className="placard-role">Exhibitor / Panelist</span>
-              </div>
-            </div>
-          </article>
-          <article className="placard">
-            <div className="placard-inner">
-              <div className="placard-front">
-                <span className="placard-front-label">Founders</span>
-                <img src="/stakeholders/founders.png" alt="Founders" className="placard-front-img" />
-              </div>
-              <div className="placard-back">
-                <a href="https://forms.gle/YwJjzQFw2z2EJwNRA" target="_blank" rel="noopener noreferrer" className="placard-back-btn">Submit Pitch</a>
-                <div className="pixel-icon pixel-founder" aria-hidden="true">
-                  <div className="pixel-grid">
-                    <span style={{gridArea: '6/2'}}></span>
-                    <span style={{gridArea: '6/3'}}></span>
-                    <span style={{gridArea: '5/2'}}></span>
-                    <span style={{gridArea: '5/3'}}></span>
-                    <span style={{gridArea: '4/3'}}></span>
-                    <span className="accent" style={{gridArea: '3/3'}}></span>
-                    <span style={{gridArea: '6/4'}}></span>
-                    <span style={{gridArea: '6/5'}}></span>
-                    <span style={{gridArea: '5/4'}}></span>
-                    <span style={{gridArea: '5/5'}}></span>
-                    <span style={{gridArea: '4/4'}}></span>
-                    <span style={{gridArea: '4/5'}}></span>
-                    <span style={{gridArea: '3/5'}}></span>
-                    <span style={{gridArea: '2/5'}}></span>
-                    <span className="accent" style={{gridArea: '1/5'}}></span>
-                  </div>
-                  <div className="glitch-layer"></div>
+                <div className="rolodex-card-body">
+                  <h3 className="rolodex-card-label">{card.title}</h3>
+                  <p className="rolodex-card-tagline">{card.tagline}</p>
                 </div>
-                <h3 className="placard-title">Founders</h3>
-                <p className="placard-text">
-                  Building for housing, mobility, public space, civic engagement,
-                  or community infrastructure.
-                </p>
-                <span className="placard-role">Pitcher / Panelist</span>
               </div>
-            </div>
-          </article>
-          <article className="placard">
-            <div className="placard-inner">
-              <div className="placard-front">
-                <span className="placard-front-label">Venture Capitalists</span>
-                <img src="/stakeholders/civic_leaders.png" alt="Venture Capitalists" className="placard-front-img" />
-              </div>
-              <div className="placard-back">
-                <a href="mailto:aap253@cornell.edu,msh334@cornell.edu?subject=VC Inquiry" className="placard-back-btn">Get in Touch</a>
-                <div className="pixel-icon pixel-civic" aria-hidden="true">
-                  <div className="pixel-grid">
-                    <span style={{gridArea: '1/3'}}></span>
-                    <span style={{gridArea: '1/4'}}></span>
-                    <span style={{gridArea: '2/2'}}></span>
-                    <span className="accent" style={{gridArea: '2/3'}}></span>
-                    <span className="accent" style={{gridArea: '2/4'}}></span>
-                    <span style={{gridArea: '2/5'}}></span>
-                    <span style={{gridArea: '3/1'}}></span>
-                    <span style={{gridArea: '3/3'}}></span>
-                    <span style={{gridArea: '3/4'}}></span>
-                    <span style={{gridArea: '3/6'}}></span>
-                    <span style={{gridArea: '4/2'}}></span>
-                    <span style={{gridArea: '4/5'}}></span>
-                    <span style={{gridArea: '5/1'}}></span>
-                    <span className="accent" style={{gridArea: '5/3'}}></span>
-                    <span className="accent" style={{gridArea: '5/4'}}></span>
-                    <span style={{gridArea: '5/6'}}></span>
-                    <span style={{gridArea: '6/2'}}></span>
-                    <span style={{gridArea: '6/3'}}></span>
-                    <span style={{gridArea: '6/4'}}></span>
-                    <span style={{gridArea: '6/5'}}></span>
-                  </div>
-                  <div className="glitch-layer"></div>
-                </div>
-                <h3 className="placard-title">VCs</h3>
-                <p className="placard-text">
-                  Investors backing urban innovation, civic tech, and the future of cities.
-                </p>
-                <span className="placard-role">Judge / Investor</span>
-              </div>
-            </div>
-          </article>
-          <article className="placard">
-            <div className="placard-inner">
-              <div className="placard-front">
-                <span className="placard-front-label">Urbanists</span>
-                <img src="/stakeholders/community.png" alt="Urbanists" className="placard-front-img" />
-              </div>
-              <div className="placard-back">
-                <a href="mailto:aap253@cornell.edu,msh334@cornell.edu?subject=Civic Leader Inquiry" className="placard-back-btn">Get in Touch</a>
-                <div className="pixel-icon pixel-community" aria-hidden="true">
-                  <div className="pixel-grid">
-                    <span style={{gridArea: '3/1'}}></span>
-                    <span style={{gridArea: '4/1'}}></span>
-                    <span style={{gridArea: '4/2'}}></span>
-                    <span style={{gridArea: '5/1'}}></span>
-                    <span style={{gridArea: '5/2'}}></span>
-                    <span className="accent" style={{gridArea: '2/3'}}></span>
-                    <span style={{gridArea: '3/3'}}></span>
-                    <span style={{gridArea: '3/4'}}></span>
-                    <span style={{gridArea: '4/3'}}></span>
-                    <span style={{gridArea: '4/4'}}></span>
-                    <span style={{gridArea: '5/3'}}></span>
-                    <span style={{gridArea: '5/4'}}></span>
-                    <span className="accent" style={{gridArea: '1/5'}}></span>
-                    <span style={{gridArea: '2/5'}}></span>
-                    <span style={{gridArea: '2/6'}}></span>
-                    <span style={{gridArea: '3/5'}}></span>
-                    <span style={{gridArea: '3/6'}}></span>
-                    <span style={{gridArea: '4/5'}}></span>
-                    <span style={{gridArea: '4/6'}}></span>
-                    <span style={{gridArea: '5/5'}}></span>
-                    <span style={{gridArea: '5/6'}}></span>
-                    <span style={{gridArea: '6/1'}}></span>
-                    <span style={{gridArea: '6/2'}}></span>
-                    <span style={{gridArea: '6/3'}}></span>
-                    <span style={{gridArea: '6/4'}}></span>
-                    <span style={{gridArea: '6/5'}}></span>
-                    <span style={{gridArea: '6/6'}}></span>
-                  </div>
-                  <div className="glitch-layer"></div>
-                </div>
-                <h3 className="placard-title">Urbanists</h3>
-                <p className="placard-text">
-                  Open data stewards, urban planners, policy designers, and public servants making systems more human.
-                </p>
-                <span className="placard-role">Panelist / Collaborator</span>
-              </div>
-            </div>
-          </article>
+              <div className="rolodex-card-scanlines" aria-hidden="true"></div>
+            </article>
+          ))}
         </div>
       </section>
 
