@@ -2189,8 +2189,12 @@ body {
    RESPONSIVE - MOBILE (max-width: 768px)
    ========================================= */
 @media (max-width: 768px) {
-  html, body {
-    overflow-x: hidden;
+  html {
+    overflow-x: clip;
+  }
+
+  body {
+    overflow-x: clip;
   }
 
   :root {
