@@ -2322,7 +2322,18 @@ body {
 
   .speakers-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .speakers-grid .speaker:nth-child(1),
+  .speakers-grid .speaker:nth-child(2),
+  .speakers-grid .speaker:nth-child(3),
+  .speakers-grid .speaker:nth-child(4) {
+    grid-column: auto;
+  }
+
+  .speakers-grid .speaker:nth-child(5) {
+    grid-column: 1 / -1;
   }
 
   .speaker {
@@ -2339,8 +2350,8 @@ body {
   }
 
   .speaker-photo {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
   }
 
   /* Names — consistent 0.6rem */
@@ -2439,6 +2450,15 @@ body {
   /* Team */
   .team-section {
     padding: var(--space-sm) var(--space-sm);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .team-section .section-marker {
+    order: -1;
+    max-width: 100%;
+    margin: 0 auto var(--space-xs);
+    text-align: center;
   }
 
   .team-grid {
@@ -2446,12 +2466,6 @@ body {
     gap: var(--space-xs);
     max-width: 100%;
     margin: 0 auto;
-  }
-
-  .team-section .section-marker {
-    max-width: 100%;
-    margin: var(--space-xs) auto 0;
-    text-align: center;
   }
 
   .team-member-photo {
