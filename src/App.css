@@ -1241,10 +1241,18 @@ body {
   overflow: hidden;
 }
 
+.statement > .section-marker {
+  max-width: var(--max-width);
+  margin: 0 auto var(--space-sm);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--gray-800);
+}
+
 /* --- Speakers Section (embedded in statement) --- */
 .speakers-section {
   max-width: var(--max-width);
   margin: 0 auto var(--space-sm);
+  padding-top: var(--space-lg);
 }
 
 .speakers-title {
@@ -1254,7 +1262,7 @@ body {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--gray-600);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-lg);
   padding-bottom: var(--space-xs);
   border-bottom: 1px solid var(--gray-800);
 }
@@ -1262,15 +1270,28 @@ body {
 .speakers-split {
   display: flex;
   gap: var(--space-sm);
-  align-items: center;
+  align-items: flex-start;
 }
 
 .speakers-grid {
   flex: 2;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-sm);
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-md);
   justify-items: center;
+}
+
+/* First row: 2 speakers, each spanning 3 columns */
+.speakers-grid .speaker:nth-child(1),
+.speakers-grid .speaker:nth-child(2) {
+  grid-column: span 3;
+}
+
+/* Second row: 3 speakers, each spanning 2 columns */
+.speakers-grid .speaker:nth-child(3),
+.speakers-grid .speaker:nth-child(4),
+.speakers-grid .speaker:nth-child(5) {
+  grid-column: span 2;
 }
 
 .speakers-logo-cloud {
@@ -1278,9 +1299,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-content: center;
+  align-content: flex-start;
   gap: 1.5rem;
-  padding: var(--space-lg) var(--space-md);
+  padding: 0 var(--space-md);
   min-height: 100%;
 }
 
@@ -1761,7 +1782,7 @@ body {
    OUR TEAM
    ========================================= */
 .team-section {
-  padding: var(--space-lg) var(--space-md);
+  padding: var(--space-sm) var(--space-md) var(--space-lg);
   background: var(--black);
   max-width: var(--max-width);
   margin: 0 auto;
@@ -1769,17 +1790,22 @@ body {
 
 .team-section .section-marker {
   text-align: center;
-  margin-bottom: var(--space-md);
+  margin-top: var(--space-xs);
+  margin-bottom: 0;
   border-bottom: none;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: 0;
+  font-size: 0.7rem;
 }
 
 .team-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
-  gap: var(--space-lg) var(--space-xl);
-  max-width: 700px;
-  margin: 0 auto;
+  gap: var(--space-lg) var(--space-sm);
+  max-width: 500px;
+  margin: 0 0 0 auto;
 }
 
 .team-member {
@@ -2163,6 +2189,14 @@ body {
    RESPONSIVE - MOBILE (max-width: 768px)
    ========================================= */
 @media (max-width: 768px) {
+  html {
+    overflow-x: clip;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+
   :root {
     --space-xl: 4rem;
     --space-lg: 2rem;
@@ -2292,7 +2326,18 @@ body {
 
   .speakers-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .speakers-grid .speaker:nth-child(1),
+  .speakers-grid .speaker:nth-child(2),
+  .speakers-grid .speaker:nth-child(3),
+  .speakers-grid .speaker:nth-child(4) {
+    grid-column: auto;
+  }
+
+  .speakers-grid .speaker:nth-child(5) {
+    grid-column: 1 / -1;
   }
 
   .speaker {
@@ -2309,8 +2354,8 @@ body {
   }
 
   .speaker-photo {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
   }
 
   /* Names — consistent 0.6rem */
@@ -2325,7 +2370,11 @@ body {
 
   /* Rolodex Cards */
   .rolodex-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rolodex-grid .rolodex-card:first-child {
+    grid-column: 1 / -1;
   }
 
   /* Card titles — consistent 0.7rem */
@@ -2405,12 +2454,22 @@ body {
   /* Team */
   .team-section {
     padding: var(--space-sm) var(--space-sm);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .team-section .section-marker {
+    order: -1;
+    max-width: 100%;
+    margin: 0 auto var(--space-xs);
+    text-align: center;
   }
 
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-xs);
     max-width: 100%;
+    margin: 0 auto;
   }
 
   .team-member-photo {
