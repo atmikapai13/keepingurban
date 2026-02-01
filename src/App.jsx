@@ -290,6 +290,12 @@ function UrbanTechCarousel() {
       title: 'Culture & Media',
       tagline: 'Tools that amplify cultural production',
       examples: ['Substack', 'Luma', 'Podcast Networks', 'Design Tools (Figma, Are.na)'],
+    }, 
+    {
+      index: '06',
+      title: 'Mobility & Built-Environment',
+      tagline: 'Reimagining how we move and build',
+      examples: ['Uber','Sidewalk Labs', 'Gov/Pi Tech'],
     }
   ]
 
