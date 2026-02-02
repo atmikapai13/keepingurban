@@ -8,7 +8,7 @@
 
 /* --- Google Font Import --- */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* --- CSS Variables --- */
 :root {
@@ -23,8 +23,8 @@
   --accent-muted: #ff6d3d;
 
   --font-display: 'Press Start 2P', cursive;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'Inter', sans-serif;
+  --font-body: 'Space Mono', monospace;
+  --font-mono: 'Space Mono', monospace;
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -668,7 +668,7 @@ body {
 
 .zones-credit {
   display: block;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Mono', monospace;
   font-size: 0.7rem;
   font-style: italic;
   color: var(--gray-600);
@@ -703,8 +703,8 @@ body {
 }
 
 .zone-description {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
   color: var(--gray-400);
   line-height: 1.5;
   padding: 0 var(--space-md) var(--space-md);
@@ -807,7 +807,7 @@ body {
 }
 
 .track-description {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Mono', monospace;
   font-size: clamp(0.9rem, 1.3vw, 1rem);
   color: var(--gray-400);
   line-height: 1.6;
@@ -2416,9 +2416,9 @@ body {
     font-size: 0.7rem;
   }
 
-  /* Descriptions — consistent 0.9rem */
+  /* Descriptions — match rolodex tagline */
   .zone-description {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 
   .zone-bullets {
@@ -2618,9 +2618,9 @@ body {
     font-size: 0.55rem;
   }
 
-  /* Descriptions — consistent 0.8rem */
+  /* Descriptions — match rolodex tagline */
   .zone-description {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 
   .zone-bullets {
