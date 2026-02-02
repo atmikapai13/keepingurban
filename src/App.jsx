@@ -275,9 +275,9 @@ function UrbanTechCarousel() {
     },
     {
       index: '03',
-      title: 'Open Platforms',
+      title: 'Open-Source',
       tagline: 'Built on transparency and collaboration',
-      examples: ['Open-source tools', 'Public Protocals', 'Community-owned'],
+      examples: ['Github', 'Hugging Face','Public Protocals', 'Community-owned'],
     },
     {
       index: '04',
