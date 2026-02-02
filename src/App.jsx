@@ -566,7 +566,7 @@ function App() {
       <nav className="bottom-nav">
         <div className="nav-cta-buttons">
           <a href="https://forms.gle/CaigJ8xr1Gj4JGJaA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Artist Call</a>
-          <a href="https://forms.gle/YwJjzQFw2z2EJwNRA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Startup / Research Pitches</a>
+          <a href="https://forms.gle/YwJjzQFw2z2EJwNRA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Startup / Tinkerer Pitches</a>
           <a href="https://forms.gle/gGeJFiEhtLUZ7Md79" target="_blank" rel="noopener noreferrer" className="cta-btn cta-outline">Attend</a>
         </div>
       </nav>
