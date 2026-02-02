@@ -709,16 +709,16 @@ function App() {
             <p className="zone-description">Leading voices in startups, venture, cities, and culture. <br></br> <br></br> Each panel tackles themes from the role of AR/VR in public space to how autonomous robots and physical AI is reshaping mobility. </p>
           </article>
           <article className="zone" id="pitches">
-            <img src="/program/pitches.png" alt="Startup/Research Pitches" className="zone-image" />
+            <img src="/program/pitches.png" alt="Startup/Tinkerer Pitches" className="zone-image" />
             <div className="zone-index">02</div>
-            <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Startup / Research Pitches</h3>
+            <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Startup / Tinkerer Pitches</h3>
             <p className="zone-description">Curated cohort of 12+ early-stage startups and civic ventures. <br></br> <br></br> Open-source, physical AI, simulation agents, AR/VR, platforms for artists, musicians, creators. </p>
           </article>
           <article className="zone">
             <img src="/program/artists.png" alt="Immersive Gallery" className="zone-image" />
             <div className="zone-index">03</div>
             <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Immersive Gallery</h3>
-            <p className="zone-description">Full-day exhibition featuring 15+ site installations, interactive demos, and research prototypes.
+            <p className="zone-description">Full-day exhibition featuring 15+ interactive demos and prototypes.
 <br /><br />Non-linear art, novel interaction systems, glitch art, built environment models, data storytelling.</p>
           </article>
         </div>
@@ -738,7 +738,7 @@ function App() {
             { title: 'Investors', tagline: 'Curated early-stage deal flow in AI and cultural startups.' },
             { title: 'Urbanists & Organizers', tagline: 'Move from policy papers to pilots. Stay fluent in the tech reshaping cities.' },
             { title: 'Artists & Designers', tagline: 'Collaborate with engineers who build tools, not just use them.' },
-            { title: 'Engineers & Researchers', tagline: 'Demo prototypes to partners who can greenlight pilots.' },
+            { title: 'Engineers & Tinkerers', tagline: 'Demo prototypes to partners who can greenlight pilots.' },
           
           ].map((card, i) => (
             <article key={i} className="rolodex-card">
