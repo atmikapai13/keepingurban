@@ -1281,17 +1281,29 @@ body {
   justify-items: center;
 }
 
-/* First row: 2 speakers, each spanning 3 columns */
-.speakers-grid .speaker:nth-child(1),
+/* Hexagonal 2-1-2 honeycomb pattern */
+/* Row 1: 2 speakers */
+.speakers-grid .speaker:nth-child(1) {
+  grid-column: 1 / span 3;
+}
 .speakers-grid .speaker:nth-child(2) {
-  grid-column: span 3;
+  grid-column: 4 / span 3;
 }
 
-/* Second row: 3 speakers, each spanning 2 columns */
-.speakers-grid .speaker:nth-child(3),
-.speakers-grid .speaker:nth-child(4),
+/* Row 2: 1 speaker, centered — pulled up for overlap */
+.speakers-grid .speaker:nth-child(3) {
+  grid-column: 3 / span 2;
+  margin-top: -8.5rem;
+}
+
+/* Row 3: 2 speakers — pulled up for overlap */
+.speakers-grid .speaker:nth-child(4) {
+  grid-column: 1 / span 3;
+  margin-top: -8.5rem;
+}
 .speakers-grid .speaker:nth-child(5) {
-  grid-column: span 2;
+  grid-column: 4 / span 3;
+  margin-top: -8.5rem;
 }
 
 .speakers-logo-cloud {
@@ -1321,6 +1333,22 @@ body {
 
 .cloud-logo.no-color-hover:hover {
   filter: brightness(0) invert(1);
+}
+
+.cloud-logo.samsung-logo {
+  filter: invert(1) grayscale(1);
+}
+
+.cloud-logo.samsung-logo:hover {
+  filter: none;
+}
+
+.cloud-logo.streetlife-logo {
+  filter: invert(1) grayscale(1);
+}
+
+.cloud-logo.streetlife-logo:hover {
+  filter: none;
 }
 
 .cloud-logo-swap {
@@ -2334,10 +2362,12 @@ body {
   .speakers-grid .speaker:nth-child(3),
   .speakers-grid .speaker:nth-child(4) {
     grid-column: auto;
+    margin-top: 0;
   }
 
   .speakers-grid .speaker:nth-child(5) {
     grid-column: 1 / -1;
+    margin-top: 0;
   }
 
   .speaker {
@@ -2345,12 +2375,16 @@ body {
   }
 
   .speakers-logo-cloud {
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .cloud-logo {
-    max-width: 100px;
+    width: 30%;
     max-height: 50px;
+  }
+
+  .cloud-logo-swap {
+    width: 30%;
   }
 
   .speaker-photo {

@@ -489,32 +489,47 @@ function App() {
     }
   }, [handleMouseMove, handleMouseLeave])
 
+  // Auto-pulse: cycle a glow point across the network when mouse is idle
+  const [autoPulse, setAutoPulse] = useState({ x: 550, y: 450 })
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAutoPulse({
+        x: 100 + Math.random() * 900,
+        y: 50 + Math.random() * 800
+      })
+    }, 2000)
+    return () => clearInterval(interval)
+  }, [])
+
   // Calculate path opacity based on proximity to mouse
   const getPathStyle = (path, index) => {
     const baseOpacity = path.type === 'artery' ? 0.12 : path.type === 'street' ? 0.07 : 0.04
 
-    if (mousePos.x < 0) {
-      return { opacity: baseOpacity }
-    }
-
     // Sample points along path to check proximity
     const pathPoints = samplePathPoints(path.d)
-    let minDistance = Infinity
 
+    // Use mouse position if active, otherwise use auto-pulse
+    const isMouseActive = mousePos.x >= 0
+    const targetX = isMouseActive ? mousePos.x : autoPulse.x
+    const targetY = isMouseActive ? mousePos.y : autoPulse.y
+    const maxDistance = isMouseActive ? 120 : 200
+    const glowStrength = isMouseActive ? 0.6 : 0.4
+
+    let minDistance = Infinity
     for (const point of pathPoints) {
-      const dx = mousePos.x - point.x
-      const dy = mousePos.y - point.y
+      const dx = targetX - point.x
+      const dy = targetY - point.y
       const dist = Math.sqrt(dx * dx + dy * dy)
       minDistance = Math.min(minDistance, dist)
     }
 
-    const maxDistance = 120
     const proximity = Math.max(0, 1 - minDistance / maxDistance)
-    const opacity = baseOpacity + proximity * 0.6
+    const opacity = baseOpacity + proximity * glowStrength
 
     return {
       opacity,
-      filter: proximity > 0.3 ? `drop-shadow(0 0 ${proximity * 6}px var(--accent))` : 'none'
+      filter: proximity > 0.3 ? `drop-shadow(0 0 ${proximity * 6}px var(--accent))` : 'none',
+      transition: isMouseActive ? 'none' : 'opacity 1.5s ease, filter 1.5s ease'
     }
   }
 
@@ -575,7 +590,7 @@ function App() {
       <section className="context partners-context">
         {/* Partner Logos - Infinite Scroll Marquee */}
         <div className="partners-section">
-          <h3 className="partners-title section-marker">Backed by</h3>
+          <h3 className="partners-title section-marker">Partnering with</h3>
           <div className="marquee-container">
             <div className="marquee-track">
               {/* First set of logos */}
@@ -637,12 +652,26 @@ function App() {
                 <p className="speaker-role">Co-founder @ Everywhere Ventures,<br />ex-Managing Director @ Techstars</p>
               </div>
               <div className="speaker">
+                <a href="https://tech.cornell.edu/people/daniel-d-lee/" target="_blank" rel="noopener noreferrer">
+                  <img src="/team/daniel.png" alt="Daniel D. Lee" className="speaker-photo" />
+                </a>
+                <a href="https://tech.cornell.edu/people/daniel-d-lee/" target="_blank" rel="noopener noreferrer" className="speaker-name">Daniel D. Lee</a>
+                <p className="speaker-role">EVP @ Samsung Electronics,<br />ex-Global Head of AI @ Samsung Research</p>
+              </div>
+              <div className="speaker">
+                <a href="https://www.linkedin.com/in/sonamvelani/" target="_blank" rel="noopener noreferrer">
+                  <img src="/team/sonam.png" alt="Sonam Velani" className="speaker-photo" />
+                </a>
+                <a href="https://www.linkedin.com/in/sonamvelani/" target="_blank" rel="noopener noreferrer" className="speaker-name">Sonam Velani</a>
+                <p className="speaker-role">Co-founder @ Streetlife Ventures,<br />ex-The World Bank</p>
+              </div>
+              {/* <div className="speaker">
                 <a href="https://www.arielnoyman.com/" target="_blank" rel="noopener noreferrer">
                   <img src="/team/ariel_noyman.png" alt="Ariel Noyman" className="speaker-photo" />
                 </a>
                 <a href="https://www.arielnoyman.com/" target="_blank" rel="noopener noreferrer" className="speaker-name">Ariel Noyman</a>
                 <p className="speaker-role">MIT Media Lab,<br />City Science Lab</p>
-              </div>
+              </div> */}
               <div className="speaker">
                 <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer">
                   <img src="/team/ariel.png" alt="Ariel Kennan" className="speaker-photo" />
@@ -650,27 +679,29 @@ function App() {
                 <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer" className="speaker-name">Ariel Kennan</a>
                 <p className="speaker-role">Georgetown's Beeck Center for Social Impact + Innovation,<br />ex-Design @ Google's Sidewalk Labs</p>
               </div>
-              <div className="speaker">
+              {/* <div className="speaker">
                 <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer">
                   <img src="/team/wendy.png" alt="Wendy Ju" className="speaker-photo" />
                 </a>
                 <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer" className="speaker-name">Wendy Ju</a>
                 <p className="speaker-role">Cornell Tech and AAP,<br />ex-Director @ Stanford Center for Design Research</p>
-              </div>
+              </div> */}
             </div>
             <div className="speakers-logo-cloud">
               <img src="/logo/techstars.png" alt="Techstars" className="cloud-logo no-color-hover" />
-              <span className="cloud-logo-swap">
-                <img src="/logo/everywhere.png" alt="Everywhere Ventures" className="cloud-logo cloud-logo-default" />
-                <img src="/logo/everywhere.jpg" alt="Everywhere Ventures" className="cloud-logo cloud-logo-hover" />
-              </span>
               <img src="/logo/media_lab.png" alt="MIT Media Lab" className="cloud-logo no-color-hover" />
               <img src="/logo/google.png" alt="Google" className="cloud-logo" />
+              <img src="/logo/samsung.png" alt="Samsung" className="cloud-logo samsung-logo" style={{transform: 'scale(1.3)'}} />
               <img src="/logo/sidewalk.png" alt="Sidewalk Labs" className="cloud-logo no-color-hover" />
               <img src="/logo/stanford.png" alt="Stanford" className="cloud-logo" />
               <img src="/logo/beeck.png" alt="Beeck Center" className="cloud-logo" />
               <img src="/logo/Foursquare_logo.png" alt="Foursquare" className="cloud-logo" />
               <img src="/logo/hopscotch.png" alt="Hopscotch Labs" className="cloud-logo" style={{transform: 'scale(1.3)'}} />
+              <span className="cloud-logo-swap">
+                <img src="/logo/everywhere.png" alt="Everywhere Ventures" className="cloud-logo cloud-logo-default" />
+                <img src="/logo/everywhere.jpg" alt="Everywhere Ventures" className="cloud-logo cloud-logo-hover" />
+              </span>
+              <img src="/logo/streetlife.png" alt="Streetlife Ventures" className="cloud-logo streetlife-logo" style={{transform: 'scale(1.3)'}} />
             </div>
           </div>
         </div>
