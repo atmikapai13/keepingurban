@@ -609,6 +609,9 @@ function App() {
               <a href="https://opendataweek.nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo">
                 <img src="/logo/open_data_week.png" alt="Open Data Week" />
               </a>
+              <a href="https://aap.cornell.edu/aap-nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
+                <img src="/logo/cornell_aap.png" alt="Cornell AAP" style={{ height: '100px' }} />
+              </a>
               {/* Duplicate set for seamless loop */}
               <a href="https://tech.cornell.edu/" target="_blank" rel="noopener noreferrer" className="partner-logo">
                 <img src="/logo/cornell.png" alt="Cornell University" />
@@ -624,6 +627,9 @@ function App() {
               </a>
               <a href="https://opendataweek.nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo">
                 <img src="/logo/open_data_week.png" alt="Open Data Week" />
+              </a>
+              <a href="https://aap.cornell.edu/aap-nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
+                <img src="/logo/cornell_aap.png" alt="Cornell AAP" style={{ height: '100px' }} />
               </a>
             </div>
           </div>
