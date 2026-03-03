@@ -731,10 +731,15 @@ function ScheduleTerminal() {
                         )
                       }
                       // pitch
+                      const isPitchExpanded = expandedPanels.has(event.title)
                       return (
                         <div
                           key={eventIdx}
-                          className="schedule-event schedule-event-panel schedule-event-pitch"
+                          className={`schedule-event schedule-event-panel schedule-event-pitch ${isPitchExpanded ? 'schedule-panel-expanded' : ''}`}
+                          onClick={() => togglePanel(event.title)}
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); togglePanel(event.title) } }}
                         >
                           <div className="schedule-panel-scanlines" aria-hidden="true" />
                           <div className="schedule-panel-header">
@@ -747,7 +752,24 @@ function ScheduleTerminal() {
                               </div>
                               <div className="schedule-event-title">{event.title}</div>
                             </div>
+                            <div className="schedule-panel-header-right">
+                              <span className="schedule-panel-expand-hint" aria-hidden="true">
+                                {isPitchExpanded ? '[−]' : '[+]'}
+                              </span>
+                            </div>
                           </div>
+                          {isPitchExpanded && event.pitchSpeakers && event.pitchSpeakers.length > 0 && (
+                            <div className="schedule-panel-details">
+                              <div className="schedule-panel-speakers">
+                                {event.pitchSpeakers.map((speaker, si) => (
+                                  <div key={si} className="schedule-panel-speaker">
+                                    <span className="schedule-panel-speaker-name">{speaker.name}</span>
+                                    <span className="schedule-panel-speaker-org">{speaker.role ? `${speaker.role} @ ${speaker.company}` : speaker.company}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                         </div>
                       )
                     })}
@@ -1068,7 +1090,11 @@ function App() {
             <span className="signal-label"><span className="signal-title">Panels</span></span>
           </div>
         </div>
-        <div className="zones">
+        {/* Schedule
+        <h3 className="tracks-header section-marker"><TypewriterText>What&apos;s happenin&apos;?</TypewriterText></h3> */}
+        <ScheduleTerminal />
+
+        {/* <div className="zones">
           <article className="zone">
             <img src="/program/panels.png" alt="Multidisciplinary Panels" className="zone-image" />
             <div className="zone-index">01</div>
@@ -1089,15 +1115,11 @@ function App() {
 <br /><br />Non-linear art, novel interaction systems, glitch art, built environment models, data storytelling.</p>
           </article>
         </div>
-        <a href="https://www.midjourney.com/@wizardofwoz?tab=spotlight" target="_blank" rel="noopener noreferrer" className="zones-credit">* Picture Credits @wizardofwoz on Midjourney</a>
+        <a href="https://www.midjourney.com/@wizardofwoz?tab=spotlight" target="_blank" rel="noopener noreferrer" className="zones-credit">* Picture Credits @wizardofwoz on Midjourney</a> */}
 
         {/* Tracks - Rotating Carousel */}
         <h3 className="tracks-header section-marker"><TypewriterText>What counts, exactly?</TypewriterText></h3>
         <UrbanTechCarousel />
-
-        {/* Schedule */}
-        <h3 className="tracks-header section-marker"><TypewriterText>What&apos;s happenin&apos;?</TypewriterText></h3>
-        <ScheduleTerminal />
       </section>
 
       {/* You Belong Here */}
