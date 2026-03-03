@@ -439,7 +439,7 @@ const scheduleData = [
   {
     time: '9:30', endTime: '10:45', title: 'Panel 1: New Digital Interfaces', panelLabel: 'Multidisciplinary Panel', panelTopic: 'New Digital Interfaces', panelSubtopic: 'Future of the Media Economy and Emerging AR/VR Technologies.',
     detail: '45 min, 15 mins Q&A + buffer', venue: 'tata141', type: 'panel',
-    speakers: [{ name: 'Niko Koppel', org: 'Backslash', photo: '/panelists/interfaces_niko.png', logo: '/logo/backslash.png' }],
+    speakers: [{ name: 'Niko Koppel', org: 'Backslash Artist, VR Producer and Technologist @ NYT and CNN', photo: '/panelists/interfaces_niko.png', logo: '/logo/backslash.png' }],
   },
   {
     time: '10:45', endTime: '12:00', title: 'Fireside Chat', subtitle: 'Jenny Fielding & Dennis Crowley', detail: '30 mins, 10 min Q&A', venue: 'tata141', type: 'keynote',
