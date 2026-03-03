@@ -461,7 +461,7 @@ const scheduleData = [
     time: '2:00', endTime: '3:15', title: 'Panel 2: Human-Robot Co-existence', panelLabel: 'Multidisciplinary Panel', panelTopic: 'Human-Robot Co-existence', panelSubtopic: 'Human-robot interaction dynamics.',
     detail: '45 min, 15 mins Q&A + buffer', venue: 'tata141', type: 'panel',
     speakers: [
-      { name: 'Daniel L.', org: 'EVP and Global Head of AI @ Samsung Research, Professor @ NYU, Cornell Tech, UPenn', photo: '/team/daniel.png', logo: '/logo/samsung.png', noInvert: true, url: 'https://www.samsung.com/us/about-us/our-business/research/' },
+      { name: 'Daniel L.', org: 'EVP and Global Head of AI @ Samsung Research, Professor @ NYU, Cornell Tech, UPenn', photo: '/team/daniel.png', logo: '/logo/samsung.png', noInvert: true },
       { name: 'Josh M.', org: 'CTO @ Fauna Robotics, Research Scientist @ Meta & DeepMind', photo: '/panelists/robotics_josh.png', logo: '/logo/fauna_robotics.png', darkLogo: true, url: 'https://faunarobotics.com/' },
       { name: 'Michael S.', org: 'CEO / Director @ Volvox Labs, Director @ Gensler Architecture', photo: '/panelists/robotics_michael.png', logo: '/logo/volvox.png', darkLogo: true, url: 'https://www.volvoxlabs.com/' },
     ],
@@ -705,9 +705,9 @@ function ScheduleTerminal() {
                                     ))}
                                   </div>
                                 )}
-                                <span className="schedule-panel-expand-hint" aria-hidden="true">
-                                  {isKeynoteExpanded ? '[−]' : '[+]'}
-                                </span>
+                                {!isKeynoteExpanded && (
+                                  <span className="schedule-panel-expand-hint" aria-hidden="true">[+]</span>
+                                )}
                               </div>
                             </div>
                             {isKeynoteExpanded && (
