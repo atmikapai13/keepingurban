@@ -683,6 +683,40 @@ body {
   color: var(--gray-400);
 }
 
+/* Artist Gallery 2-column split */
+.artist-gallery-split {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto 7rem;
+}
+
+.artist-gallery-card {
+  flex: 1.2;
+}
+
+.artist-gallery-card .zone-image {
+  height: 380px;
+}
+
+.artist-gallery-speakers {
+  flex: 1;
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: center;
+  padding-top: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .artist-gallery-split {
+    flex-direction: column;
+  }
+  .artist-gallery-speakers {
+    justify-content: flex-start;
+  }
+}
+
 .zone-index {
   font-family: var(--font-mono);
   font-size: 0.7rem;

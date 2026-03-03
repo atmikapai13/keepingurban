@@ -1120,6 +1120,33 @@ function App() {
         {/* Tracks - Rotating Carousel */}
         <h3 className="tracks-header section-marker"><TypewriterText>What counts, exactly?</TypewriterText></h3>
         <UrbanTechCarousel />
+
+        {/* Artist Gallery */}
+        <h3 className="tracks-header section-marker"><TypewriterText>Artist Spotlight</TypewriterText></h3>
+        <div className="artist-gallery-split">
+          <article className="zone artist-gallery-card">
+            <img src="/program/demo.jpg" alt="Immersive Gallery" className="zone-image" />
+            <div className="zone-index">Open House</div>
+            <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Immersive Gallery</h3>
+            <p className="zone-description">Full-day exhibition featuring 15+ interactive demos and prototypes.<br /><br />Non-linear art, novel interaction systems, glitch art, built environment models, data storytelling.</p>
+          </article>
+          <div className="artist-gallery-speakers">
+            <div className="speaker">
+              <a href="https://www.volvoxlabs.com/" target="_blank" rel="noopener noreferrer">
+                <img src="/panelists/robotics_michael.png" alt="Michael Schneider" className="speaker-photo" />
+              </a>
+              <a href="https://www.volvoxlabs.com/" target="_blank" rel="noopener noreferrer" className="speaker-name">Michael Schneider</a>
+              <p className="speaker-role">CEO / Director @ Volvox Labs,<br />Director @ Gensler Architecture</p>
+            </div>
+            <div className="speaker">
+              <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer">
+                <img src="/panelists/interfaces_niko.png" alt="Niko Koppel" className="speaker-photo" />
+              </a>
+              <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer" className="speaker-name">Niko Koppel</a>
+              <p className="speaker-role">AR Visual Journalist, Backslash, VR Producer @ NYT</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* You Belong Here */}
