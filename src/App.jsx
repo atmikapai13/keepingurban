@@ -434,6 +434,337 @@ function UrbanTechCarousel() {
   )
 }
 
+// Schedule Terminal - Retro console schedule display
+const scheduleData = [
+  {
+    time: '9:30', endTime: '10:45', title: 'Panel 1: New Digital Interfaces', panelLabel: 'Multidisciplinary Panel', panelTopic: 'New Digital Interfaces', panelSubtopic: 'Future of the Media Economy and Emerging AR/VR Technologies.',
+    detail: '45 min, 15 mins Q&A + buffer', venue: 'tata141', type: 'panel',
+    speakers: [{ name: 'Niko Koppel', org: 'Backslash', photo: '/panelists/interfaces_niko.png', logo: '/logo/backslash.png' }],
+  },
+  {
+    time: '10:45', endTime: '12:00', title: 'Fireside Chat', subtitle: 'Jenny Fielding & Dennis Crowley', detail: '30 mins, 10 min Q&A', venue: 'tata141', type: 'keynote',
+    speakers: [
+      { name: 'Dennis C.', org: 'Co-Founder @ Hopscotch, Foursquare, Dodgeball, Stockade FC', photo: '/team/dennis.png', logo: '/logo/Foursquare_logo.png', logoHeight: 45 },
+      { name: 'Jenny F.', org: 'Co-founder & General Partner @ Everywhere Ventures, Managing Director @ Techstars', photo: '/team/jenny.png', logo: '/logo/everywhere.png', logoHeight: 65, darkLogo: true },
+    ],
+  },
+  { time: '12:00', endTime: '1:00', title: 'Lunch', detail: 'Cornell Tech Catering', venue: 'all', type: 'break' },
+  { time: '1:00', endTime: '2:00', title: 'Interfaces Startup Pitches', detail: '3 speakers: 20-30 mins', venue: 'tata141', type: 'pitch',
+    pitchSpeakers: [
+      { name: 'Kevin Yoo', company: 'Haptic', role: 'CEO', url: 'https://haptic.works/' },
+      { name: 'Adam Harder', company: 'Inpress', role: 'CEO', url: 'https://www.inpress.app/' },
+      { name: 'Sebastian Bidegain', company: 'Noware', role: '', url: 'https://www.noware.nyc/' },
+    ],
+  },
+  { time: '1:00', endTime: '2:00', title: 'Tinkerer Project Pitches', detail: '4 speakers: 15 minutes each', venue: 'tata151', type: 'pitch' },
+  {
+    time: '2:00', endTime: '3:15', title: 'Panel 2: Human-Robot Co-existence', panelLabel: 'Multidisciplinary Panel', panelTopic: 'Human-Robot Co-existence', panelSubtopic: 'Human-robot interaction dynamics.',
+    detail: '45 min, 15 mins Q&A + buffer', venue: 'tata141', type: 'panel',
+    speakers: [
+      { name: 'Daniel L.', org: 'EVP and Global Head of AI @ Samsung Research, Professor @ NYU, Cornell Tech, UPenn', photo: '/team/daniel.png', logo: '/logo/samsung.png', noInvert: true, url: 'https://www.samsung.com/us/about-us/our-business/research/' },
+      { name: 'Josh M.', org: 'CTO @ Fauna Robotics, Research Scientist @ Meta & DeepMind', photo: '/panelists/robotics_josh.png', logo: '/logo/fauna_robotics.png', darkLogo: true, url: 'https://faunarobotics.com/' },
+      { name: 'Michael S.', org: 'CEO / Director @ Volvox Labs, Director @ Gensler Architecture', photo: '/panelists/robotics_michael.png', logo: '/logo/volvox.png', darkLogo: true, url: 'https://www.volvoxlabs.com/' },
+    ],
+  },
+  {
+    time: '2:00', endTime: '3:15', title: 'Panel 3: Building for Belonging', panelLabel: 'Multidisciplinary Panel', panelTopic: 'Building for Belonging', panelSubtopic: 'Innovation within bureaucracy.',
+    detail: '45 min, 15 mins Q&A + buffer', venue: 'tata151', type: 'panel',
+    speakers: [
+      { name: 'Ariel K.', org: "Georgetown's Beeck Center for Social Impact, ex-Design @ Google's Sidewalk Labs", photo: '/team/ariel.png', logo: '/logo/beeck.png', noInvert: true },
+      { name: 'Ariel N.', org: 'Research Scientist @ MIT Media Lab, co-Founder @ City Science Living Labs', photo: '/team/ariel_noyman.png', logo: '/logo/media_lab.png', logoHeight: 45 },
+      { name: 'Sonam V.', org: 'Co-founder @ Streetlife Ventures, ex-World Bank', photo: '/team/sonam.png', logo: '/logo/streetlife.png', logoHeight: 45, noInvert: true },
+      { name: 'Virginia M.', org: 'NYC District 4 City Council Member, ex-PM @ Meta', photo: '/panelists/civic_maloney.png', logo: '/logo/sidewalk.png' },
+    ],
+  },
+  { time: '3:15', endTime: '4:00', title: 'Open Gallery Walk', detail: 'Coffee Break', venue: 'all', type: 'break' },
+  { time: '4:00', endTime: '5:00', title: 'Robotics Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata141', type: 'pitch' },
+  { time: '4:00', endTime: '5:00', title: 'Urban Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata151', type: 'pitch' },
+]
+
+const scheduleTabs = [
+  { id: 'all', label: 'ALL' },
+]
+
+const venueLabels = { tata141: 'TATA 141', tata151: 'TATA 151' }
+
+function ScheduleTerminal() {
+  const [activeTab, setActiveTab] = useState('all')
+  const [glitching, setGlitching] = useState(false)
+  const terminalRef = useRef(null)
+  const [visible, setVisible] = useState(false)
+  const [expandedPanels, setExpandedPanels] = useState(new Set())
+
+  useEffect(() => {
+    const el = terminalRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  const handleTabSwitch = (tabId) => {
+    if (tabId === activeTab) return
+    setGlitching(true)
+    setTimeout(() => {
+      setActiveTab(tabId)
+      setGlitching(false)
+    }, 150)
+  }
+
+  const togglePanel = (title) => {
+    const event = scheduleData.find(e => e.title === title)
+    const siblings = event
+      ? scheduleData.filter(e => e.time === event.time && e.endTime === event.endTime && (e.type === 'panel' || e.type === 'pitch' || e.type === 'keynote'))
+      : [{ title }]
+    setExpandedPanels(prev => {
+      const next = new Set(prev)
+      const expanding = !next.has(title)
+      siblings.forEach(s => {
+        if (expanding) next.add(s.title)
+        else next.delete(s.title)
+      })
+      return next
+    })
+  }
+
+  const filtered = activeTab === 'all'
+    ? scheduleData
+    : scheduleData.filter(e => e.venue === activeTab || e.venue === 'all')
+
+  // Group events by time slot for side-by-side display
+  const timeSlots = []
+  const seen = new Set()
+  filtered.forEach(event => {
+    const key = event.time + '-' + event.endTime
+    if (!seen.has(key)) {
+      seen.add(key)
+      timeSlots.push({
+        time: event.time,
+        endTime: event.endTime,
+        events: filtered.filter(e => e.time === event.time && e.endTime === event.endTime)
+      })
+    }
+  })
+
+  return (
+    <div className={`schedule-terminal ${visible ? 'schedule-visible' : ''}`} ref={terminalRef}>
+      {/* Terminal title bar */}
+      <div className="schedule-titlebar">
+        <div className="schedule-dots">
+          <span className="schedule-dot-red" />
+          <span className="schedule-dot-yellow" />
+          <span className="schedule-dot-green" />
+        </div>
+        <span className="schedule-titlebar-text">&gt; SCHEDULE_</span>
+      </div>
+
+      {/* Tabs */}
+      <div className="schedule-tabs">
+        {scheduleTabs.map(tab => (
+          <button
+            key={tab.id}
+            className={`schedule-tab ${activeTab === tab.id ? 'schedule-tab-active' : ''}`}
+            onClick={() => handleTabSwitch(tab.id)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Terminal content */}
+      <div className={`schedule-content ${glitching ? 'schedule-glitch' : ''}`}>
+        <div className="schedule-scanlines" aria-hidden="true" />
+
+        <div className="schedule-main-layout">
+            <div className="schedule-slots-col">
+            {timeSlots.map((slot, slotIdx) => {
+              const isBreak = slot.events.length === 1 && slot.events[0].type === 'break'
+              if (isBreak) {
+                return (
+                  <div key={slotIdx} className="schedule-slot schedule-slot-break" style={{ transitionDelay: `${slotIdx * 0.07}s` }}>
+                    <div className="schedule-slot-time">
+                      {slot.time} &ndash; {slot.endTime}
+                    </div>
+                    <div className="schedule-break">
+                      <span className="schedule-break-line" />
+                      <span className="schedule-break-text">
+                        {slot.events[0].title.toUpperCase()}
+                      </span>
+                      <span className="schedule-break-line" />
+                    </div>
+                  </div>
+                )
+              }
+              return (
+                <div key={slotIdx} className="schedule-slot" style={{ transitionDelay: `${slotIdx * 0.07}s` }}>
+                  <div className="schedule-slot-time">
+                    {slot.time} &ndash; {slot.endTime}
+                  </div>
+                  <div className="schedule-slot-events">
+                    {slot.events.map((event, eventIdx) => {
+                      if (event.type === 'panel') {
+                        const isExpanded = expandedPanels.has(event.title)
+                        const hasLogos = event.speakers && event.speakers.some(s => s.logo)
+                        return (
+                          <div
+                            key={eventIdx}
+                            className={`schedule-event schedule-event-panel ${isExpanded ? 'schedule-panel-expanded' : ''}`}
+                            onClick={() => togglePanel(event.title)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); togglePanel(event.title) } }}
+                          >
+                            <div className="schedule-panel-scanlines" aria-hidden="true" />
+                            <div className="schedule-panel-header">
+                              <div className="schedule-panel-header-left">
+                                <div className="schedule-panel-label">
+                                  {event.panelLabel}
+                                  {venueLabels[event.venue] && (
+                                    <span className="schedule-panel-venue"> &middot; {venueLabels[event.venue]}</span>
+                                  )}
+                                </div>
+                                <div className="schedule-event-title">{event.panelTopic}</div>
+                              </div>
+                              <div className="schedule-panel-header-right">
+                                <span className="schedule-panel-expand-hint" aria-hidden="true">
+                                  {isExpanded ? '[−]' : '[+]'}
+                                </span>
+                              </div>
+                            </div>
+                            {isExpanded && (
+                              <div className="schedule-panel-details">
+                                {event.panelSubtopic && (
+                                  <div className="schedule-panel-subtopic">{event.panelSubtopic}</div>
+                                )}
+                                {event.speakers && event.speakers.length > 0 && (
+                                  <div className="schedule-panel-speakers">
+                                    {event.speakers.map((speaker, si) => (
+                                      <div key={si} className="schedule-panel-speaker">
+                                        {speaker.photo && (
+                                          <img
+                                            src={speaker.photo}
+                                            alt={speaker.name}
+                                            className="schedule-panel-speaker-photo"
+                                          />
+                                        )}
+                                        <span className="schedule-panel-speaker-name">{speaker.name}</span>
+                                        <span className="schedule-panel-speaker-org">{speaker.org}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                                {hasLogos && (
+                                  <div className="schedule-panel-logos">
+                                    {event.speakers.filter(s => s.logo).map((s, i) => (
+                                      <a key={i} href={s.url || '#'} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}><img src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} /></a>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        )
+                      }
+                      if (event.type === 'keynote') {
+                        const isKeynoteExpanded = expandedPanels.has(event.title)
+                        const hasKeynoteLogos = event.speakers && event.speakers.some(s => s.logo)
+                        return (
+                          <div
+                            key={eventIdx}
+                            className={`schedule-event schedule-event-panel ${isKeynoteExpanded ? 'schedule-panel-expanded' : ''}`}
+                            onClick={() => togglePanel(event.title)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); togglePanel(event.title) } }}
+                          >
+                            <div className="schedule-panel-scanlines" aria-hidden="true" />
+                            <div className="schedule-panel-header">
+                              <div className="schedule-panel-header-left">
+                                <div className="schedule-panel-label">
+                                  {event.title}
+                                  {venueLabels[event.venue] && (
+                                    <span className="schedule-panel-venue"> &middot; {venueLabels[event.venue]}</span>
+                                  )}
+                                </div>
+                                {event.subtitle && (
+                                  <div className="schedule-event-title">{event.subtitle}</div>
+                                )}
+                              </div>
+                              <div className="schedule-panel-header-right">
+                                {isKeynoteExpanded && hasKeynoteLogos && (
+                                  <div className="schedule-panel-logos" style={{ marginTop: 0 }}>
+                                    {event.speakers.filter(s => s.logo).map((s, i) => (
+                                      <a key={i} href={s.url || '#'} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}><img src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} /></a>
+                                    ))}
+                                  </div>
+                                )}
+                                <span className="schedule-panel-expand-hint" aria-hidden="true">
+                                  {isKeynoteExpanded ? '[−]' : '[+]'}
+                                </span>
+                              </div>
+                            </div>
+                            {isKeynoteExpanded && (
+                              <div className="schedule-panel-details">
+                                {event.speakers && event.speakers.length > 0 && (
+                                  <div className="schedule-panel-speakers">
+                                    {event.speakers.map((speaker, si) => (
+                                      <div key={si} className="schedule-panel-speaker">
+                                        {speaker.photo && (
+                                          <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo" />
+                                        )}
+                                        <span className="schedule-panel-speaker-name">{speaker.name}</span>
+                                        <span className="schedule-panel-speaker-org">{speaker.org}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        )
+                      }
+                      // pitch
+                      return (
+                        <div
+                          key={eventIdx}
+                          className="schedule-event schedule-event-panel schedule-event-pitch"
+                        >
+                          <div className="schedule-panel-scanlines" aria-hidden="true" />
+                          <div className="schedule-panel-header">
+                            <div className="schedule-panel-header-left">
+                              <div className="schedule-panel-label">
+                                Pitches
+                                {venueLabels[event.venue] && (
+                                  <span className="schedule-panel-venue"> &middot; {venueLabels[event.venue]}</span>
+                                )}
+                              </div>
+                              <div className="schedule-event-title">{event.title}</div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              )
+            })}
+            </div>
+          </div>
+
+        {/* Blinking cursor */}
+        <div className="schedule-cursor">_</div>
+      </div>
+    </div>
+  )
+}
+
 function App() {
   const [mousePos, setMousePos] = useState({ x: -1, y: -1 })
   const heroRef = useRef(null)
@@ -699,15 +1030,14 @@ function App() {
               <img src="/logo/google.png" alt="Google" className="cloud-logo" />
               <img src="/logo/samsung.png" alt="Samsung" className="cloud-logo samsung-logo" style={{transform: 'scale(1.3)'}} />
               <img src="/logo/sidewalk.png" alt="Sidewalk Labs" className="cloud-logo no-color-hover" />
-              <img src="/logo/stanford.png" alt="Stanford" className="cloud-logo" />
-              <img src="/logo/beeck.png" alt="Beeck Center" className="cloud-logo" />
+              <img src="/logo/stanford.png" alt="Stanford" className="cloud-logo" style={{transform: 'scale(0.7)'}} />
+              <img src="/logo/streetlife.png" alt="Streetlife Ventures" className="cloud-logo streetlife-logo" />
               <img src="/logo/Foursquare_logo.png" alt="Foursquare" className="cloud-logo" />
               <img src="/logo/hopscotch.png" alt="Hopscotch Labs" className="cloud-logo" style={{transform: 'scale(1.3)'}} />
               <span className="cloud-logo-swap">
                 <img src="/logo/everywhere.png" alt="Everywhere Ventures" className="cloud-logo cloud-logo-default" />
                 <img src="/logo/everywhere.jpg" alt="Everywhere Ventures" className="cloud-logo cloud-logo-hover" />
               </span>
-              <img src="/logo/streetlife.png" alt="Streetlife Ventures" className="cloud-logo streetlife-logo" style={{transform: 'scale(1.3)'}} />
             </div>
           </div>
         </div>
@@ -764,6 +1094,10 @@ function App() {
         {/* Tracks - Rotating Carousel */}
         <h3 className="tracks-header section-marker"><TypewriterText>What counts, exactly?</TypewriterText></h3>
         <UrbanTechCarousel />
+
+        {/* Schedule */}
+        <h3 className="tracks-header section-marker"><TypewriterText>What&apos;s happenin&apos;?</TypewriterText></h3>
+        <ScheduleTerminal />
       </section>
 
       {/* You Belong Here */}
