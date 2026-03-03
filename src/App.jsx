@@ -731,15 +731,10 @@ function ScheduleTerminal() {
                         )
                       }
                       // pitch
-                      const isPitchExpanded = expandedPanels.has(event.title)
                       return (
                         <div
                           key={eventIdx}
-                          className={`schedule-event schedule-event-panel schedule-event-pitch ${isPitchExpanded ? 'schedule-panel-expanded' : ''}`}
-                          onClick={() => togglePanel(event.title)}
-                          role="button"
-                          tabIndex={0}
-                          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); togglePanel(event.title) } }}
+                          className="schedule-event schedule-event-panel schedule-event-pitch"
                         >
                           <div className="schedule-panel-scanlines" aria-hidden="true" />
                           <div className="schedule-panel-header">
@@ -752,24 +747,7 @@ function ScheduleTerminal() {
                               </div>
                               <div className="schedule-event-title">{event.title}</div>
                             </div>
-                            <div className="schedule-panel-header-right">
-                              <span className="schedule-panel-expand-hint" aria-hidden="true">
-                                {isPitchExpanded ? '[−]' : '[+]'}
-                              </span>
-                            </div>
                           </div>
-                          {isPitchExpanded && event.pitchSpeakers && event.pitchSpeakers.length > 0 && (
-                            <div className="schedule-panel-details">
-                              <div className="schedule-panel-speakers">
-                                {event.pitchSpeakers.map((speaker, si) => (
-                                  <div key={si} className="schedule-panel-speaker">
-                                    <span className="schedule-panel-speaker-name">{speaker.name}</span>
-                                    <span className="schedule-panel-speaker-org">{speaker.role ? `${speaker.role} @ ${speaker.company}` : speaker.company}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
                         </div>
                       )
                     })}
