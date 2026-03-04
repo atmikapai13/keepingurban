@@ -439,12 +439,15 @@ const scheduleData = [
   {
     time: '9:30', endTime: '10:45', title: 'Panel 1: New Digital Interfaces', panelLabel: 'Multidisciplinary Panel', panelTopic: 'New Digital Interfaces', panelSubtopic: 'Future of the Media Economy and Emerging AR/VR Technologies.',
     detail: '45 min, 15 mins Q&A + buffer', venue: 'tata141', type: 'panel',
-    speakers: [{ name: 'Niko Koppel', org: 'Backslash Artist, VR Producer and Technologist @ NYT and CNN', photo: '/panelists/interfaces_niko.png', logo: '/logo/backslash.png' }],
+    speakers: [
+      { name: 'Adaora Udoji', org: 'ex-VP @ PBS, RLab, Journalist @ ABC & CNN, Filmmaker & Juror @ Sundance, Tribeca, TIFF', photo: '/panelists/interfaces_adaora.png', logo: '/logo/pbs.png', logo2: '/logo/sundance.png' },
+      { name: 'Niko Koppel', org: 'Backslash Artist, VR Producer and Technologist @ NYT and CNN', photo: '/panelists/interfaces_niko.png', logo: '/logo/backslash.png' },
+    ],
   },
   {
     time: '10:45', endTime: '12:00', title: 'Fireside Chat', subtitle: 'Jenny Fielding & Dennis Crowley', detail: '30 mins, 10 min Q&A', venue: 'tata141', type: 'keynote',
     speakers: [
-      { name: 'Dennis C.', org: 'Co-Founder @ Hopscotch, Foursquare, Dodgeball, Stockade FC', photo: '/team/dennis.png', logo: '/logo/Foursquare_logo.png', logoHeight: 45 },
+      { name: 'Dennis C.', org: 'Co-Founder @ Hopscotch, Foursquare, Dodgeball, Stockade FC', photo: '/team/dennis.png', logo: '/logo/Foursquare_logo.png', logoHeight: 45, noInvert: true },
       { name: 'Jenny F.', org: 'Co-founder & General Partner @ Everywhere Ventures, Managing Director @ Techstars', photo: '/team/jenny.png', logo: '/logo/everywhere.png', logoHeight: 65, darkLogo: true },
     ],
   },
@@ -662,9 +665,10 @@ function ScheduleTerminal() {
                                 )}
                                 {hasLogos && (
                                   <div className="schedule-panel-logos">
-                                    {event.speakers.filter(s => s.logo).map((s, i) => (
-                                      <a key={i} href={s.url || '#'} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}><img src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} /></a>
-                                    ))}
+                                    {event.speakers.filter(s => s.logo).flatMap((s, i) => [
+                                      <img key={i} src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} />,
+                                      ...(s.logo2 ? [<img key={`${i}-2`} src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} />] : []),
+                                    ])}
                                   </div>
                                 )}
                               </div>
@@ -700,9 +704,10 @@ function ScheduleTerminal() {
                               <div className="schedule-panel-header-right">
                                 {isKeynoteExpanded && hasKeynoteLogos && (
                                   <div className="schedule-panel-logos" style={{ marginTop: 0 }}>
-                                    {event.speakers.filter(s => s.logo).map((s, i) => (
-                                      <a key={i} href={s.url || '#'} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}><img src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} /></a>
-                                    ))}
+                                    {event.speakers.filter(s => s.logo).flatMap((s, i) => [
+                                      <img key={i} src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} />,
+                                      ...(s.logo2 ? [<img key={`${i}-2`} src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} />] : []),
+                                    ])}
                                   </div>
                                 )}
                                 {!isKeynoteExpanded && (
@@ -913,7 +918,7 @@ function App() {
         <div className="nav-cta-buttons">
           <a href="https://forms.gle/CaigJ8xr1Gj4JGJaA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Artist Call</a>
           <a href="https://forms.gle/YwJjzQFw2z2EJwNRA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Startup / Tinkerer Pitches</a>
-          <a href="https://forms.gle/gGeJFiEhtLUZ7Md79" target="_blank" rel="noopener noreferrer" className="cta-btn cta-outline">Attend</a>
+          <a href="https://luma.com/p202e71l" target="_blank" rel="noopener noreferrer" className="cta-btn cta-outline">Attend</a>
         </div>
       </nav>
 
@@ -1173,10 +1178,12 @@ function App() {
         <div className="footer-content">
           <p className="footer-mark">Keeping it <span style={{color: '#ff3d00'}}>Urban</span> 2026</p>
           <a
-            href="mailto:aap253@cornell.edu,msh334@cornell.edu?subject=Keeping it Urban Inquiry"
+            href="https://calendar.app.google/uftQ7pSVw5x32Fq1A"
+            target="_blank"
+            rel="noopener noreferrer"
             className="footer-contact"
           >
-           Collaborate With Us
+           Chat With Us
           </a>
         </div>
       </footer>
