@@ -1710,7 +1710,10 @@ body {
     padding: var(--space-sm);
   }
   .register-embed iframe {
-    height: 600px;
+    height: 750px;
+  }
+  .schedule-break-time {
+    display: none;
   }
 }
 

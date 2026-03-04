@@ -592,7 +592,7 @@ function ScheduleTerminal() {
               if (isBreak) {
                 return (
                   <div key={slotIdx} className="schedule-slot schedule-slot-break" style={{ transitionDelay: `${slotIdx * 0.07}s` }}>
-                    <div className="schedule-slot-time">
+                    <div className="schedule-slot-time schedule-break-time">
                       {slot.time} &ndash; {slot.endTime}
                     </div>
                     <div className="schedule-break">
