@@ -1100,6 +1100,29 @@ function App() {
         </div>
         <a href="https://www.midjourney.com/@wizardofwoz?tab=spotlight" target="_blank" rel="noopener noreferrer" className="zones-credit">* Picture Credits @wizardofwoz on Midjourney</a> */}
 
+      </section>
+
+      {/* Register */}
+      <section className="register-section" id="register">
+        <h2 className="section-marker"><TypewriterText>Register Here</TypewriterText></h2>
+        <div className="register-embed">
+          <iframe
+            src="https://luma.com/embed/event/evt-wHAPSOlDgofkjku/simple"
+            width="100%"
+            height="350"
+            frameBorder="0"
+            scrolling="no"
+            style={{ border: 'none', borderRadius: '4px', overflow: 'hidden' }}
+            allow="fullscreen; payment"
+            aria-hidden="false"
+            tabIndex="0"
+            title="Register for Event"
+          />
+        </div>
+      </section>
+
+      {/* Program continued */}
+      <section className="program">
         {/* Tracks - Rotating Carousel */}
         <h3 className="tracks-header section-marker"><TypewriterText>What counts, exactly?</TypewriterText></h3>
         <UrbanTechCarousel />
@@ -1115,7 +1138,6 @@ function App() {
             { title: 'Urbanists & Organizers', tagline: 'Move from policy papers to pilots. Stay fluent in the tech reshaping cities.' },
             { title: 'Artists & Designers', tagline: 'Collaborate with engineers who build tools, not just use them.' },
             { title: 'Engineers & Tinkerers', tagline: 'Demo prototypes to partners who can greenlight pilots.' },
-          
           ].map((card, i) => (
             <article key={i} className="rolodex-card">
               <div className="rolodex-card-inner">

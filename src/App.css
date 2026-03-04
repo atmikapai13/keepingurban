@@ -1677,6 +1677,44 @@ body {
 }
 
 /* =========================================
+   REGISTER
+   ========================================= */
+.register-section {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.register-embed {
+  display: flex;
+  justify-content: center;
+}
+
+.register-embed iframe {
+  max-width: 100%;
+  filter: invert(1) hue-rotate(180deg);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.register-embed iframe::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .register-section {
+    overflow: visible;
+    padding: var(--space-sm);
+  }
+  .register-embed iframe {
+    height: 600px;
+  }
+}
+
+/* =========================================
    YOU BELONG HERE
    ========================================= */
 .belong {
