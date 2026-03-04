@@ -277,7 +277,7 @@ body {
 
 .hero-event-info {
   position: absolute;
-  bottom: var(--space-md);
+  bottom: calc(var(--space-md) + 10px);
   right: var(--space-md);
   text-align: right;
   z-index: 2;
@@ -300,6 +300,18 @@ body {
   font-size: clamp(0.45rem, 0.8vw, 0.55rem);
   letter-spacing: 0.1em;
   color: var(--gray-400);
+  margin-bottom: var(--space-sm);
+}
+
+.hero-funded-text a {
+  text-decoration: none;
+}
+
+.hero-funded-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(0.45rem, 0.8vw, 0.55rem);
+  letter-spacing: 0.1em;
+  color: var(--gray-600);
 }
 
 /* Legacy hero styles kept for other sections */
@@ -569,6 +581,14 @@ body {
 
 .partner-logo.no-color-hover:hover img {
   filter: brightness(0) invert(1);
+}
+
+.partner-logo.gpsa-logo img {
+  filter: grayscale(1) brightness(1.5);
+}
+
+.partner-logo.gpsa-logo:hover img {
+  filter: grayscale(1) brightness(1.5);
 }
 
 /* =========================================

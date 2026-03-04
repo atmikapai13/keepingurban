@@ -909,6 +909,7 @@ function App() {
         <div className="hero-event-info">
           <p className="hero-date">Friday, March 20, 2026 · <span className="hero-event-name">NYC Open Data Week</span></p>
           <p className="hero-location-text">Cornell Tech, NYC</p>
+          <p className="hero-funded-text">Supported by <a href="https://assembly.cornell.edu/shared-governance/graduate-and-professional-student-assembly" target="_blank" rel="noopener noreferrer" className="hero-event-name">Cornell GPSA</a></p>
         </div>
 
       </header>
@@ -948,6 +949,9 @@ function App() {
               <a href="https://aap.cornell.edu/aap-nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
                 <img src="/logo/cornell_aap.png" alt="Cornell AAP" style={{ height: '100px' }} />
               </a>
+              <a href="#" className="partner-logo gpsa-logo">
+                <img src="/logo/gpsa.png" alt="GPSA" />
+              </a>
               {/* Duplicate set for seamless loop */}
               <a href="https://tech.cornell.edu/" target="_blank" rel="noopener noreferrer" className="partner-logo">
                 <img src="/logo/cornell.png" alt="Cornell University" />
@@ -966,6 +970,9 @@ function App() {
               </a>
               <a href="https://aap.cornell.edu/aap-nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
                 <img src="/logo/cornell_aap.png" alt="Cornell AAP" style={{ height: '100px' }} />
+              </a>
+              <a href="#" className="partner-logo gpsa-logo">
+                <img src="/logo/gpsa.png" alt="GPSA" />
               </a>
             </div>
           </div>
@@ -1104,7 +1111,7 @@ function App() {
 
       {/* Register */}
       <section className="register-section" id="register">
-        <h2 className="section-marker"><TypewriterText>Register Here</TypewriterText></h2>
+        <h2 className="section-marker"><TypewriterText>Get Tickets -- We're selling out fast!</TypewriterText></h2>
         <div className="register-embed">
           <iframe
             src="https://luma.com/embed/event/evt-wHAPSOlDgofkjku/simple"
