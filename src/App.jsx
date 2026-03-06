@@ -981,9 +981,6 @@ function App() {
           <div className="marquee-container">
             <div className="marquee-track">
               {/* First set of logos */}
-              <a href="https://tech.cornell.edu/" target="_blank" rel="noopener noreferrer" className="partner-logo">
-                <img src="/logo/cornell.png" alt="Cornell University" />
-              </a>
               <a href="https://www.nyc.gov/content/oti/pages/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
                 <img src="/logo/nyc_oti.png" alt="NYC Office of Technology & Innovation" />
               </a>
@@ -995,17 +992,11 @@ function App() {
               </a>
               <a href="https://opendataweek.nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo">
                 <img src="/logo/open_data_week.png" alt="Open Data Week" />
-              </a>
-              <a href="https://aap.cornell.edu/aap-nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
-                <img src="/logo/cornell_aap.png" alt="Cornell AAP" style={{ height: '100px' }} />
               </a>
               <a href="#" className="partner-logo gpsa-logo">
                 <img src="/logo/gpsa.png" alt="GPSA" />
               </a>
               {/* Duplicate set for seamless loop */}
-              <a href="https://tech.cornell.edu/" target="_blank" rel="noopener noreferrer" className="partner-logo">
-                <img src="/logo/cornell.png" alt="Cornell University" />
-              </a>
               <a href="https://www.nyc.gov/content/oti/pages/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
                 <img src="/logo/nyc_oti.png" alt="NYC Office of Technology & Innovation" />
               </a>
@@ -1017,9 +1008,6 @@ function App() {
               </a>
               <a href="https://opendataweek.nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo">
                 <img src="/logo/open_data_week.png" alt="Open Data Week" />
-              </a>
-              <a href="https://aap.cornell.edu/aap-nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
-                <img src="/logo/cornell_aap.png" alt="Cornell AAP" style={{ height: '100px' }} />
               </a>
               <a href="#" className="partner-logo gpsa-logo">
                 <img src="/logo/gpsa.png" alt="GPSA" />
