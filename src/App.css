@@ -2672,8 +2672,20 @@ body {
   filter: none;
 }
 
+.schedule-panel-logo-noinvert {
+  filter: grayscale(1) brightness(1.2);
+}
 .schedule-panel-logo-noinvert:hover {
   filter: none;
+}
+.schedule-panel-logo-raw {
+  filter: none;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+.schedule-panel-logo-raw:hover {
+  filter: none;
+  opacity: 1;
 }
 
 .schedule-panel-header-right {
@@ -2778,6 +2790,23 @@ body {
   font-size: 0.6rem;
   color: var(--accent);
   line-height: 1.4;
+}
+
+.schedule-panel-speaker-photo-link {
+  transition: opacity 0.2s;
+}
+.schedule-panel-speaker-photo-link:hover {
+  opacity: 0.7;
+}
+
+a.schedule-panel-speaker-link {
+  text-decoration: none;
+  color: var(--accent);
+  transition: opacity 0.2s;
+}
+a.schedule-panel-speaker-link:hover {
+  opacity: 0.7;
+  text-decoration: underline;
 }
 
 .schedule-panel-speaker-org {

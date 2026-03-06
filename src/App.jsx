@@ -440,48 +440,60 @@ const scheduleData = [
     time: '9:30', endTime: '10:45', title: 'Panel 1: New Digital Interfaces', panelLabel: 'Multidisciplinary Panel', panelTopic: 'New Digital Interfaces', panelSubtopic: 'Future of the Media Economy and Emerging AR/VR Technologies.',
     detail: '45 min, 15 mins Q&A + buffer', venue: 'tata141', type: 'panel',
     speakers: [
-      { name: 'Adaora Udoji', org: 'ex-VP @ PBS, RLab, Journalist @ ABC & CNN, Filmmaker & Juror @ Sundance, Tribeca, TIFF', photo: '/panelists/interfaces_adaora.png', logo: '/logo/pbs.png', logo2: '/logo/sundance.png' },
-      { name: 'Niko Koppel', org: 'Backslash Artist, VR Producer and Technologist @ NYT and CNN', photo: '/panelists/interfaces_niko.png', logo: '/logo/backslash.png' },
+      { name: 'Adaora Udoji', org: 'ex-VP @ PBS, RLab, Journalist @ ABC & CNN, Filmmaker & Juror @ Sundance, Tribeca, TIFF', photo: '/panelists/interfaces_adaora.png', logo: '/logo/pbs.png', logo2: '/logo/sundance.png', url: 'https://www.newmuseum.org/person/2019-1-31-adaora-udoji/' },
+      { name: 'Niko Koppel', org: 'Backslash Artist, VR Producer and Technologist @ NYT and CNN', photo: '/panelists/interfaces_niko.png', logo: '/logo/backslash.png', url: 'https://www.nikokoppel.com' },
     ],
   },
   {
     time: '10:45', endTime: '12:00', title: 'Fireside Chat', subtitle: 'Jenny Fielding & Dennis Crowley', detail: '30 mins, 10 min Q&A', venue: 'tata141', type: 'keynote',
     speakers: [
-      { name: 'Dennis C.', org: 'Co-Founder @ Hopscotch, Foursquare, Dodgeball, Stockade FC', photo: '/team/dennis.png', logo: '/logo/Foursquare_logo.png', logoHeight: 45, noInvert: true },
-      { name: 'Jenny F.', org: 'Co-founder & General Partner @ Everywhere Ventures, Managing Director @ Techstars', photo: '/team/jenny.png', logo: '/logo/everywhere.png', logoHeight: 65, darkLogo: true },
+      { name: 'Dennis C.', org: 'Co-Founder @ Hopscotch, Foursquare, Dodgeball, Stockade FC', photo: '/team/dennis.png', logo: '/logo/Foursquare_logo.png', logoHeight: 45, noInvert: true, url: 'https://denniscrowley.com/' },
+      { name: 'Jenny F.', org: 'Co-founder & General Partner @ Everywhere Ventures, Managing Director @ Techstars', photo: '/team/jenny.png', logo: '/logo/everywhere.png', logoHeight: 65, darkLogo: true, url: 'https://www.linkedin.com/in/jennyfielding' },
     ],
   },
   { time: '12:00', endTime: '1:00', title: 'Lunch', detail: 'Cornell Tech Catering', venue: 'all', type: 'break' },
-  { time: '1:00', endTime: '2:00', title: 'Interfaces Startup Pitches', detail: '3 speakers: 20-30 mins', venue: 'tata141', type: 'pitch',
+  { time: '1:00', endTime: '2:00', title: 'Interfaces Startup Pitches', detail: '2 speakers: 20-30 mins', venue: 'tata141', type: 'pitch',
     pitchSpeakers: [
-      { name: 'Kevin Yoo', company: 'Haptic', role: 'CEO', url: 'https://haptic.works/' },
-      { name: 'Adam Harder', company: 'Inpress', role: 'CEO', url: 'https://www.inpress.app/' },
-      { name: 'Sebastian Bidegain', company: 'Noware', role: '', url: 'https://www.noware.nyc/' },
+      { name: 'Kevin Yoo', company: 'Haptic', role: 'CEO', url: 'https://haptic.works/', logo: '/logo/haptic_nav.webp', noInvert: true },
+      { name: 'Adam Harder', company: 'Inpress', role: 'CEO', url: 'https://www.inpress.app/', logo: '/logo/inpress.webp' },
     ],
   },
-  { time: '1:00', endTime: '2:00', title: 'Tinkerer Project Pitches', detail: '4 speakers: 15 minutes each', venue: 'tata151', type: 'pitch' },
+  { time: '1:00', endTime: '2:00', title: 'Tinkerer Project Pitches', detail: '4 speakers: 15 minutes each', venue: 'tata151', type: 'pitch',
+    pitchSpeakers: [
+      { company: 'Noware', url: 'https://www.noware.nyc/', logo: '/logo/noware.png', noInvert: true },
+      { company: 'Subway Builder', url: 'https://www.subwaybuilder.com/', logo: '/logo/subwaybuilder.png', rawLogo: true },
+    ],
+  },
   {
     time: '2:00', endTime: '3:15', title: 'Panel 2: Human-Robot Co-existence', panelLabel: 'Multidisciplinary Panel', panelTopic: 'Human-Robot Co-existence', panelSubtopic: 'Human-robot interaction dynamics.',
     detail: '45 min, 15 mins Q&A + buffer', venue: 'tata141', type: 'panel',
     speakers: [
-      { name: 'Daniel L.', org: 'EVP and Global Head of AI @ Samsung Research, Professor @ NYU, Cornell Tech, UPenn', photo: '/team/daniel.png', logo: '/logo/samsung.png', noInvert: true },
-      { name: 'Josh M.', org: 'CTO @ Fauna Robotics, Research Scientist @ Meta & DeepMind', photo: '/panelists/robotics_josh.png', logo: '/logo/fauna_robotics.png', darkLogo: true, url: 'https://faunarobotics.com/' },
-      { name: 'Michael S.', org: 'CEO / Director @ Volvox Labs, Director @ Gensler Architecture', photo: '/panelists/robotics_michael.png', logo: '/logo/volvox.png', darkLogo: true, url: 'https://www.volvoxlabs.com/' },
+      { name: 'Daniel L.', org: 'EVP and Global Head of AI @ Samsung Research, Professor @ NYU, Cornell Tech, UPenn', photo: '/team/daniel.png', logo: '/logo/samsung.png', noInvert: true, url: 'https://tech.cornell.edu/people/daniel-d-lee/' },
+      { name: 'Josh M.', org: 'CTO @ Fauna Robotics, Research Scientist @ Meta & DeepMind', photo: '/panelists/robotics_josh.png', logo: '/logo/fauna_robotics.png', darkLogo: true, url: 'https://www.linkedin.com/in/josh-merel-9222b72a2' },
+      { name: 'Michael S.', org: 'CEO / Director @ Volvox Labs, Director @ Gensler Architecture', photo: '/panelists/robotics_michael.png', logo: '/logo/volvox.png', darkLogo: true, url: 'https://www.linkedin.com/in/michaelluckschneider/' },
     ],
   },
   {
     time: '2:00', endTime: '3:15', title: 'Panel 3: Building for Belonging', panelLabel: 'Multidisciplinary Panel', panelTopic: 'Building for Belonging', panelSubtopic: 'Innovation within bureaucracy.',
     detail: '45 min, 15 mins Q&A + buffer', venue: 'tata151', type: 'panel',
     speakers: [
-      { name: 'Ariel K.', org: "Georgetown's Beeck Center for Social Impact, ex-Design @ Google's Sidewalk Labs", photo: '/team/ariel.png', logo: '/logo/beeck.png', noInvert: true },
-      { name: 'Ariel N.', org: 'Research Scientist @ MIT Media Lab, co-Founder @ City Science Living Labs', photo: '/team/ariel_noyman.png', logo: '/logo/media_lab.png', logoHeight: 45 },
-      { name: 'Sonam V.', org: 'Co-founder @ Streetlife Ventures, ex-World Bank', photo: '/team/sonam.png', logo: '/logo/streetlife.png', logoHeight: 45, noInvert: true },
-      { name: 'Virginia M.', org: 'NYC District 4 City Council Member, ex-PM @ Meta', photo: '/panelists/civic_maloney.png', logo: '/logo/sidewalk.png' },
+      { name: 'Ariel K.', org: "Georgetown's Beeck Center for Social Impact, ex-Design @ Google's Sidewalk Labs", photo: '/team/ariel.png', logo: '/logo/beeck.png', noInvert: true, url: 'https://linkedin.com/in/arielkennan' },
+      { name: 'Ariel N.', org: 'Research Scientist @ MIT Media Lab, co-Founder @ City Science Living Labs', photo: '/team/ariel_noyman.png', logo: '/logo/media_lab.png', logoHeight: 45, url: 'https://linkedin.com/in/arielnoyman' },
+      { name: 'Sonam V.', org: 'Co-founder @ Streetlife Ventures, ex-World Bank', photo: '/team/sonam.png', logo: '/logo/streetlife.png', logoHeight: 45, noInvert: true, url: 'https://www.linkedin.com/in/sonamvelani/' },
+      { name: 'Virginia M.', org: 'NYC District 4 City Council Member, ex-PM @ Meta', photo: '/panelists/civic_maloney.png', logo: '/logo/sidewalk.png', url: 'https://council.nyc.gov/district-4/' },
     ],
   },
   { time: '3:15', endTime: '4:00', title: 'Open Gallery Walk', detail: 'Coffee Break', venue: 'all', type: 'break' },
-  { time: '4:00', endTime: '5:00', title: 'Robotics Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata141', type: 'pitch' },
-  { time: '4:00', endTime: '5:00', title: 'Urban Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata151', type: 'pitch' },
+  { time: '4:00', endTime: '5:00', title: 'Robotics Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata141', type: 'pitch',
+    pitchSpeakers: [
+      { company: 'Root Access', url: 'https://rootaccess.ai/', logo: '/logo/root_access.png', noInvert: true },
+    ],
+  },
+  { time: '4:00', endTime: '5:00', title: 'Urban Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata151', type: 'pitch',
+    pitchSpeakers: [
+      { company: "It's Electric", url: 'https://itselectric.us/', logo: '/logo/its_electric.png', noInvert: true, logoHeight: 50 },
+    ],
+  },
 ]
 
 const scheduleTabs = [
@@ -651,13 +663,19 @@ function ScheduleTerminal() {
                                     {event.speakers.map((speaker, si) => (
                                       <div key={si} className="schedule-panel-speaker">
                                         {speaker.photo && (
-                                          <img
-                                            src={speaker.photo}
-                                            alt={speaker.name}
-                                            className="schedule-panel-speaker-photo"
-                                          />
+                                          speaker.url ? (
+                                            <a href={speaker.url} target="_blank" rel="noopener noreferrer">
+                                              <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo schedule-panel-speaker-photo-link" />
+                                            </a>
+                                          ) : (
+                                            <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo" />
+                                          )
                                         )}
-                                        <span className="schedule-panel-speaker-name">{speaker.name}</span>
+                                        {speaker.url ? (
+                                          <a href={speaker.url} target="_blank" rel="noopener noreferrer" className="schedule-panel-speaker-name schedule-panel-speaker-link">{speaker.name}</a>
+                                        ) : (
+                                          <span className="schedule-panel-speaker-name">{speaker.name}</span>
+                                        )}
                                         <span className="schedule-panel-speaker-org">{speaker.org}</span>
                                       </div>
                                     ))}
@@ -722,9 +740,19 @@ function ScheduleTerminal() {
                                     {event.speakers.map((speaker, si) => (
                                       <div key={si} className="schedule-panel-speaker">
                                         {speaker.photo && (
-                                          <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo" />
+                                          speaker.url ? (
+                                            <a href={speaker.url} target="_blank" rel="noopener noreferrer">
+                                              <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo schedule-panel-speaker-photo-link" />
+                                            </a>
+                                          ) : (
+                                            <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo" />
+                                          )
                                         )}
-                                        <span className="schedule-panel-speaker-name">{speaker.name}</span>
+                                        {speaker.url ? (
+                                          <a href={speaker.url} target="_blank" rel="noopener noreferrer" className="schedule-panel-speaker-name schedule-panel-speaker-link">{speaker.name}</a>
+                                        ) : (
+                                          <span className="schedule-panel-speaker-name">{speaker.name}</span>
+                                        )}
                                         <span className="schedule-panel-speaker-org">{speaker.org}</span>
                                       </div>
                                     ))}
@@ -736,10 +764,14 @@ function ScheduleTerminal() {
                         )
                       }
                       // pitch
+                      const isPitchExpanded = expandedPanels.has(event.title)
+                      const hasPitchSpeakers = event.pitchSpeakers && event.pitchSpeakers.length > 0
                       return (
                         <div
                           key={eventIdx}
-                          className="schedule-event schedule-event-panel schedule-event-pitch"
+                          className={`schedule-event schedule-event-panel schedule-event-pitch ${isPitchExpanded ? 'schedule-panel-expanded' : ''}`}
+                          onClick={hasPitchSpeakers ? () => togglePanel(event.title) : undefined}
+                          style={hasPitchSpeakers ? { cursor: 'pointer' } : undefined}
                         >
                           <div className="schedule-panel-scanlines" aria-hidden="true" />
                           <div className="schedule-panel-header">
@@ -752,7 +784,25 @@ function ScheduleTerminal() {
                               </div>
                               <div className="schedule-event-title">{event.title}</div>
                             </div>
+                            {hasPitchSpeakers && (
+                              <div className="schedule-panel-header-right">
+                                <span className="schedule-panel-expand-hint" aria-hidden="true">
+                                  {isPitchExpanded ? '[-]' : '[+]'}
+                                </span>
+                              </div>
+                            )}
                           </div>
+                          {isPitchExpanded && hasPitchSpeakers && (
+                            <div className="schedule-panel-details">
+                              <div className="schedule-panel-logos">
+                                {event.pitchSpeakers.filter(s => s.logo).map((s, i) => (
+                                  <a key={i} href={s.url} target="_blank" rel="noopener noreferrer">
+                                    <img src={s.logo} alt={s.company} className={`schedule-panel-logo${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}${s.rawLogo ? ' schedule-panel-logo-raw' : ''}`} style={{ height: s.logoHeight || 30 }} />
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                         </div>
                       )
                     })}
@@ -1111,7 +1161,7 @@ function App() {
 
       {/* Register */}
       <section className="register-section" id="register">
-        <h2 className="section-marker"><TypewriterText>Get Tickets -- We're selling out fast!</TypewriterText></h2>
+        <h2 className="section-marker"><TypewriterText>GET TICKETS!</TypewriterText></h2>
         <div className="register-embed">
           <iframe
             src="https://luma.com/embed/event/evt-wHAPSOlDgofkjku/simple"
