@@ -442,13 +442,14 @@ const scheduleData = [
     speakers: [
       { name: 'Adaora Udoji', org: 'ex-VP @ PBS, RLab, Journalist @ ABC & CNN, Filmmaker & Juror @ Sundance, Tribeca, TIFF', photo: '/panelists/interfaces_adaora.png', logo: '/logo/pbs.png', logo2: '/logo/sundance.png', url: 'https://www.newmuseum.org/person/2019-1-31-adaora-udoji/' },
       { name: 'Niko Koppel', org: 'Backslash Artist, VR Producer and Technologist @ NYT and CNN', photo: '/panelists/interfaces_niko.png', logo: '/logo/backslash.png', url: 'https://www.nikokoppel.com' },
+      { name: 'Mauhan M. Zonoozy', org: '2x Founder @ A Vinyl Bar in Shibuya, ex-Head of Innovation @ Spotify', photo: '/panelists/mauhan.webp', logo: '/logo/spotify.png', logo2: '/logo/shibuya.png', url:'https://www.linkedin.com/in/mauhan/' },
     ],
   },
   {
     time: '10:45', endTime: '12:00', title: 'Fireside Chat', subtitle: 'Jenny Fielding & Dennis Crowley', detail: '30 mins, 10 min Q&A', venue: 'tata141', type: 'keynote',
     speakers: [
-      { name: 'Dennis C.', org: 'Co-Founder @ Hopscotch, Foursquare, Dodgeball, Stockade FC', photo: '/team/dennis.png', logo: '/logo/Foursquare_logo.png', logoHeight: 45, noInvert: true, url: 'https://denniscrowley.com/' },
-      { name: 'Jenny F.', org: 'Co-founder & General Partner @ Everywhere Ventures, Managing Director @ Techstars', photo: '/team/jenny.png', logo: '/logo/everywhere.png', logoHeight: 65, darkLogo: true, url: 'https://www.linkedin.com/in/jennyfielding' },
+      { name: 'Dennis C.', org: 'Co-Founder @ Hopscotch, Foursquare, Dodgeball, Stockade FC', photo: '/panelists/dennis.png', logo: '/logo/Foursquare_logo.png', logoHeight: 45, noInvert: true, url: 'https://denniscrowley.com/' },
+      { name: 'Jenny F.', org: 'Co-founder & General Partner @ Everywhere Ventures, Managing Director @ Techstars', photo: '/panelists/jenny.png', logo: '/logo/everywhere.png', logoHeight: 65, darkLogo: true, url: 'https://www.linkedin.com/in/jennyfielding' },
     ],
   },
   { time: '12:00', endTime: '1:00', title: 'Lunch', detail: 'Cornell Tech Catering', venue: 'all', type: 'break' },
@@ -468,9 +469,10 @@ const scheduleData = [
     time: '2:00', endTime: '3:15', title: 'Panel 2: Human-Robot Co-existence', panelLabel: 'Multidisciplinary Panel', panelTopic: 'Human-Robot Co-existence', panelSubtopic: 'Human-robot interaction dynamics.',
     detail: '45 min, 15 mins Q&A + buffer', venue: 'tata141', type: 'panel',
     speakers: [
-      { name: 'Daniel L.', org: 'EVP and Global Head of AI @ Samsung Research, Professor @ NYU, Cornell Tech, UPenn', photo: '/team/daniel.png', logo: '/logo/samsung.png', noInvert: true, url: 'https://tech.cornell.edu/people/daniel-d-lee/' },
-      { name: 'Josh M.', org: 'CTO @ Fauna Robotics, Research Scientist @ Meta & DeepMind', photo: '/panelists/robotics_josh.png', logo: '/logo/fauna_robotics.png', darkLogo: true, url: 'https://www.linkedin.com/in/josh-merel-9222b72a2' },
-      { name: 'Michael S.', org: 'CEO / Director @ Volvox Labs, Director @ Gensler Architecture', photo: '/panelists/robotics_michael.png', logo: '/logo/volvox.png', darkLogo: true, url: 'https://www.linkedin.com/in/michaelluckschneider/' },
+      { name: 'Daniel L.', org: 'ex-Global Head of AI @ Samsung Research, Professor @ NYU, Cornell Tech, UPenn', photo: '/panelists/daniel.png', logo: '/logo/samsung.png', noInvert: true, url: 'https://tech.cornell.edu/people/daniel-d-lee/' },
+      { name: 'Josh M.', org: 'CTO @ Fauna Robotics, ex-Research @ Meta & DeepMind', photo: '/panelists/robotics_josh.png', logo: '/logo/fauna_robotics.png', darkLogo: true, url: 'https://www.linkedin.com/in/josh-merel-9222b72a2' },
+      { name: 'Michael S.', org: 'CEO / Director @ Media Architecture, Volvox Labs', photo: '/panelists/robotics_michael.png', logo: '/logo/volvox.png', darkLogo: true, url: 'https://www.linkedin.com/in/michaelluckschneider/' },
+      { name: 'Jacob HR', org: 'Co-Founder & Executive Director @ NY Robotics', photo: '/panelists/jacob.jpg', logo: '/logo/nyrobotics.png', noInvert: true },
     ],
   },
   {
@@ -478,8 +480,8 @@ const scheduleData = [
     detail: '45 min, 15 mins Q&A + buffer', venue: 'tata151', type: 'panel',
     speakers: [
       { name: 'Ariel K.', org: "Georgetown's Beeck Center for Social Impact, ex-Design @ Google's Sidewalk Labs", photo: '/team/ariel.png', logo: '/logo/beeck.png', noInvert: true, url: 'https://linkedin.com/in/arielkennan' },
-      { name: 'Ariel N.', org: 'Research Scientist @ MIT Media Lab, co-Founder @ City Science Living Labs', photo: '/team/ariel_noyman.png', logo: '/logo/media_lab.png', logoHeight: 45, url: 'https://linkedin.com/in/arielnoyman' },
-      { name: 'Sonam V.', org: 'Co-founder @ Streetlife Ventures, ex-World Bank', photo: '/team/sonam.png', logo: '/logo/streetlife.png', logoHeight: 45, noInvert: true, url: 'https://www.linkedin.com/in/sonamvelani/' },
+      { name: 'Ariel N.', org: 'Research Scientist @ MIT Media Lab, co-Founder @ City Science Living Labs', photo: '/panelists/ariel_noyman.png', logo: '/logo/media_lab.png', logoHeight: 45, url: 'https://linkedin.com/in/arielnoyman' },
+      { name: 'Sonam V.', org: 'Co-founder @ Streetlife Ventures, ex-World Bank', photo: '/panelists/sonam.png', logo: '/logo/streetlife.png', logoHeight: 45, noInvert: true, url: 'https://www.linkedin.com/in/sonamvelani/' },
       { name: 'Virginia M.', org: 'NYC District 4 City Council Member, ex-PM @ Meta', photo: '/panelists/civic_maloney.png', logo: '/logo/sidewalk.png', url: 'https://council.nyc.gov/district-4/' },
     ],
   },
@@ -820,6 +822,55 @@ function ScheduleTerminal() {
   )
 }
 
+const gallerySlides = [
+  {
+    img: '/program/demo.jpg',
+    alt: 'Immersive Gallery',
+    title: 'Immersive Gallery',
+    description: 'Full-day exhibition featuring 15+ interactive demos and prototypes.\n\nNon-linear art, novel interaction systems, glitch art, built environment models, data storytelling.',
+  },
+  {
+    img: '/program/niko_work.png',
+    alt: 'Niko Koppel Work',
+    title: 'Niko Koppel',
+    description: 'Community United Methodist Church in Pacific Palisades—tragically lost in this year’s Palisades Fire—is one of dozens of sites he captured in a navigable spatial record of the Palisades and Eaton fire aftermath. After 37,000+ acres burned and over 16,000+ structures destroyed across Pacific Palisades, Altadena, and Malibu, he 3D scanned homes, businesses, schools, and churches to convey the unimaginable scale of the disaster.',
+  },
+  {
+    img: '/program/volvox_work.jpg',
+    alt: 'Volvox Labs Work',
+    title: 'Volvox Labs',
+    description: 'Volvox partnered with Hovercraft to create a robot-driven basketball experience during the NBA All-Star Game in SF.',
+  },
+  {
+    img: '/program/tianyi_work.png',
+    alt: 'Tianyi Sun Work',
+    title: 'Tianyi Sun',
+    description: '40 Epochs is a hybrid-narrative film that explores spiritual displacement, fractured identity, and the unseen labor behind human-like technologies. Inspired by the artists’ own experience training an AI model to reproduce Sun’s voice, the film follows a voice donor in solitude as she performs reverent acts of reading, recording, and revising.What begins as ritual becomes rupture, as she reckons with the cost of entwining intimate gestures with the relentless demands of repetitive systems.'
+  },
+];
+
+function GallerySlideshow() {
+  const [idx, setIdx] = useState(0);
+  const slide = gallerySlides[idx];
+  return (
+    <article className="zone artist-gallery-card gallery-slideshow">
+      <div className="gallery-slide-img-wrap">
+        <img src={slide.img} alt={slide.alt} className="zone-image" />
+        <button className="gallery-arrow gallery-arrow--prev" onClick={() => setIdx((idx - 1 + gallerySlides.length) % gallerySlides.length)}>&#8592;</button>
+        <button className="gallery-arrow gallery-arrow--next" onClick={() => setIdx((idx + 1) % gallerySlides.length)}>&#8594;</button>
+        <div className="gallery-dots">
+          {gallerySlides.map((_, i) => (
+            <span key={i} className={`gallery-dot${i === idx ? ' gallery-dot--active' : ''}`} onClick={() => setIdx(i)} />
+          ))}
+        </div>
+      </div>
+      <div className="zone-index">{slide.label}</div>
+      <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>{slide.title}</h3>
+      <p className="zone-description">{slide.description}</p>
+    </article>
+  );
+}
+
 function App() {
   const [mousePos, setMousePos] = useState({ x: -1, y: -1 })
   const heroRef = useRef(null)
@@ -956,6 +1007,8 @@ function App() {
           Not about urbanism itself. <br></br> <br></br> Instead: <span className="tagline-highlight">the energy of tech, arts, and culture</span> born only from the density of cities.
         </p>
 
+        <a href="https://luma.com/p202e71l" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary hero-attend-btn">Attend</a>
+
         <div className="hero-event-info">
           <p className="hero-date">Friday, March 20, 2026 · <span className="hero-event-name">NYC Open Data Week</span></p>
           <p className="hero-location-text">Cornell Tech, NYC</p>
@@ -964,14 +1017,6 @@ function App() {
 
       </header>
 
-      {/* Sticky Nav Bar with CTA Buttons */}
-      <nav className="bottom-nav">
-        <div className="nav-cta-buttons">
-          <a href="https://forms.gle/CaigJ8xr1Gj4JGJaA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Artist Call</a>
-          <a href="https://forms.gle/YwJjzQFw2z2EJwNRA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Startup / Tinkerer Pitches</a>
-          <a href="https://luma.com/p202e71l" target="_blank" rel="noopener noreferrer" className="cta-btn cta-outline">Attend</a>
-        </div>
-      </nav>
 
       {/* Partners Section */}
       <section className="context partners-context">
@@ -1026,62 +1071,46 @@ function App() {
             <div className="speakers-grid">
               <div className="speaker">
                 <a href="https://linkedin.com/in/dpstyles" target="_blank" rel="noopener noreferrer">
-                  <img src="/team/dennis.png" alt="Dennis Crowley" className="speaker-photo" />
+                  <img src="/panelists/dennis.png" alt="Dennis Crowley" className="speaker-photo" />
                 </a>
                 <a href="https://linkedin.com/in/dpstyles" target="_blank" rel="noopener noreferrer" className="speaker-name">Dennis Crowley</a>
                 <p className="speaker-role">Co-Founder @ Foursquare,<br />Hopscotch Labs, Streets FC</p>
               </div>
               <div className="speaker">
                 <a href="https://www.linkedin.com/in/jennyfielding/" target="_blank" rel="noopener noreferrer">
-                  <img src="/team/jenny.png" alt="Jenny Fielding" className="speaker-photo" />
+                  <img src="/panelists/jenny.png" alt="Jenny Fielding" className="speaker-photo" />
                 </a>
                 <a href="https://www.linkedin.com/in/jennyfielding/" target="_blank" rel="noopener noreferrer" className="speaker-name">Jenny Fielding</a>
                 <p className="speaker-role">Co-founder @ Everywhere Ventures,<br />ex-Managing Director @ Techstars</p>
               </div>
               <div className="speaker">
-                <a href="https://tech.cornell.edu/people/daniel-d-lee/" target="_blank" rel="noopener noreferrer">
-                  <img src="/team/daniel.png" alt="Daniel D. Lee" className="speaker-photo" />
+                <a href="https://www.newmuseum.org/person/2019-1-31-adaora-udoji/" target="_blank" rel="noopener noreferrer">
+                  <img src="/panelists/interfaces_adaora.png" alt="Adaora Udoji" className="speaker-photo" />
                 </a>
-                <a href="https://tech.cornell.edu/people/daniel-d-lee/" target="_blank" rel="noopener noreferrer" className="speaker-name">Daniel D. Lee</a>
-                <p className="speaker-role">EVP @ Samsung Electronics,<br />ex-Global Head of AI @ Samsung Research</p>
+                <a href="https://www.newmuseum.org/person/2019-1-31-adaora-udoji/" target="_blank" rel="noopener noreferrer" className="speaker-name">Adaora Udoji</a>
+                <p className="speaker-role">ex-VP @ PBS, RLab,<br />Journalist @ ABC & CNN</p>
               </div>
               <div className="speaker">
-                <a href="https://www.linkedin.com/in/sonamvelani/" target="_blank" rel="noopener noreferrer">
-                  <img src="/team/sonam.png" alt="Sonam Velani" className="speaker-photo" />
+                <a href="https://www.linkedin.com/in/mauhan/" target="_blank" rel="noopener noreferrer">
+                  <img src="/panelists/mauhan.webp" alt="Mauhan M. Zonoozy" className="speaker-photo" />
                 </a>
-                <a href="https://www.linkedin.com/in/sonamvelani/" target="_blank" rel="noopener noreferrer" className="speaker-name">Sonam Velani</a>
-                <p className="speaker-role">Co-founder @ Streetlife Ventures,<br />ex-The World Bank</p>
+                <a href="https://www.linkedin.com/in/mauhan/" target="_blank" rel="noopener noreferrer" className="speaker-name">Mauhan M. Zonoozy</a>
+                <p className="speaker-role">2x Founder @ A Vinyl Bar in Shibuya,<br />ex-Head of Innovation @ Spotify</p>
               </div>
-              {/* <div className="speaker">
-                <a href="https://www.arielnoyman.com/" target="_blank" rel="noopener noreferrer">
-                  <img src="/team/ariel_noyman.png" alt="Ariel Noyman" className="speaker-photo" />
-                </a>
-                <a href="https://www.arielnoyman.com/" target="_blank" rel="noopener noreferrer" className="speaker-name">Ariel Noyman</a>
-                <p className="speaker-role">MIT Media Lab,<br />City Science Lab</p>
-              </div> */}
               <div className="speaker">
-                <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer">
-                  <img src="/team/ariel.png" alt="Ariel Kennan" className="speaker-photo" />
+                <a href="https://www.linkedin.com/in/josh-merel-9222b72a2" target="_blank" rel="noopener noreferrer">
+                  <img src="/panelists/robotics_josh.png" alt="Josh Merel" className="speaker-photo" />
                 </a>
-                <a href="https://www.linkedin.com/in/arielkennan/" target="_blank" rel="noopener noreferrer" className="speaker-name">Ariel Kennan</a>
-                <p className="speaker-role">Georgetown's Beeck Center for Social Impact + Innovation,<br />ex-Design @ Google's Sidewalk Labs</p>
+                <a href="https://www.linkedin.com/in/josh-merel-9222b72a2" target="_blank" rel="noopener noreferrer" className="speaker-name">Josh Merel</a>
+                <p className="speaker-role">CTO @ Fauna Robotics,<br />ex-Research @ Meta & DeepMind</p>
               </div>
-              {/* <div className="speaker">
-                <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer">
-                  <img src="/team/wendy.png" alt="Wendy Ju" className="speaker-photo" />
-                </a>
-                <a href="https://tech.cornell.edu/people/wendy-ju/" target="_blank" rel="noopener noreferrer" className="speaker-name">Wendy Ju</a>
-                <p className="speaker-role">Cornell Tech and AAP,<br />ex-Director @ Stanford Center for Design Research</p>
-              </div> */}
             </div>
             <div className="speakers-logo-cloud">
               <img src="/logo/techstars.png" alt="Techstars" className="cloud-logo no-color-hover" />
-              <img src="/logo/media_lab.png" alt="MIT Media Lab" className="cloud-logo no-color-hover" />
-              <img src="/logo/google.png" alt="Google" className="cloud-logo" />
-              <img src="/logo/samsung.png" alt="Samsung" className="cloud-logo samsung-logo" style={{transform: 'scale(1.3)'}} />
-              <img src="/logo/sidewalk.png" alt="Sidewalk Labs" className="cloud-logo no-color-hover" />
-              <img src="/logo/stanford.png" alt="Stanford" className="cloud-logo" style={{transform: 'scale(0.7)'}} />
-              <img src="/logo/streetlife.png" alt="Streetlife Ventures" className="cloud-logo streetlife-logo" />
+              <img src="/logo/pbs.png" alt="PBS" className="cloud-logo no-color-hover" />
+              <img src="/logo/spotify.svg" alt="Spotify" className="cloud-logo" style={{transform: 'scale(1.3)'}} />
+              <img src="/logo/fauna_robotics.png" alt="Fauna Robotics" className="cloud-logo no-color-hover" />
+              <img src="/logo/deepmind.png" alt="DeepMind" className="cloud-logo no-color-hover" />
               <img src="/logo/Foursquare_logo.png" alt="Foursquare" className="cloud-logo" />
               <img src="/logo/hopscotch.png" alt="Hopscotch Labs" className="cloud-logo" style={{transform: 'scale(1.3)'}} />
               <span className="cloud-logo-swap">
@@ -1122,32 +1151,47 @@ function App() {
         <h3 className="tracks-header section-marker"><TypewriterText>What&apos;s happenin&apos;?</TypewriterText></h3> */}
         <ScheduleTerminal />
 
-        {/* <div className="zones">
-          <article className="zone">
-            <img src="/program/panels.png" alt="Multidisciplinary Panels" className="zone-image" />
-            <div className="zone-index">01</div>
-            <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Multidisciplinary Panels</h3>
-            <p className="zone-description">Leading voices in startups, venture, cities, and culture. <br></br> <br></br> Each panel tackles themes from the role of AR/VR in public space to how autonomous robots and physical AI is reshaping mobility. </p>
-          </article>
-          <article className="zone" id="pitches">
-            <img src="/program/pitches.png" alt="Startup/Tinkerer Pitches" className="zone-image" />
-            <div className="zone-index">02</div>
-            <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Startup / Tinkerer Pitches</h3>
-            <p className="zone-description">Curated cohort of 12+ early-stage startups and civic ventures. <br></br> <br></br> Open-source, physical AI, simulation agents, AR/VR, platforms for artists, musicians, creators. </p>
-          </article>
-          <article className="zone">
-            <img src="/program/artists.png" alt="Immersive Gallery" className="zone-image" />
-            <div className="zone-index">03</div>
-            <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Immersive Gallery</h3>
-            <p className="zone-description">Full-day exhibition featuring 15+ interactive demos and prototypes.
-<br /><br />Non-linear art, novel interaction systems, glitch art, built environment models, data storytelling.</p>
-          </article>
-        </div>
-        <a href="https://www.midjourney.com/@wizardofwoz?tab=spotlight" target="_blank" rel="noopener noreferrer" className="zones-credit">* Picture Credits @wizardofwoz on Midjourney</a> */}
-
       </section>
 
-      {/* Register */}
+      {/* Program continued */}
+      <section className="program">
+        {/* Tracks - Rotating Carousel */}
+        <h3 className="tracks-header section-marker"><TypewriterText>What counts, exactly?</TypewriterText></h3>
+        <UrbanTechCarousel />
+
+        {/* Artist Gallery */}
+        <h3 className="tracks-header section-marker"><TypewriterText>Artist Spotlight</TypewriterText></h3>
+        <div className="artist-gallery-split">
+          <GallerySlideshow />
+          <div className="artist-gallery-speakers">
+            <div className="artist-speakers-row">
+              <div className="speaker">
+                <a href="https://www.volvoxlabs.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/panelists/robotics_michael.png" alt="Michael Schneider" className="speaker-photo" />
+                </a>
+                <a href="https://www.volvoxlabs.com/" target="_blank" rel="noopener noreferrer" className="speaker-name">Michael Schneider</a>
+                <p className="speaker-role">CEO / Director @ Media Architecture, Volvox Labs</p>
+              </div>
+              <div className="speaker">
+                <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer">
+                  <img src="/panelists/interfaces_niko.png" alt="Niko Koppel" className="speaker-photo" />
+                </a>
+                <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer" className="speaker-name">Niko Koppel</a>
+                <p className="speaker-role">AR Visual Journalist, Backslash, VR Producer @ NYT</p>
+              </div>
+            </div>
+            <div className="artist-speakers-row artist-speakers-row--center">
+              <div className="speaker">
+                <img src="/panelists/tianyi.JPG" alt="Tianyi Sun" className="speaker-photo" />
+                <span className="speaker-name">Tianyi Sun</span>
+                <p className="speaker-role">Backslash Art Award @ Cornell Tech<br />Finalist, The 6th VH AWARD @ Hyundai Artlab</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+            {/* Register */}
       <section className="register-section" id="register">
         <h2 className="section-marker"><TypewriterText>GET TICKETS!</TypewriterText></h2>
         <div className="register-embed">
@@ -1163,44 +1207,11 @@ function App() {
             tabIndex="0"
             title="Register for Event"
           />
+          <a href="https://luma.com/p202e71l" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary" style={{marginTop: 'var(--space-md)', display: 'inline-block', width: 'fit-content'}}>Attend</a>
         </div>
       </section>
 
-      {/* Program continued */}
-      <section className="program">
-        {/* Tracks - Rotating Carousel */}
-        <h3 className="tracks-header section-marker"><TypewriterText>What counts, exactly?</TypewriterText></h3>
-        <UrbanTechCarousel />
-
-        {/* Artist Gallery */}
-        <h3 className="tracks-header section-marker"><TypewriterText>Artist Spotlight</TypewriterText></h3>
-        <div className="artist-gallery-split">
-          <article className="zone artist-gallery-card">
-            <img src="/program/demo.jpg" alt="Immersive Gallery" className="zone-image" />
-            <div className="zone-index">Open House</div>
-            <h3 className="zone-title" style={{color: '#ff3d00', fontSize: '1rem'}}>Immersive Gallery</h3>
-            <p className="zone-description">Full-day exhibition featuring 15+ interactive demos and prototypes.<br /><br />Non-linear art, novel interaction systems, glitch art, built environment models, data storytelling.</p>
-          </article>
-          <div className="artist-gallery-speakers">
-            <div className="speaker">
-              <a href="https://www.volvoxlabs.com/" target="_blank" rel="noopener noreferrer">
-                <img src="/panelists/robotics_michael.png" alt="Michael Schneider" className="speaker-photo" />
-              </a>
-              <a href="https://www.volvoxlabs.com/" target="_blank" rel="noopener noreferrer" className="speaker-name">Michael Schneider</a>
-              <p className="speaker-role">CEO / Director @ Volvox Labs,<br />Director @ Gensler Architecture</p>
-            </div>
-            <div className="speaker">
-              <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer">
-                <img src="/panelists/interfaces_niko.png" alt="Niko Koppel" className="speaker-photo" />
-              </a>
-              <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer" className="speaker-name">Niko Koppel</a>
-              <p className="speaker-role">AR Visual Journalist, Backslash, VR Producer @ NYT</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* You Belong Here */}
+      {/* You Belong Here
       <section className="belong" id="attend">
         <h2 className="section-marker"><TypewriterText>Who Should Join?</TypewriterText></h2>
         <div className="rolodex-grid" ref={fadeRef}>
@@ -1226,7 +1237,7 @@ function App() {
             </article>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* About */}
       <section className="statement" id="about">
@@ -1248,23 +1259,72 @@ function App() {
 
       {/* Our Team */}
       <section className="team-section" id="team">
-        <div className="team-grid">
-          <div className="team-member">
-            <a href="https://www.linkedin.com/in/atmikapai/" target="_blank" rel="noopener noreferrer">
-              <img src="/team/atmika.png" alt="Atmika Pai" className="team-member-photo" />
-            </a>
-            <a href="https://www.linkedin.com/in/atmikapai/" target="_blank" rel="noopener noreferrer" className="team-member-name">Atmika Pai</a>
-            <p className="team-member-role">Lead Organiser</p>
+        {/* <h2 className="section-marker">Our Team</h2> */}
+        <div className="team-tiers">
+          {/* Row 1 — Lead Organizers, centered */}
+          <p className="team-tier-label" style={{textAlign: 'center'}}>Lead Organizers</p>
+          <div className="team-tier" style={{justifyContent: 'center'}}>
+            <div className="team-member">
+              <a href="https://www.linkedin.com/in/michelle-hui/" target="_blank" rel="noopener noreferrer">
+                <img src="/team/michelle.png" alt="Michelle Hui" className="team-member-photo" />
+              </a>
+              <a href="https://www.linkedin.com/in/michelle-hui/" target="_blank" rel="noopener noreferrer" className="team-member-name">Michelle Hui</a>
+              <p className="team-member-role">Lead Organiser</p>
+            </div>
+            <div className="team-member">
+              <a href="https://www.linkedin.com/in/atmikapai/" target="_blank" rel="noopener noreferrer">
+                <img src="/team/atmika.png" alt="Atmika Pai" className="team-member-photo" />
+              </a>
+              <a href="https://www.linkedin.com/in/atmikapai/" target="_blank" rel="noopener noreferrer" className="team-member-name">Atmika Pai</a>
+              <p className="team-member-role">Lead Organiser</p>
+            </div>
           </div>
-          <div className="team-member">
-            <a href="https://www.linkedin.com/in/michelle-hui/" target="_blank" rel="noopener noreferrer">
-              <img src="/team/michelle.png" alt="Michelle Hui" className="team-member-photo" />
-            </a>
-            <a href="https://www.linkedin.com/in/michelle-hui/" target="_blank" rel="noopener noreferrer" className="team-member-name">Michelle Hui</a>
-            <p className="team-member-role">Lead Organiser</p>
+          {/* Row 2 — Operations + Faculty Advisors side by side */}
+          <div className="team-row-split">
+            <div className="team-subgroup">
+              <p className="team-tier-label">Operation Leads</p>
+              <div className="team-tier">
+                <div className="team-member team-member--sm">
+                  <img src="/team/nina.jpg" alt="Nina Mantegna" className="team-member-photo" />
+                  <span className="team-member-name">Nina Mantegna</span>
+                  <p className="team-member-role">Operations</p>
+                </div>
+                <div className="team-member team-member--sm">
+                  <img src="/team/gabi.jpg" alt="Gabriela Yaulli Herrera" className="team-member-photo" />
+                  <span className="team-member-name">Gabriela Yaulli Herrera</span>
+                  <p className="team-member-role">Operations</p>
+                </div>
+                <div className="team-member team-member--sm">
+                  <img src="/team/cecilia.jpg" alt="Cecilia Chen" className="team-member-photo" />
+                  <span className="team-member-name">Cecilia Chen</span>
+                  <p className="team-member-role">Curator</p>
+                </div>
+              </div>
+            </div>
+            <div className="team-subgroup">
+              <p className="team-tier-label">Faculty Advisors</p>
+              <div className="team-tier">
+                <div className="team-member team-member--sm">
+                  <img src="/team/greg.png" alt="Greg Pass" className="team-member-photo" />
+                  <span className="team-member-name">Greg Pass</span>
+                  <p className="team-member-role">Co-founder @ 4149 & Backslash, ex-CTO @ Twitter</p>
+                </div>
+                <div className="team-member team-member--sm">
+                  <img src="/team/wendy.png" alt="Wendy Ju" className="team-member-photo" />
+                  <span className="team-member-name">Wendy Ju</span>
+                  <p className="team-member-role">Cornell Tech, ex-Center for Design Research @ Stanford University</p>
+                </div>
+                <div className="team-member team-member--sm">
+                  <a href="https://linkedin.com/in/arielkennan" target="_blank" rel="noopener noreferrer">
+                    <img src="/team/ariel.png" alt="Ariel Kennan" className="team-member-photo" />
+                  </a>
+                  <a href="https://linkedin.com/in/arielkennan" target="_blank" rel="noopener noreferrer" className="team-member-name">Ariel Kennan</a>
+                  <p className="team-member-role">Georgetown's Beeck Center for Social Impact, ex-Design @ Google's Sidewalk Labs</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <h2 className="section-marker">Our Team</h2>
       </section>
 
       {/* Footer */}
