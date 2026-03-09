@@ -439,46 +439,61 @@ const scheduleData = [
   {
     time: '9:30', endTime: '10:45', title: 'Panel 1: New Digital Interfaces', panelLabel: 'Multidisciplinary Panel', panelTopic: 'New Digital Interfaces', panelSubtopic: 'Future of the Media Economy and Emerging AR/VR Technologies.',
     detail: '45 min, 15 mins Q&A + buffer', venue: 'tata141', type: 'panel',
-    speakers: [{ name: 'Niko Koppel', org: 'Backslash', photo: '/panelists/interfaces_niko.png', logo: '/logo/backslash.png' }],
+    speakers: [
+      { name: 'Adaora Udoji', org: 'ex-VP @ PBS, RLab, Journalist @ ABC & CNN, Filmmaker & Juror @ Sundance, Tribeca, TIFF', photo: '/panelists/interfaces_adaora.png', logo: '/logo/pbs.png', logo2: '/logo/sundance.png', url: 'https://www.newmuseum.org/person/2019-1-31-adaora-udoji/' },
+      { name: 'Niko Koppel', org: 'Backslash Artist, VR Producer and Technologist @ NYT and CNN', photo: '/panelists/interfaces_niko.png', logo: '/logo/backslash.png', url: 'https://www.nikokoppel.com' },
+    ],
   },
   {
     time: '10:45', endTime: '12:00', title: 'Fireside Chat', subtitle: 'Jenny Fielding & Dennis Crowley', detail: '30 mins, 10 min Q&A', venue: 'tata141', type: 'keynote',
     speakers: [
-      { name: 'Dennis C.', org: 'Co-Founder @ Hopscotch, Foursquare, Dodgeball, Stockade FC', photo: '/team/dennis.png', logo: '/logo/Foursquare_logo.png', logoHeight: 45 },
-      { name: 'Jenny F.', org: 'Co-founder & General Partner @ Everywhere Ventures, Managing Director @ Techstars', photo: '/team/jenny.png', logo: '/logo/everywhere.png', logoHeight: 65, darkLogo: true },
+      { name: 'Dennis C.', org: 'Co-Founder @ Hopscotch, Foursquare, Dodgeball, Stockade FC', photo: '/team/dennis.png', logo: '/logo/Foursquare_logo.png', logoHeight: 45, noInvert: true, url: 'https://denniscrowley.com/' },
+      { name: 'Jenny F.', org: 'Co-founder & General Partner @ Everywhere Ventures, Managing Director @ Techstars', photo: '/team/jenny.png', logo: '/logo/everywhere.png', logoHeight: 65, darkLogo: true, url: 'https://www.linkedin.com/in/jennyfielding' },
     ],
   },
   { time: '12:00', endTime: '1:00', title: 'Lunch', detail: 'Cornell Tech Catering', venue: 'all', type: 'break' },
-  { time: '1:00', endTime: '2:00', title: 'Interfaces Startup Pitches', detail: '3 speakers: 20-30 mins', venue: 'tata141', type: 'pitch',
+  { time: '1:00', endTime: '2:00', title: 'Interfaces Startup Pitches', detail: '2 speakers: 20-30 mins', venue: 'tata141', type: 'pitch',
     pitchSpeakers: [
-      { name: 'Kevin Yoo', company: 'Haptic', role: 'CEO', url: 'https://haptic.works/' },
-      { name: 'Adam Harder', company: 'Inpress', role: 'CEO', url: 'https://www.inpress.app/' },
-      { name: 'Sebastian Bidegain', company: 'Noware', role: '', url: 'https://www.noware.nyc/' },
+      { name: 'Kevin Yoo', company: 'Haptic', role: 'CEO', url: 'https://haptic.works/', logo: '/logo/haptic_nav.webp', noInvert: true },
+      { name: 'Adam Harder', company: 'Inpress', role: 'CEO', url: 'https://www.inpress.app/', logo: '/logo/inpress.webp' },
     ],
   },
-  { time: '1:00', endTime: '2:00', title: 'Tinkerer Project Pitches', detail: '4 speakers: 15 minutes each', venue: 'tata151', type: 'pitch' },
+  { time: '1:00', endTime: '2:00', title: 'Tinkerer Project Pitches', detail: '4 speakers: 15 minutes each', venue: 'tata151', type: 'pitch',
+    pitchSpeakers: [
+      { company: 'Noware', url: 'https://www.noware.nyc/', logo: '/logo/noware.png', noInvert: true },
+      { company: 'Subway Builder', url: 'https://www.subwaybuilder.com/', logo: '/logo/subwaybuilder.png', rawLogo: true },
+    ],
+  },
   {
     time: '2:00', endTime: '3:15', title: 'Panel 2: Human-Robot Co-existence', panelLabel: 'Multidisciplinary Panel', panelTopic: 'Human-Robot Co-existence', panelSubtopic: 'Human-robot interaction dynamics.',
     detail: '45 min, 15 mins Q&A + buffer', venue: 'tata141', type: 'panel',
     speakers: [
-      { name: 'Daniel L.', org: 'EVP and Global Head of AI @ Samsung Research, Professor @ NYU, Cornell Tech, UPenn', photo: '/team/daniel.png', logo: '/logo/samsung.png', noInvert: true, url: 'https://www.samsung.com/us/about-us/our-business/research/' },
-      { name: 'Josh M.', org: 'CTO @ Fauna Robotics, Research Scientist @ Meta & DeepMind', photo: '/panelists/robotics_josh.png', logo: '/logo/fauna_robotics.png', darkLogo: true, url: 'https://faunarobotics.com/' },
-      { name: 'Michael S.', org: 'CEO / Director @ Volvox Labs, Director @ Gensler Architecture', photo: '/panelists/robotics_michael.png', logo: '/logo/volvox.png', darkLogo: true, url: 'https://www.volvoxlabs.com/' },
+      { name: 'Daniel L.', org: 'EVP and Global Head of AI @ Samsung Research, Professor @ NYU, Cornell Tech, UPenn', photo: '/team/daniel.png', logo: '/logo/samsung.png', noInvert: true, url: 'https://tech.cornell.edu/people/daniel-d-lee/' },
+      { name: 'Josh M.', org: 'CTO @ Fauna Robotics, Research Scientist @ Meta & DeepMind', photo: '/panelists/robotics_josh.png', logo: '/logo/fauna_robotics.png', darkLogo: true, url: 'https://www.linkedin.com/in/josh-merel-9222b72a2' },
+      { name: 'Michael S.', org: 'CEO / Director @ Volvox Labs, Director @ Gensler Architecture', photo: '/panelists/robotics_michael.png', logo: '/logo/volvox.png', darkLogo: true, url: 'https://www.linkedin.com/in/michaelluckschneider/' },
     ],
   },
   {
     time: '2:00', endTime: '3:15', title: 'Panel 3: Building for Belonging', panelLabel: 'Multidisciplinary Panel', panelTopic: 'Building for Belonging', panelSubtopic: 'Innovation within bureaucracy.',
     detail: '45 min, 15 mins Q&A + buffer', venue: 'tata151', type: 'panel',
     speakers: [
-      { name: 'Ariel K.', org: "Georgetown's Beeck Center for Social Impact, ex-Design @ Google's Sidewalk Labs", photo: '/team/ariel.png', logo: '/logo/beeck.png', noInvert: true },
-      { name: 'Ariel N.', org: 'Research Scientist @ MIT Media Lab, co-Founder @ City Science Living Labs', photo: '/team/ariel_noyman.png', logo: '/logo/media_lab.png', logoHeight: 45 },
-      { name: 'Sonam V.', org: 'Co-founder @ Streetlife Ventures, ex-World Bank', photo: '/team/sonam.png', logo: '/logo/streetlife.png', logoHeight: 45, noInvert: true },
-      { name: 'Virginia M.', org: 'NYC District 4 City Council Member, ex-PM @ Meta', photo: '/panelists/civic_maloney.png', logo: '/logo/sidewalk.png' },
+      { name: 'Ariel K.', org: "Georgetown's Beeck Center for Social Impact, ex-Design @ Google's Sidewalk Labs", photo: '/team/ariel.png', logo: '/logo/beeck.png', noInvert: true, url: 'https://linkedin.com/in/arielkennan' },
+      { name: 'Ariel N.', org: 'Research Scientist @ MIT Media Lab, co-Founder @ City Science Living Labs', photo: '/team/ariel_noyman.png', logo: '/logo/media_lab.png', logoHeight: 45, url: 'https://linkedin.com/in/arielnoyman' },
+      { name: 'Sonam V.', org: 'Co-founder @ Streetlife Ventures, ex-World Bank', photo: '/team/sonam.png', logo: '/logo/streetlife.png', logoHeight: 45, noInvert: true, url: 'https://www.linkedin.com/in/sonamvelani/' },
+      { name: 'Virginia M.', org: 'NYC District 4 City Council Member, ex-PM @ Meta', photo: '/panelists/civic_maloney.png', logo: '/logo/sidewalk.png', url: 'https://council.nyc.gov/district-4/' },
     ],
   },
   { time: '3:15', endTime: '4:00', title: 'Open Gallery Walk', detail: 'Coffee Break', venue: 'all', type: 'break' },
-  { time: '4:00', endTime: '5:00', title: 'Robotics Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata141', type: 'pitch' },
-  { time: '4:00', endTime: '5:00', title: 'Urban Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata151', type: 'pitch' },
+  { time: '4:00', endTime: '5:00', title: 'Robotics Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata141', type: 'pitch',
+    pitchSpeakers: [
+      { company: 'Root Access', url: 'https://rootaccess.ai/', logo: '/logo/root_access.png', noInvert: true },
+    ],
+  },
+  { time: '4:00', endTime: '5:00', title: 'Urban Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata151', type: 'pitch',
+    pitchSpeakers: [
+      { company: "It's Electric", url: 'https://itselectric.us/', logo: '/logo/its_electric.png', noInvert: true, logoHeight: 50 },
+    ],
+  },
 ]
 
 const scheduleTabs = [
@@ -589,7 +604,7 @@ function ScheduleTerminal() {
               if (isBreak) {
                 return (
                   <div key={slotIdx} className="schedule-slot schedule-slot-break" style={{ transitionDelay: `${slotIdx * 0.07}s` }}>
-                    <div className="schedule-slot-time">
+                    <div className="schedule-slot-time schedule-break-time">
                       {slot.time} &ndash; {slot.endTime}
                     </div>
                     <div className="schedule-break">
@@ -648,13 +663,19 @@ function ScheduleTerminal() {
                                     {event.speakers.map((speaker, si) => (
                                       <div key={si} className="schedule-panel-speaker">
                                         {speaker.photo && (
-                                          <img
-                                            src={speaker.photo}
-                                            alt={speaker.name}
-                                            className="schedule-panel-speaker-photo"
-                                          />
+                                          speaker.url ? (
+                                            <a href={speaker.url} target="_blank" rel="noopener noreferrer">
+                                              <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo schedule-panel-speaker-photo-link" />
+                                            </a>
+                                          ) : (
+                                            <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo" />
+                                          )
                                         )}
-                                        <span className="schedule-panel-speaker-name">{speaker.name}</span>
+                                        {speaker.url ? (
+                                          <a href={speaker.url} target="_blank" rel="noopener noreferrer" className="schedule-panel-speaker-name schedule-panel-speaker-link">{speaker.name}</a>
+                                        ) : (
+                                          <span className="schedule-panel-speaker-name">{speaker.name}</span>
+                                        )}
                                         <span className="schedule-panel-speaker-org">{speaker.org}</span>
                                       </div>
                                     ))}
@@ -662,9 +683,10 @@ function ScheduleTerminal() {
                                 )}
                                 {hasLogos && (
                                   <div className="schedule-panel-logos">
-                                    {event.speakers.filter(s => s.logo).map((s, i) => (
-                                      <a key={i} href={s.url || '#'} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}><img src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} /></a>
-                                    ))}
+                                    {event.speakers.filter(s => s.logo).flatMap((s, i) => [
+                                      <img key={i} src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} />,
+                                      ...(s.logo2 ? [<img key={`${i}-2`} src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} />] : []),
+                                    ])}
                                   </div>
                                 )}
                               </div>
@@ -700,14 +722,15 @@ function ScheduleTerminal() {
                               <div className="schedule-panel-header-right">
                                 {isKeynoteExpanded && hasKeynoteLogos && (
                                   <div className="schedule-panel-logos" style={{ marginTop: 0 }}>
-                                    {event.speakers.filter(s => s.logo).map((s, i) => (
-                                      <a key={i} href={s.url || '#'} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}><img src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} /></a>
-                                    ))}
+                                    {event.speakers.filter(s => s.logo).flatMap((s, i) => [
+                                      <img key={i} src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} />,
+                                      ...(s.logo2 ? [<img key={`${i}-2`} src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} />] : []),
+                                    ])}
                                   </div>
                                 )}
-                                <span className="schedule-panel-expand-hint" aria-hidden="true">
-                                  {isKeynoteExpanded ? '[−]' : '[+]'}
-                                </span>
+                                {!isKeynoteExpanded && (
+                                  <span className="schedule-panel-expand-hint" aria-hidden="true">[+]</span>
+                                )}
                               </div>
                             </div>
                             {isKeynoteExpanded && (
@@ -717,9 +740,19 @@ function ScheduleTerminal() {
                                     {event.speakers.map((speaker, si) => (
                                       <div key={si} className="schedule-panel-speaker">
                                         {speaker.photo && (
-                                          <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo" />
+                                          speaker.url ? (
+                                            <a href={speaker.url} target="_blank" rel="noopener noreferrer">
+                                              <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo schedule-panel-speaker-photo-link" />
+                                            </a>
+                                          ) : (
+                                            <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo" />
+                                          )
                                         )}
-                                        <span className="schedule-panel-speaker-name">{speaker.name}</span>
+                                        {speaker.url ? (
+                                          <a href={speaker.url} target="_blank" rel="noopener noreferrer" className="schedule-panel-speaker-name schedule-panel-speaker-link">{speaker.name}</a>
+                                        ) : (
+                                          <span className="schedule-panel-speaker-name">{speaker.name}</span>
+                                        )}
                                         <span className="schedule-panel-speaker-org">{speaker.org}</span>
                                       </div>
                                     ))}
@@ -732,14 +765,13 @@ function ScheduleTerminal() {
                       }
                       // pitch
                       const isPitchExpanded = expandedPanels.has(event.title)
+                      const hasPitchSpeakers = event.pitchSpeakers && event.pitchSpeakers.length > 0
                       return (
                         <div
                           key={eventIdx}
                           className={`schedule-event schedule-event-panel schedule-event-pitch ${isPitchExpanded ? 'schedule-panel-expanded' : ''}`}
-                          onClick={() => togglePanel(event.title)}
-                          role="button"
-                          tabIndex={0}
-                          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); togglePanel(event.title) } }}
+                          onClick={hasPitchSpeakers ? () => togglePanel(event.title) : undefined}
+                          style={hasPitchSpeakers ? { cursor: 'pointer' } : undefined}
                         >
                           <div className="schedule-panel-scanlines" aria-hidden="true" />
                           <div className="schedule-panel-header">
@@ -752,20 +784,21 @@ function ScheduleTerminal() {
                               </div>
                               <div className="schedule-event-title">{event.title}</div>
                             </div>
-                            <div className="schedule-panel-header-right">
-                              <span className="schedule-panel-expand-hint" aria-hidden="true">
-                                {isPitchExpanded ? '[−]' : '[+]'}
-                              </span>
-                            </div>
+                            {hasPitchSpeakers && (
+                              <div className="schedule-panel-header-right">
+                                <span className="schedule-panel-expand-hint" aria-hidden="true">
+                                  {isPitchExpanded ? '[-]' : '[+]'}
+                                </span>
+                              </div>
+                            )}
                           </div>
-                          {isPitchExpanded && event.pitchSpeakers && event.pitchSpeakers.length > 0 && (
+                          {isPitchExpanded && hasPitchSpeakers && (
                             <div className="schedule-panel-details">
-                              <div className="schedule-panel-speakers">
-                                {event.pitchSpeakers.map((speaker, si) => (
-                                  <div key={si} className="schedule-panel-speaker">
-                                    <span className="schedule-panel-speaker-name">{speaker.name}</span>
-                                    <span className="schedule-panel-speaker-org">{speaker.role ? `${speaker.role} @ ${speaker.company}` : speaker.company}</span>
-                                  </div>
+                              <div className="schedule-panel-logos">
+                                {event.pitchSpeakers.filter(s => s.logo).map((s, i) => (
+                                  <a key={i} href={s.url} target="_blank" rel="noopener noreferrer">
+                                    <img src={s.logo} alt={s.company} className={`schedule-panel-logo${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}${s.rawLogo ? ' schedule-panel-logo-raw' : ''}`} style={{ height: s.logoHeight || 30 }} />
+                                  </a>
                                 ))}
                               </div>
                             </div>
@@ -926,6 +959,7 @@ function App() {
         <div className="hero-event-info">
           <p className="hero-date">Friday, March 20, 2026 · <span className="hero-event-name">NYC Open Data Week</span></p>
           <p className="hero-location-text">Cornell Tech, NYC</p>
+          <p className="hero-funded-text">Supported by <a href="https://assembly.cornell.edu/shared-governance/graduate-and-professional-student-assembly" target="_blank" rel="noopener noreferrer" className="hero-event-name">Cornell GPSA</a></p>
         </div>
 
       </header>
@@ -935,7 +969,7 @@ function App() {
         <div className="nav-cta-buttons">
           <a href="https://forms.gle/CaigJ8xr1Gj4JGJaA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Artist Call</a>
           <a href="https://forms.gle/YwJjzQFw2z2EJwNRA" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary">Startup / Tinkerer Pitches</a>
-          <a href="https://forms.gle/gGeJFiEhtLUZ7Md79" target="_blank" rel="noopener noreferrer" className="cta-btn cta-outline">Attend</a>
+          <a href="https://luma.com/p202e71l" target="_blank" rel="noopener noreferrer" className="cta-btn cta-outline">Attend</a>
         </div>
       </nav>
 
@@ -947,9 +981,6 @@ function App() {
           <div className="marquee-container">
             <div className="marquee-track">
               {/* First set of logos */}
-              <a href="https://tech.cornell.edu/" target="_blank" rel="noopener noreferrer" className="partner-logo">
-                <img src="/logo/cornell.png" alt="Cornell University" />
-              </a>
               <a href="https://www.nyc.gov/content/oti/pages/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
                 <img src="/logo/nyc_oti.png" alt="NYC Office of Technology & Innovation" />
               </a>
@@ -962,13 +993,10 @@ function App() {
               <a href="https://opendataweek.nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo">
                 <img src="/logo/open_data_week.png" alt="Open Data Week" />
               </a>
-              <a href="https://aap.cornell.edu/aap-nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
-                <img src="/logo/cornell_aap.png" alt="Cornell AAP" style={{ height: '100px' }} />
+              <a href="#" className="partner-logo gpsa-logo">
+                <img src="/logo/gpsa.png" alt="GPSA" />
               </a>
               {/* Duplicate set for seamless loop */}
-              <a href="https://tech.cornell.edu/" target="_blank" rel="noopener noreferrer" className="partner-logo">
-                <img src="/logo/cornell.png" alt="Cornell University" />
-              </a>
               <a href="https://www.nyc.gov/content/oti/pages/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
                 <img src="/logo/nyc_oti.png" alt="NYC Office of Technology & Innovation" />
               </a>
@@ -981,8 +1009,8 @@ function App() {
               <a href="https://opendataweek.nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo">
                 <img src="/logo/open_data_week.png" alt="Open Data Week" />
               </a>
-              <a href="https://aap.cornell.edu/aap-nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
-                <img src="/logo/cornell_aap.png" alt="Cornell AAP" style={{ height: '100px' }} />
+              <a href="#" className="partner-logo gpsa-logo">
+                <img src="/logo/gpsa.png" alt="GPSA" />
               </a>
             </div>
           </div>
@@ -1117,6 +1145,29 @@ function App() {
         </div>
         <a href="https://www.midjourney.com/@wizardofwoz?tab=spotlight" target="_blank" rel="noopener noreferrer" className="zones-credit">* Picture Credits @wizardofwoz on Midjourney</a> */}
 
+      </section>
+
+      {/* Register */}
+      <section className="register-section" id="register">
+        <h2 className="section-marker"><TypewriterText>GET TICKETS!</TypewriterText></h2>
+        <div className="register-embed">
+          <iframe
+            src="https://luma.com/embed/event/evt-wHAPSOlDgofkjku/simple"
+            width="100%"
+            height="350"
+            frameBorder="0"
+            scrolling="no"
+            style={{ border: 'none', borderRadius: '4px', overflow: 'hidden' }}
+            allow="fullscreen; payment"
+            aria-hidden="false"
+            tabIndex="0"
+            title="Register for Event"
+          />
+        </div>
+      </section>
+
+      {/* Program continued */}
+      <section className="program">
         {/* Tracks - Rotating Carousel */}
         <h3 className="tracks-header section-marker"><TypewriterText>What counts, exactly?</TypewriterText></h3>
         <UrbanTechCarousel />
@@ -1159,7 +1210,6 @@ function App() {
             { title: 'Urbanists & Organizers', tagline: 'Move from policy papers to pilots. Stay fluent in the tech reshaping cities.' },
             { title: 'Artists & Designers', tagline: 'Collaborate with engineers who build tools, not just use them.' },
             { title: 'Engineers & Tinkerers', tagline: 'Demo prototypes to partners who can greenlight pilots.' },
-          
           ].map((card, i) => (
             <article key={i} className="rolodex-card">
               <div className="rolodex-card-inner">
@@ -1222,10 +1272,12 @@ function App() {
         <div className="footer-content">
           <p className="footer-mark">Keeping it <span style={{color: '#ff3d00'}}>Urban</span> 2026</p>
           <a
-            href="mailto:aap253@cornell.edu,msh334@cornell.edu?subject=Keeping it Urban Inquiry"
+            href="https://calendar.app.google/uftQ7pSVw5x32Fq1A"
+            target="_blank"
+            rel="noopener noreferrer"
             className="footer-contact"
           >
-           Collaborate With Us
+           Chat With Us
           </a>
         </div>
       </footer>

@@ -277,7 +277,7 @@ body {
 
 .hero-event-info {
   position: absolute;
-  bottom: var(--space-md);
+  bottom: calc(var(--space-md) + 10px);
   right: var(--space-md);
   text-align: right;
   z-index: 2;
@@ -300,6 +300,18 @@ body {
   font-size: clamp(0.45rem, 0.8vw, 0.55rem);
   letter-spacing: 0.1em;
   color: var(--gray-400);
+  margin-bottom: var(--space-sm);
+}
+
+.hero-funded-text a {
+  text-decoration: none;
+}
+
+.hero-funded-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(0.45rem, 0.8vw, 0.55rem);
+  letter-spacing: 0.1em;
+  color: var(--gray-600);
 }
 
 /* Legacy hero styles kept for other sections */
@@ -569,6 +581,14 @@ body {
 
 .partner-logo.no-color-hover:hover img {
   filter: brightness(0) invert(1);
+}
+
+.partner-logo.gpsa-logo img {
+  filter: grayscale(1) brightness(1.5);
+}
+
+.partner-logo.gpsa-logo:hover img {
+  filter: grayscale(1) brightness(1.5);
 }
 
 /* =========================================
@@ -1711,6 +1731,47 @@ body {
 }
 
 /* =========================================
+   REGISTER
+   ========================================= */
+.register-section {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.register-embed {
+  display: flex;
+  justify-content: center;
+}
+
+.register-embed iframe {
+  max-width: 100%;
+  filter: invert(1) hue-rotate(180deg);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.register-embed iframe::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .register-section {
+    overflow: visible;
+    padding: var(--space-sm);
+  }
+  .register-embed iframe {
+    height: 750px;
+  }
+  .schedule-break-time {
+    display: none;
+  }
+}
+
+/* =========================================
    YOU BELONG HERE
    ========================================= */
 .belong {
@@ -2645,8 +2706,20 @@ body {
   filter: none;
 }
 
+.schedule-panel-logo-noinvert {
+  filter: grayscale(1) brightness(1.2);
+}
 .schedule-panel-logo-noinvert:hover {
   filter: none;
+}
+.schedule-panel-logo-raw {
+  filter: none;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+.schedule-panel-logo-raw:hover {
+  filter: none;
+  opacity: 1;
 }
 
 .schedule-panel-header-right {
@@ -2751,6 +2824,23 @@ body {
   font-size: 0.6rem;
   color: var(--accent);
   line-height: 1.4;
+}
+
+.schedule-panel-speaker-photo-link {
+  transition: opacity 0.2s;
+}
+.schedule-panel-speaker-photo-link:hover {
+  opacity: 0.7;
+}
+
+a.schedule-panel-speaker-link {
+  text-decoration: none;
+  color: var(--accent);
+  transition: opacity 0.2s;
+}
+a.schedule-panel-speaker-link:hover {
+  opacity: 0.7;
+  text-decoration: underline;
 }
 
 .schedule-panel-speaker-org {
