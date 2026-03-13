@@ -440,9 +440,9 @@ const scheduleData = [
     time: '9:30', endTime: '10:45', title: 'Panel 1: New Digital Interfaces', panelLabel: 'Multidisciplinary Panel', panelTopic: 'New Digital Interfaces', panelSubtopic: 'Future of the Media Economy and Emerging AR/VR Technologies.',
     detail: '45 min, 15 mins Q&A + buffer', venue: 'tata141', type: 'panel',
     speakers: [
-      { name: 'Adaora Udoji', org: 'ex-VP @ PBS, RLab, Journalist @ ABC & CNN, Filmmaker & Juror @ Sundance, Tribeca, TIFF', photo: '/panelists/interfaces_adaora.png', logo: '/logo/pbs.png', logo2: '/logo/sundance.png', url: 'https://www.newmuseum.org/person/2019-1-31-adaora-udoji/' },
+      { name: 'Adaora Udoji', org: 'ex-VP @ PBS, RLab, Journalist @ ABC & CNN, Filmmaker & Juror @ Sundance, Tribeca, TIFF', photo: '/panelists/interfaces_adaora.png', logo: '/logo/pbs.png', noInvert: true, logo2: '/logo/sundance.png', url: 'https://www.newmuseum.org/person/2019-1-31-adaora-udoji/' },
       { name: 'Niko Koppel', org: 'Backslash Artist, VR Producer and Technologist @ NYT and CNN', photo: '/panelists/interfaces_niko.png', logo: '/logo/backslash.png', url: 'https://www.nikokoppel.com' },
-      { name: 'Mauhan M. Zonoozy', org: '2x Founder @ A Vinyl Bar in Shibuya, ex-Head of Innovation @ Spotify', photo: '/panelists/mauhan.webp', logo: '/logo/spotify.png', logo2: '/logo/shibuya.png', url:'https://www.linkedin.com/in/mauhan/' },
+      { name: 'Mauhan M. Zonoozy', org: '2x Founder @ A Vinyl Bar in Shibuya, ex-Head of Innovation @ Spotify', photo: '/panelists/mauhan.webp', logo: '/logo/spotify.png', noInvert: true, logo2: '/logo/shibuya.jpg', logo2Url: 'https://www.shibuyaaa.com/', url:'https://mauhan.com/' },
     ],
   },
   {
@@ -485,12 +485,17 @@ const scheduleData = [
     ],
   },
   { time: '3:15', endTime: '4:00', title: 'Open Gallery Walk', detail: 'Coffee Break', venue: 'all', type: 'break' },
-  { time: '4:00', endTime: '5:00', title: 'Robotics Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata141', type: 'pitch',
+  { time: '4:00', endTime: '4:10', title: 'Reverse-engineering Claude Code', detail: '10 mins', venue: 'tata141', type: 'pitch', label: 'Lightning Talk',
+    pitchSpeakers: [
+      { company: 'TensorZero', url: 'https://www.tensorzero.com/', logo: '/logo/tensorzero.png', noInvert: true },
+    ],
+  },
+  { time: '4:10', endTime: '5:00', title: 'Robotics Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata141', type: 'pitch',
     pitchSpeakers: [
       { company: 'Root Access', url: 'https://rootaccess.ai/', logo: '/logo/root_access.png', noInvert: true },
     ],
   },
-  { time: '4:00', endTime: '5:00', title: 'Urban Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata151', type: 'pitch',
+  { time: '4:10', endTime: '5:00', title: 'Urban Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata151', type: 'pitch',
     pitchSpeakers: [
       { company: "It's Electric", url: 'https://itselectric.us/', logo: '/logo/its_electric.png', noInvert: true, logoHeight: 50 },
     ],
@@ -686,7 +691,7 @@ function ScheduleTerminal() {
                                   <div className="schedule-panel-logos">
                                     {event.speakers.filter(s => s.logo).flatMap((s, i) => [
                                       <img key={i} src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} />,
-                                      ...(s.logo2 ? [<img key={`${i}-2`} src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} />] : []),
+                                      ...(s.logo2 ? [s.logo2Url ? <a key={`${i}-2`} href={s.logo2Url} target="_blank" rel="noopener noreferrer"><img src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} /></a> : <img key={`${i}-2`} src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} />] : []),
                                     ])}
                                   </div>
                                 )}
@@ -725,7 +730,7 @@ function ScheduleTerminal() {
                                   <div className="schedule-panel-logos" style={{ marginTop: 0 }}>
                                     {event.speakers.filter(s => s.logo).flatMap((s, i) => [
                                       <img key={i} src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} />,
-                                      ...(s.logo2 ? [<img key={`${i}-2`} src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} />] : []),
+                                      ...(s.logo2 ? [s.logo2Url ? <a key={`${i}-2`} href={s.logo2Url} target="_blank" rel="noopener noreferrer"><img src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} /></a> : <img key={`${i}-2`} src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} />] : []),
                                     ])}
                                   </div>
                                 )}
@@ -770,7 +775,7 @@ function ScheduleTerminal() {
                       return (
                         <div
                           key={eventIdx}
-                          className={`schedule-event schedule-event-panel schedule-event-pitch ${isPitchExpanded ? 'schedule-panel-expanded' : ''}`}
+                          className={`schedule-event schedule-event-panel schedule-event-pitch ${event.label === 'Lightning Talk' ? 'schedule-event-lightning' : ''} ${isPitchExpanded ? 'schedule-panel-expanded' : ''}`}
                           onClick={hasPitchSpeakers ? () => togglePanel(event.title) : undefined}
                           style={hasPitchSpeakers ? { cursor: 'pointer' } : undefined}
                         >
@@ -778,7 +783,7 @@ function ScheduleTerminal() {
                           <div className="schedule-panel-header">
                             <div className="schedule-panel-header-left">
                               <div className="schedule-panel-label">
-                                Pitches
+                                {event.label || 'Pitches'}
                                 {venueLabels[event.venue] && (
                                   <span className="schedule-panel-venue"> &middot; {venueLabels[event.venue]}</span>
                                 )}
@@ -1097,10 +1102,10 @@ function App() {
                 <p className="speaker-role">ex-VP @ PBS, RLab,<br />Journalist @ ABC & CNN</p>
               </div>
               <div className="speaker">
-                <a href="https://www.linkedin.com/in/mauhan/" target="_blank" rel="noopener noreferrer">
+                <a href="https://mauhan.com/" target="_blank" rel="noopener noreferrer">
                   <img src="/panelists/mauhan.webp" alt="Mauhan M. Zonoozy" className="speaker-photo" />
                 </a>
-                <a href="https://www.linkedin.com/in/mauhan/" target="_blank" rel="noopener noreferrer" className="speaker-name">Mauhan M. Zonoozy</a>
+                <a href="https://mauhan.com/" target="_blank" rel="noopener noreferrer" className="speaker-name">Mauhan M. Zonoozy</a>
                 <p className="speaker-role">2x Founder @ A Vinyl Bar in Shibuya,<br />ex-Head of Innovation @ Spotify</p>
               </div>
               <div className="speaker">
@@ -1283,10 +1288,10 @@ function App() {
               <p className="team-member-role">Lead Organiser</p>
             </div>
             <div className="team-member">
-              <a href="https://www.linkedin.com/in/atmikapai/" target="_blank" rel="noopener noreferrer">
+              <a href="https://atmikapai.dev" target="_blank" rel="noopener noreferrer">
                 <img src="/team/atmika.png" alt="Atmika Pai" className="team-member-photo" />
               </a>
-              <a href="https://www.linkedin.com/in/atmikapai/" target="_blank" rel="noopener noreferrer" className="team-member-name">Atmika Pai</a>
+              <a href="https://atmikapai.dev" target="_blank" rel="noopener noreferrer" className="team-member-name">Atmika Pai</a>
               <p className="team-member-role">Lead Organiser</p>
             </div>
           </div>
@@ -1296,18 +1301,24 @@ function App() {
               <p className="team-tier-label">Operation Leads</p>
               <div className="team-tier">
                 <div className="team-member team-member--sm">
-                  <img src="/team/nina.jpg" alt="Nina Mantegna" className="team-member-photo" />
-                  <span className="team-member-name">Nina Mantegna</span>
+                  <a href="https://www.linkedin.com/in/ninamantegna/" target="_blank" rel="noopener noreferrer">
+                    <img src="/team/nina.jpg" alt="Nina Mantegna" className="team-member-photo" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/ninamantegna/" target="_blank" rel="noopener noreferrer" className="team-member-name">Nina Mantegna</a>
                   <p className="team-member-role">Operations</p>
                 </div>
                 <div className="team-member team-member--sm">
-                  <img src="/team/gabi.jpg" alt="Gabriela Yaulli Herrera" className="team-member-photo" />
-                  <span className="team-member-name">Gabriela Yaulli Herrera</span>
+                  <a href="https://www.linkedin.com/in/gabriela-yaulli-herrera/" target="_blank" rel="noopener noreferrer">
+                    <img src="/team/gabi.jpg" alt="Gabriela Yaulli Herrera" className="team-member-photo" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/gabriela-yaulli-herrera/" target="_blank" rel="noopener noreferrer" className="team-member-name">Gabriela Yaulli Herrera</a>
                   <p className="team-member-role">Operations</p>
                 </div>
                 <div className="team-member team-member--sm">
-                  <img src="/team/cecilia.jpg" alt="Cecilia Chen" className="team-member-photo" />
-                  <span className="team-member-name">Cecilia Chen</span>
+                  <a href="https://www.instagram.com/cccliyay/?hl=en" target="_blank" rel="noopener noreferrer">
+                    <img src="/team/cecilia.jpg" alt="Cecilia Chen" className="team-member-photo" />
+                  </a>
+                  <a href="https://www.instagram.com/cccliyay/?hl=en" target="_blank" rel="noopener noreferrer" className="team-member-name">Cecilia Chen</a>
                   <p className="team-member-role">Curator</p>
                 </div>
               </div>
@@ -1316,8 +1327,10 @@ function App() {
               <p className="team-tier-label">Faculty Advisors</p>
               <div className="team-tier">
                 <div className="team-member team-member--sm">
-                  <img src="/team/greg.png" alt="Greg Pass" className="team-member-photo" />
-                  <span className="team-member-name">Greg Pass</span>
+                  <a href="https://techcrunch.com/2008/07/15/confirmed-twitter-acquires-summize-search-engine/" target="_blank" rel="noopener noreferrer">
+                    <img src="/team/greg.png" alt="Greg Pass" className="team-member-photo" />
+                  </a>
+                  <a href="https://techcrunch.com/2008/07/15/confirmed-twitter-acquires-summize-search-engine/" target="_blank" rel="noopener noreferrer" className="team-member-name">Greg Pass</a>
                   <p className="team-member-role">Co-founder @ 4149 & Backslash, ex-CTO @ Twitter</p>
                 </div>
                 <div className="team-member team-member--sm">
@@ -1326,10 +1339,10 @@ function App() {
                   <p className="team-member-role">Cornell Tech, ex-Center for Design Research @ Stanford University</p>
                 </div>
                 <div className="team-member team-member--sm">
-                  <a href="https://linkedin.com/in/arielkennan" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.fastcompany.com/3067006/how-ariel-kennan-solves-nycs-most-intractable-design-problems" target="_blank" rel="noopener noreferrer">
                     <img src="/team/ariel.png" alt="Ariel Kennan" className="team-member-photo" />
                   </a>
-                  <a href="https://linkedin.com/in/arielkennan" target="_blank" rel="noopener noreferrer" className="team-member-name">Ariel Kennan</a>
+                  <a href="https://www.fastcompany.com/3067006/how-ariel-kennan-solves-nycs-most-intractable-design-problems" target="_blank" rel="noopener noreferrer" className="team-member-name">Ariel Kennan</a>
                   <p className="team-member-role">Georgetown's Beeck Center for Social Impact, ex-Design @ Google's Sidewalk Labs</p>
                 </div>
               </div>

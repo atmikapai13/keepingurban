@@ -2455,6 +2455,7 @@ body {
 
 .schedule-panel-logos {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   align-items: center;
   margin-top: 12px;
@@ -2664,6 +2665,20 @@ a.schedule-panel-speaker-link:hover {
   background: rgba(139, 92, 246, 0.03);
   padding: 8px 12px;
   animation: schedulePitchPulse 3s ease-in-out infinite;
+}
+
+.schedule-event-panel.schedule-event-lightning {
+  border-color: #00fe41;
+  background: rgba(0, 254, 65, 0.04);
+  animation: none;
+}
+
+.schedule-event-panel.schedule-event-pitch.schedule-event-lightning .schedule-panel-label {
+  color: #00fe41;
+}
+
+.schedule-event-panel.schedule-event-pitch.schedule-event-lightning .schedule-panel-expand-hint {
+  color: #00fe41;
 }
 
 .schedule-event-panel.schedule-event-pitch .schedule-panel-label {
@@ -3097,6 +3112,27 @@ a.schedule-panel-speaker-link:hover {
   /* Card taglines — consistent 0.7rem */
   .rolodex-card-tagline {
     font-size: 0.7rem;
+  }
+
+  /* Schedule panel speakers — 2-column grid on mobile */
+  .schedule-panel-speakers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  .schedule-panel-speaker {
+    width: auto;
+  }
+
+  .schedule-panel-speaker:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .schedule-panel-speaker-photo {
+    width: 90px;
+    height: 90px;
   }
 
   /* Team — stack operation leads above faculty advisors */
