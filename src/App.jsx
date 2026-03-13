@@ -504,6 +504,7 @@ const scheduleData = [
 
 const scheduleTabs = [
   { id: 'all', label: 'ALL' },
+  { id: 'gallery', label: 'GALLERY' },
 ]
 
 const venueLabels = { tata141: 'TATA 141', tata151: 'TATA 151' }
@@ -603,6 +604,11 @@ function ScheduleTerminal() {
       <div className={`schedule-content ${glitching ? 'schedule-glitch' : ''}`}>
         <div className="schedule-scanlines" aria-hidden="true" />
 
+        {activeTab === 'gallery' ? (
+          <div style={{ padding: 'var(--space-md)', textAlign: 'center' }}>
+            <img src="/gallery.jpeg" alt="Gallery Map" style={{ width: '100%', maxWidth: '600px', borderRadius: '4px' }} />
+          </div>
+        ) : (
         <div className="schedule-main-layout">
             <div className="schedule-slots-col">
             {timeSlots.map((slot, slotIdx) => {
@@ -818,6 +824,7 @@ function ScheduleTerminal() {
             })}
             </div>
           </div>
+        )}
 
         {/* Blinking cursor */}
         <div className="schedule-cursor">_</div>
