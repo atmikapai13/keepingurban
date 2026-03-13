@@ -33,7 +33,7 @@
   --space-xl: 8rem;
 
   --max-width: 1400px;
-  --nav-height: 60px;
+  --nav-height: 0px;
 }
 
 /* --- Reset & Base --- */
@@ -630,6 +630,11 @@ body {
 
 .artist-gallery-card .zone-image {
   height: 380px;
+}
+
+.zone-description {
+  font-size: 0.85rem;
+  line-height: 1.4;
 }
 
 .gallery-slideshow {
@@ -1309,8 +1314,8 @@ body {
 }
 
 .speaker-photo {
-  width: 200px;
-  height: 200px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   margin: 0 auto var(--space-sm);
   object-fit: cover;
@@ -2556,14 +2561,10 @@ body {
 }
 
 .schedule-panel-speakers {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-sm);
-}
-
-.schedule-panel-speaker:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  justify-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-lg);
 }
 
 .schedule-panel-speaker {
@@ -2572,11 +2573,12 @@ body {
   align-items: center;
   gap: 2px;
   text-align: center;
+  width: 180px;
 }
 
 .schedule-panel-speaker-photo {
-  width: 96px;
-  height: 96px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   object-fit: cover;
   filter: grayscale(100%);
@@ -2909,7 +2911,7 @@ a.schedule-panel-speaker-link:hover {
 
   /* Hero */
   .hero {
-    min-height: calc(100vh - 52px);
+    min-height: calc(100vh - 0px);
     padding-top: var(--space-xl);
     padding-bottom: var(--space-lg);
   }
@@ -3095,6 +3097,11 @@ a.schedule-panel-speaker-link:hover {
   /* Card taglines — consistent 0.7rem */
   .rolodex-card-tagline {
     font-size: 0.7rem;
+  }
+
+  /* Team — stack operation leads above faculty advisors */
+  .team-row-split {
+    flex-direction: column;
   }
 
   /* Zones */

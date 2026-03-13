@@ -10,8 +10,8 @@ function seededRandom(seed) {
 // Generate a dense, realistic city street network procedurally
 function generateStreetNetwork(seed = 42) {
   const paths = []
-  const gridCols = 18
-  const gridRows = 14
+  const gridCols = 24
+  const gridRows = 18
   const cellW = 1100 / gridCols
   const cellH = 900 / gridRows
   let seedCounter = seed
@@ -482,7 +482,6 @@ const scheduleData = [
       { name: 'Ariel K.', org: "Georgetown's Beeck Center for Social Impact, ex-Design @ Google's Sidewalk Labs", photo: '/team/ariel.png', logo: '/logo/beeck.png', noInvert: true, url: 'https://linkedin.com/in/arielkennan' },
       { name: 'Ariel N.', org: 'Research Scientist @ MIT Media Lab, co-Founder @ City Science Living Labs', photo: '/panelists/ariel_noyman.png', logo: '/logo/media_lab.png', logoHeight: 45, url: 'https://linkedin.com/in/arielnoyman' },
       { name: 'Sonam V.', org: 'Co-founder @ Streetlife Ventures, ex-World Bank', photo: '/panelists/sonam.png', logo: '/logo/streetlife.png', logoHeight: 45, noInvert: true, url: 'https://www.linkedin.com/in/sonamvelani/' },
-      { name: 'Virginia M.', org: 'NYC District 4 City Council Member, ex-PM @ Meta', photo: '/panelists/civic_maloney.png', logo: '/logo/sidewalk.png', url: 'https://council.nyc.gov/district-4/' },
     ],
   },
   { time: '3:15', endTime: '4:00', title: 'Open Gallery Walk', detail: 'Coffee Break', venue: 'all', type: 'break' },
@@ -845,7 +844,14 @@ const gallerySlides = [
     img: '/program/tianyi_work.png',
     alt: 'Tianyi Sun Work',
     title: 'Tianyi Sun',
-    description: '40 Epochs is a hybrid-narrative film that explores spiritual displacement, fractured identity, and the unseen labor behind human-like technologies. Inspired by the artists’ own experience training an AI model to reproduce Sun’s voice, the film follows a voice donor in solitude as she performs reverent acts of reading, recording, and revising.What begins as ritual becomes rupture, as she reckons with the cost of entwining intimate gestures with the relentless demands of repetitive systems.'
+    description: "40 Epochs is a hybrid-narrative film that explores spiritual displacement, fractured identity, and the unseen labor behind human-like technologies. Inspired by the artists\u2019 own experience training an AI model to reproduce Sun\u2019s voice, the film follows a voice donor in solitude as she performs reverent acts of reading, recording, and revising. What begins as ritual becomes rupture, as she reckons with the cost of entwining intimate gestures with the relentless demands of repetitive systems."
+  },
+  {
+    img: "/program/collin_subway.png",
+    alt: "Collin Miller - Subway Builder",
+    title: "Collin Miller",
+    description: "Subway Builder \u2014 a city-building game where you design and manage your own transit network.",
+    objectPosition: "center 75%",
   },
 ];
 
@@ -855,7 +861,7 @@ function GallerySlideshow() {
   return (
     <article className="zone artist-gallery-card gallery-slideshow">
       <div className="gallery-slide-img-wrap">
-        <img src={slide.img} alt={slide.alt} className="zone-image" />
+        <img src={slide.img} alt={slide.alt} className="zone-image" style={slide.objectPosition ? {objectPosition: slide.objectPosition} : undefined} />
         <button className="gallery-arrow gallery-arrow--prev" onClick={() => setIdx((idx - 1 + gallerySlides.length) % gallerySlides.length)}>&#8592;</button>
         <button className="gallery-arrow gallery-arrow--next" onClick={() => setIdx((idx + 1) % gallerySlides.length)}>&#8594;</button>
         <div className="gallery-dots">
@@ -1110,7 +1116,7 @@ function App() {
               <img src="/logo/pbs.png" alt="PBS" className="cloud-logo no-color-hover" />
               <img src="/logo/spotify.svg" alt="Spotify" className="cloud-logo" style={{transform: 'scale(1.3)'}} />
               <img src="/logo/fauna_robotics.png" alt="Fauna Robotics" className="cloud-logo no-color-hover" />
-              <img src="/logo/deepmind.png" alt="DeepMind" className="cloud-logo no-color-hover" />
+              <img src="/logo/deepmind.webp" alt="DeepMind" className="cloud-logo no-color-hover" />
               <img src="/logo/Foursquare_logo.png" alt="Foursquare" className="cloud-logo" />
               <img src="/logo/hopscotch.png" alt="Hopscotch Labs" className="cloud-logo" style={{transform: 'scale(1.3)'}} />
               <span className="cloud-logo-swap">
@@ -1186,6 +1192,11 @@ function App() {
                 <span className="speaker-name">Tianyi Sun</span>
                 <p className="speaker-role">Backslash Art Award @ Cornell Tech<br />Finalist, The 6th VH AWARD @ Hyundai Artlab</p>
               </div>
+              <div className="speaker">
+                <img src="/panelists/collin_mller.png" alt="Collin Miller" className="speaker-photo" />
+                <span className="speaker-name">Collin Miller</span>
+                <p className="speaker-role">Creator of Subway Builder,<br />Founder @ Redistricter</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1207,8 +1218,8 @@ function App() {
             tabIndex="0"
             title="Register for Event"
           />
-          <a href="https://luma.com/p202e71l" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary" style={{marginTop: 'var(--space-md)', display: 'inline-block', width: 'fit-content'}}>Attend</a>
         </div>
+        <a href="https://luma.com/p202e71l" target="_blank" rel="noopener noreferrer" className="cta-btn cta-primary" style={{marginTop: 'var(--space-md)', display: 'block', width: 'fit-content', marginLeft: 'auto', marginRight: 'auto'}}>Attend</a>
       </section>
 
       {/* You Belong Here
