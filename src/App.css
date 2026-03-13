@@ -2668,17 +2668,36 @@ a.schedule-panel-speaker-link:hover {
 }
 
 .schedule-event-panel.schedule-event-lightning {
-  border-color: #00fe41;
-  background: rgba(0, 254, 65, 0.04);
+  border-color: #00c234;
+  background: rgba(0, 194, 52, 0.04);
   animation: none;
 }
 
 .schedule-event-panel.schedule-event-pitch.schedule-event-lightning .schedule-panel-label {
-  color: #00fe41;
+  color: #00c234;
 }
 
 .schedule-event-panel.schedule-event-pitch.schedule-event-lightning .schedule-panel-expand-hint {
-  color: #00fe41;
+  color: #00c234;
+}
+
+.schedule-event-panel.schedule-event-lightning {
+  padding: 2px 10px;
+}
+
+.schedule-event-panel.schedule-event-pitch.schedule-event-lightning .schedule-event-title {
+  font-size: 0.7rem;
+  margin-bottom: 0;
+}
+
+.schedule-event-panel.schedule-event-pitch.schedule-event-lightning .schedule-panel-label {
+  font-size: 0.55rem;
+  margin-bottom: 0;
+}
+
+.schedule-event-panel.schedule-event-pitch.schedule-event-lightning .schedule-panel-header {
+  margin-bottom: 0;
+  align-items: center;
 }
 
 .schedule-event-panel.schedule-event-pitch .schedule-panel-label {
