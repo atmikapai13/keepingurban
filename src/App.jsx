@@ -1207,7 +1207,7 @@ function App() {
               <div className="speaker">
                 <img src="/panelists/tianyi.JPG" alt="Tianyi Sun" className="speaker-photo" />
                 <span className="speaker-name">Tianyi Sun</span>
-                <p className="speaker-role">Backslash Art Award @ Cornell Tech<br />Finalist, The 6th VH AWARD @ Hyundai Artlab</p>
+                <p className="speaker-role">Backslash Art Award<br />Finalist, The 6th VH AWARD @ Hyundai Artlab</p>
               </div>
               <div className="speaker">
                 <img src="/panelists/collin_mller.png" alt="Collin Miller" className="speaker-photo" />
@@ -1215,6 +1215,29 @@ function App() {
                 <p className="speaker-role">Creator of Subway Builder,<br />Founder @ Redistricter</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Startups Spotlight */}
+        <h3 className="tracks-header section-marker"><TypewriterText>Startup Spotlight</TypewriterText></h3>
+        <div className="startups-spotlight-split">
+          <div className="startups-spotlight-logos">
+            <a href="https://www.inpress.app/" target="_blank" rel="noopener noreferrer"><img src="/logo/inpress.webp" alt="Inpress" className="startup-logo" /></a>
+            <a href="https://haptic.works/" target="_blank" rel="noopener noreferrer"><img src="/logo/haptic_nav.webp" alt="Haptic" className="startup-logo startup-logo-noinvert" /></a>
+            <a href="https://itselectric.us/" target="_blank" rel="noopener noreferrer"><img src="/logo/its_electric.png" alt="It's Electric" className="startup-logo startup-logo-noinvert" style={{height: 60}} /></a>
+            <a href="https://www.noware.nyc/" target="_blank" rel="noopener noreferrer"><img src="/logo/noware2.png" alt="Noware" className="startup-logo startup-logo-noinvert" style={{height: 50}}/></a>
+            <a href="https://www.noware.nyc/" target="_blank" rel="noopener noreferrer"><img src="/logo/noware.png" alt="Noware" className="startup-logo startup-logo-noinvert" style={{height: 30}}/></a>
+            <a href="https://www.tensorzero.com/" target="_blank" rel="noopener noreferrer"><img src="/logo/tensorzero.png" alt="TensorZero" className="startup-logo startup-logo-noinvert" style={{height: 30}}/></a>
+            <a href="https://opinionae.com/" target="_blank" rel="noopener noreferrer"><img src="/logo/opinionae.png" alt="Opinionae" className="startup-logo startup-logo-noinvert" /></a>
+            <img src="/logo/vexer.png" alt="Vexer" className="startup-logo" />
+            <a href="https://www.volumes.cloud/" target="_blank" rel="noopener noreferrer"><img src="/logo/volumes.png" alt="Volumes" className="startup-logo startup-logo-noinvert" style={{height: 70}}/></a>
+            <a href="https://rootaccess.ai/" target="_blank" rel="noopener noreferrer"><img src="/logo/root_access.png" alt="Root Access" className="startup-logo startup-logo-noinvert" /></a>
+          </div>
+          <div className="startups-spotlight-video">
+            <video autoPlay loop muted playsInline>
+              <source src="/kiu_reel.mov" type="video/quicktime" />
+              <source src="/kiu_reel.mov" type="video/mp4" />
+            </video>
           </div>
         </div>
       </section>

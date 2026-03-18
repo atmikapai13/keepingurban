@@ -730,8 +730,68 @@ body {
   .artist-speakers-row {
     display: contents;
   }
+  .startups-spotlight-split {
+    flex-direction: column-reverse;
+  }
+  .startup-logo {
+    height: 28px !important;
+    max-width: 90px;
+  }
+  .startups-spotlight-logos {
+    gap: 12px 14px;
+  }
 }
 
+/* Startups Spotlight */
+.startups-spotlight-split {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.startups-spotlight-logos {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 24px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.startup-logo {
+  height: 35px;
+  width: auto;
+  object-fit: contain;
+  filter: invert(1) grayscale(1);
+  opacity: 0.6;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.startup-logo:hover {
+  filter: invert(1);
+  opacity: 1;
+}
+
+.startup-logo-noinvert {
+  filter: grayscale(1);
+}
+
+.startup-logo-noinvert:hover {
+  filter: none;
+  opacity: 1;
+}
+
+.startups-spotlight-video {
+  flex: 1.4;
+}
+
+.startups-spotlight-video video {
+  width: 100%;
+  border-radius: 8px;
+}
 
 /* --- Tracks --- */
 .tracks-header {
@@ -3173,6 +3233,11 @@ a.schedule-panel-speaker-link:hover {
     align-items: center;
   }
 
+  .team-subgroup .team-tier {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   /* Zones */
   .zones {
     grid-template-columns: 1fr;
@@ -3219,7 +3284,7 @@ a.schedule-panel-speaker-link:hover {
   /* Tracks */
   .tracks-header {
     font-size: 0.8rem;
-    margin-top: var(--space-xl);
+    margin-top: var(--space-md);
   }
 
   .track {
