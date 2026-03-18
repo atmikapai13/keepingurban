@@ -710,6 +710,7 @@ body {
   display: flex;
   gap: var(--space-lg);
   justify-content: center;
+  align-items: flex-start;
 }
 
 .artist-speakers-row--center {
@@ -721,7 +722,13 @@ body {
     flex-direction: column;
   }
   .artist-gallery-speakers {
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    justify-items: center;
+  }
+  .artist-speakers-row {
+    display: contents;
   }
 }
 
@@ -1718,6 +1725,7 @@ body {
 .team-subgroup {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .team-subgroup .team-tier {
@@ -3090,13 +3098,9 @@ a.schedule-panel-speaker-link:hover {
   .speakers-grid .speaker:nth-child(1),
   .speakers-grid .speaker:nth-child(2),
   .speakers-grid .speaker:nth-child(3),
-  .speakers-grid .speaker:nth-child(4) {
-    grid-column: auto;
-    margin-top: 0;
-  }
-
+  .speakers-grid .speaker:nth-child(4),
   .speakers-grid .speaker:nth-child(5) {
-    grid-column: 1 / -1;
+    grid-column: auto;
     margin-top: 0;
   }
 
@@ -3159,6 +3163,7 @@ a.schedule-panel-speaker-link:hover {
   /* Team — stack operation leads above faculty advisors */
   .team-row-split {
     flex-direction: column;
+    align-items: center;
   }
 
   /* Zones */
