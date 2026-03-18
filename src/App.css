@@ -2562,10 +2562,10 @@ body {
 }
 
 .schedule-panel-speakers {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-lg);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  gap: var(--space-md);
 }
 
 .schedule-panel-speaker {
@@ -2574,7 +2574,11 @@ body {
   align-items: center;
   gap: 2px;
   text-align: center;
-  width: 180px;
+  width: auto;
+}
+
+.schedule-panel-speaker:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
 
 .schedule-panel-speaker-photo {
@@ -2665,6 +2669,15 @@ a.schedule-panel-speaker-link:hover {
   background: rgba(139, 92, 246, 0.03);
   padding: 8px 12px;
   animation: schedulePitchPulse 3s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule-event-panel.schedule-event-pitch .schedule-panel-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .schedule-event-panel.schedule-event-lightning {
@@ -2923,6 +2936,11 @@ a.schedule-panel-speaker-link:hover {
   .rolodex-grid {
     gap: var(--space-sm);
   }
+
+  .schedule-panel-speaker-photo {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 /* =========================================
@@ -3131,22 +3149,6 @@ a.schedule-panel-speaker-link:hover {
   /* Card taglines — consistent 0.7rem */
   .rolodex-card-tagline {
     font-size: 0.7rem;
-  }
-
-  /* Schedule panel speakers — 2-column grid on mobile */
-  .schedule-panel-speakers {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-md);
-  }
-
-  .schedule-panel-speaker {
-    width: auto;
-  }
-
-  .schedule-panel-speaker:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    justify-self: center;
   }
 
   .schedule-panel-speaker-photo {

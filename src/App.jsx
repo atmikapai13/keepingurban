@@ -455,14 +455,17 @@ const scheduleData = [
   { time: '12:00', endTime: '1:00', title: 'Lunch', detail: 'Cornell Tech Catering', venue: 'all', type: 'break' },
   { time: '1:00', endTime: '2:00', title: 'Interfaces Startup Pitches', detail: '2 speakers: 20-30 mins', venue: 'tata141', type: 'pitch',
     pitchSpeakers: [
-      { name: 'Kevin Yoo', company: 'Haptic', role: 'CEO', url: 'https://haptic.works/', logo: '/logo/haptic_nav.webp', noInvert: true },
-      { name: 'Adam Harder', company: 'Inpress', role: 'CEO', url: 'https://www.inpress.app/', logo: '/logo/inpress.webp' },
+      { name: 'Kevin Yoo', company: 'Haptic', role: 'CEO', url: 'https://haptic.works/', logo: '/logo/haptic_nav.webp', noInvert: true, logoHeight: 28 },
+      { name: 'Adam Harder', company: 'Inpress', role: 'CEO', url: 'https://www.inpress.app/', logo: '/logo/inpress.webp', logoHeight: 30 },
+      { company: 'Opinionae', url: 'https://opinionae.com/', logo: '/logo/opinionae.png', logoHeight: 35, noInvert: true },
     ],
   },
-  { time: '1:00', endTime: '2:00', title: 'Tinkerer Project Pitches', detail: '4 speakers: 15 minutes each', venue: 'tata151', type: 'pitch',
+  { time: '1:00', endTime: '2:00', title: 'Creative Tech Talks', detail: '4 speakers: 15 minutes each', venue: 'tata151', type: 'pitch',
     pitchSpeakers: [
+      { company: 'Noware', url: 'https://www.noware.nyc/', logo: '/logo/noware2.png', noInvert: true, logoHeight: 60 },
       { company: 'Noware', url: 'https://www.noware.nyc/', logo: '/logo/noware.png', noInvert: true },
-      { company: 'Subway Builder', url: 'https://www.subwaybuilder.com/', logo: '/logo/subwaybuilder.png', rawLogo: true },
+      { company: 'Subway Builder', url: 'https://www.subwaybuilder.com/', logo: '/logo/subwaybuilder.png', noInvert: true, logoHeight: 40 },
+      { company: 'OpenBook Touch', url: 'https://www.oddlyspecificobjects.com/projects/openbook/', logo: '/logo/openbooktouch.png', noInvert: true, logoHeight: 60 },
     ],
   },
   {
@@ -485,26 +488,28 @@ const scheduleData = [
     ],
   },
   { time: '3:15', endTime: '4:00', title: 'Open Gallery Walk', detail: 'Coffee Break', venue: 'all', type: 'break' },
-  { time: '4:00', endTime: '4:10', title: 'Reverse-engineering Claude Code', detail: '10 mins', venue: 'tata141', type: 'pitch', label: 'Lightning Talk',
+  { time: '4:00', endTime: '4:20', title: 'Reverse-engineering Claude Code', detail: '10 mins', venue: 'tata141', type: 'pitch', label: 'Lightning Talk',
     pitchSpeakers: [
-      { company: 'TensorZero', url: 'https://www.tensorzero.com/', logo: '/logo/tensorzero.png', noInvert: true },
+      { company: 'TensorZero', url: 'https://www.tensorzero.com/', logo: '/logo/tensorzero.png', noInvert: true, logoHeight: 40 },
     ],
   },
-  { time: '4:10', endTime: '5:00', title: 'Robotics Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata141', type: 'pitch',
+  { time: '4:20', endTime: '5:00', title: 'Robotics Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata141', type: 'pitch',
     pitchSpeakers: [
-      { company: 'Root Access', url: 'https://rootaccess.ai/', logo: '/logo/root_access.png', noInvert: true },
+      { company: 'Root Access', url: 'https://rootaccess.ai/', logo: '/logo/root_access.png', noInvert: true, logoHeight: 50 },
+      { company: 'Volumes', url: 'https://www.volumes.cloud/', logo: '/logo/volumes.png', noInvert: true,  logoHeight: 80 },
     ],
   },
-  { time: '4:10', endTime: '5:00', title: 'Urban Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata151', type: 'pitch',
+  { time: '4:20', endTime: '5:00', title: 'Urban Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata151', type: 'pitch',
     pitchSpeakers: [
-      { company: "It's Electric", url: 'https://itselectric.us/', logo: '/logo/its_electric.png', noInvert: true, logoHeight: 50 },
+      { company: "It's Electric", url: 'https://itselectric.us/', logo: '/logo/its_electric.png', noInvert: true, logoHeight: 60 },
+      { company: 'Vexer', logo: '/logo/vexer.png', logoHeight: 40 },
     ],
   },
 ]
 
 const scheduleTabs = [
   { id: 'all', label: 'ALL' },
-  { id: 'gallery', label: 'GALLERY' },
+  
 ]
 
 const venueLabels = { tata141: 'TATA 141', tata151: 'TATA 151' }
