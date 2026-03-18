@@ -1524,7 +1524,7 @@ body {
     padding: var(--space-sm);
   }
   .register-embed iframe {
-    height: 750px;
+    height: 350px;
   }
   .schedule-break-time {
     display: none;
@@ -2459,6 +2459,7 @@ body {
 
 .schedule-panel-venue {
   color: var(--gray-400);
+  font-weight: 700;
 }
 
 .schedule-panel-logos {
@@ -3088,6 +3089,7 @@ a.schedule-panel-speaker-link:hover {
   /* Speakers */
   .speakers-split {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .speakers-grid {
@@ -3098,9 +3100,14 @@ a.schedule-panel-speaker-link:hover {
   .speakers-grid .speaker:nth-child(1),
   .speakers-grid .speaker:nth-child(2),
   .speakers-grid .speaker:nth-child(3),
-  .speakers-grid .speaker:nth-child(4),
-  .speakers-grid .speaker:nth-child(5) {
+  .speakers-grid .speaker:nth-child(4) {
     grid-column: auto;
+    margin-top: 0;
+  }
+
+  .speakers-grid .speaker:nth-child(5) {
+    grid-column: 1 / -1;
+    justify-self: center;
     margin-top: 0;
   }
 

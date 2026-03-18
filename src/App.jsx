@@ -460,7 +460,7 @@ const scheduleData = [
       { company: 'Opinionae', url: 'https://opinionae.com/', logo: '/logo/opinionae.png', logoHeight: 35, noInvert: true },
     ],
   },
-  { time: '1:00', endTime: '2:00', title: 'Creative Tech Talks', detail: '4 speakers: 15 minutes each', venue: 'tata151', type: 'pitch',
+  { time: '1:00', endTime: '2:00', title: 'Creative Tech Talks', detail: '4 speakers: 15 minutes each', venue: 'tata131', type: 'pitch',
     pitchSpeakers: [
       { company: 'Noware', url: 'https://www.noware.nyc/', logo: '/logo/noware2.png', noInvert: true, logoHeight: 60 },
       { company: 'Noware', url: 'https://www.noware.nyc/', logo: '/logo/noware.png', noInvert: true },
@@ -480,7 +480,7 @@ const scheduleData = [
   },
   {
     time: '2:00', endTime: '3:15', title: 'Panel 3: Building for Belonging', panelLabel: 'Multidisciplinary Panel', panelTopic: 'Building for Belonging', panelSubtopic: 'Innovation within bureaucracy.',
-    detail: '45 min, 15 mins Q&A + buffer', venue: 'tata151', type: 'panel',
+    detail: '45 min, 15 mins Q&A + buffer', venue: 'tata131', type: 'panel',
     speakers: [
       { name: 'Ariel K.', org: "Georgetown's Beeck Center for Social Impact, ex-Design @ Google's Sidewalk Labs", photo: '/team/ariel.png', logo: '/logo/beeck.png', noInvert: true, url: 'https://linkedin.com/in/arielkennan' },
       { name: 'Ariel N.', org: 'Research Scientist @ MIT Media Lab, co-Founder @ City Science Living Labs', photo: '/panelists/ariel_noyman.png', logo: '/logo/media_lab.png', logoHeight: 45, url: 'https://linkedin.com/in/arielnoyman' },
@@ -499,7 +499,7 @@ const scheduleData = [
       { company: 'Volumes', url: 'https://www.volumes.cloud/', logo: '/logo/volumes.png', noInvert: true,  logoHeight: 80 },
     ],
   },
-  { time: '4:20', endTime: '5:00', title: 'Urban Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata151', type: 'pitch',
+  { time: '4:20', endTime: '5:00', title: 'Urban Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata131', type: 'pitch',
     pitchSpeakers: [
       { company: "It's Electric", url: 'https://itselectric.us/', logo: '/logo/its_electric.png', noInvert: true, logoHeight: 60 },
       { company: 'Vexer', logo: '/logo/vexer.png', logoHeight: 40 },
@@ -512,7 +512,7 @@ const scheduleTabs = [
   
 ]
 
-const venueLabels = { tata141: 'TATA 141', tata151: 'TATA 151' }
+const venueLabels = { tata141: 'TATA 141', tata131: 'TATA 131' }
 
 function ScheduleTerminal() {
   const [activeTab, setActiveTab] = useState('all')
