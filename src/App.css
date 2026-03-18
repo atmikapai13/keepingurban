@@ -3098,6 +3098,7 @@ a.schedule-panel-speaker-link:hover {
   /* Section headers — consistent 0.8rem */
   .section-marker {
     font-size: 0.8rem;
+    margin-top: var(--space-md);
   }
 
   /* Statement */
@@ -3233,8 +3234,26 @@ a.schedule-panel-speaker-link:hover {
   }
 
   .team-subgroup .team-tier {
-    flex-wrap: wrap;
     justify-content: center;
+    gap: 8px;
+  }
+
+  .team-member--sm {
+    width: 100px;
+    max-width: 100px;
+  }
+
+  .team-member--sm .team-member-photo {
+    width: 65px;
+    height: 65px;
+  }
+
+  .team-member--sm .team-member-name {
+    font-size: 0.45rem;
+  }
+
+  .team-member--sm .team-member-role {
+    font-size: 0.5rem;
   }
 
   /* Zones */

@@ -485,6 +485,7 @@ const scheduleData = [
       { name: 'Ariel K.', org: "Georgetown's Beeck Center for Social Impact, ex-Design @ Google's Sidewalk Labs", photo: '/team/ariel.png', logo: '/logo/beeck.png', noInvert: true, url: 'https://linkedin.com/in/arielkennan' },
       { name: 'Ariel N.', org: 'Research Scientist @ MIT Media Lab, co-Founder @ City Science Living Labs', photo: '/panelists/ariel_noyman.png', logo: '/logo/media_lab.png', logoHeight: 45, url: 'https://linkedin.com/in/arielnoyman' },
       { name: 'Sonam V.', org: 'Co-founder @ Streetlife Ventures, ex-World Bank', photo: '/panelists/sonam.png', logo: '/logo/streetlife.png', logoHeight: 45, noInvert: true, url: 'https://www.linkedin.com/in/sonamvelani/' },
+      { name: 'Siqi Z.', org: 'Head of Sasaki Strategies, Professor @ Harvard, Cornell AAP', photo: '/panelists/siqi.png', url: 'https://www.siqizhu.net/' , logo: '/logo/sasaki.png', noInvert: true},
     ],
   },
   { time: '3:15', endTime: '4:00', title: 'Open Gallery Walk', detail: 'Coffee Break', venue: 'all', type: 'break' },
@@ -1085,6 +1086,37 @@ function App() {
         </div>
       </section>
 
+      {/* Program Snapshot */}
+      <section className="program" id="program">
+        <h2 className="section-marker"><TypewriterText>What to expect?</TypewriterText></h2>
+        <div className="context-grid program-stats">
+          <div className="signal">
+            <span className="signal-number">150+</span>
+            <span className="signal-label"><span className="signal-title">Participants</span></span>
+          </div>
+          <div className="signal">
+            <span className="signal-number">20+</span>
+            <span className="signal-label"><span className="signal-title">Speakers</span></span>
+          </div>
+          <div className="signal">
+            <span className="signal-number">15+</span>
+            <span className="signal-label"><span className="signal-title">Artists</span></span>
+          </div>
+          <div className="signal">
+            <span className="signal-number">12+</span>
+            <span className="signal-label"><span className="signal-title">Pitches</span></span>
+          </div>
+          <div className="signal">
+            <span className="signal-number">3</span>
+            <span className="signal-label"><span className="signal-title">Panels</span></span>
+          </div>
+        </div>
+        {/* Schedule
+        <h3 className="tracks-header section-marker"><TypewriterText>What&apos;s happenin&apos;?</TypewriterText></h3> */}
+        <ScheduleTerminal />
+
+      </section>
+
       {/* Curatorial Statement */}
       <section className="statement" id="open-call">
         {/* Speakers */}
@@ -1143,37 +1175,6 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Program Snapshot */}
-      <section className="program" id="program">
-        <h2 className="section-marker"><TypewriterText>What to expect?</TypewriterText></h2>
-        <div className="context-grid program-stats">
-          <div className="signal">
-            <span className="signal-number">150+</span>
-            <span className="signal-label"><span className="signal-title">Participants</span></span>
-          </div>
-          <div className="signal">
-            <span className="signal-number">20+</span>
-            <span className="signal-label"><span className="signal-title">Speakers</span></span>
-          </div>
-          <div className="signal">
-            <span className="signal-number">15+</span>
-            <span className="signal-label"><span className="signal-title">Artists</span></span>
-          </div>
-          <div className="signal">
-            <span className="signal-number">12+</span>
-            <span className="signal-label"><span className="signal-title">Pitches</span></span>
-          </div>
-          <div className="signal">
-            <span className="signal-number">3</span>
-            <span className="signal-label"><span className="signal-title">Panels</span></span>
-          </div>
-        </div>
-        {/* Schedule
-        <h3 className="tracks-header section-marker"><TypewriterText>What&apos;s happenin&apos;?</TypewriterText></h3> */}
-        <ScheduleTerminal />
-
       </section>
 
       {/* Program continued */}
@@ -1337,23 +1338,23 @@ function App() {
               <div className="team-tier">
                 <div className="team-member team-member--sm">
                   <a href="https://www.linkedin.com/in/ninamantegna/" target="_blank" rel="noopener noreferrer">
-                    <img src="/team/nina.jpg" alt="Nina Mantegna" className="team-member-photo" />
+                    <img src="/team/nina.jpg" alt="Nina M." className="team-member-photo" />
                   </a>
-                  <a href="https://www.linkedin.com/in/ninamantegna/" target="_blank" rel="noopener noreferrer" className="team-member-name">Nina Mantegna</a>
+                  <a href="https://www.linkedin.com/in/ninamantegna/" target="_blank" rel="noopener noreferrer" className="team-member-name">Nina</a>
                   <p className="team-member-role">Operations</p>
                 </div>
                 <div className="team-member team-member--sm">
                   <a href="https://www.linkedin.com/in/gabriela-yaulli-herrera/" target="_blank" rel="noopener noreferrer">
-                    <img src="/team/gabi.jpg" alt="Gabriela Yaulli Herrera" className="team-member-photo" />
+                    <img src="/team/gabi.jpg" alt="Gabriela YH" className="team-member-photo" />
                   </a>
-                  <a href="https://www.linkedin.com/in/gabriela-yaulli-herrera/" target="_blank" rel="noopener noreferrer" className="team-member-name">Gabriela Yaulli Herrera</a>
+                  <a href="https://www.linkedin.com/in/gabriela-yaulli-herrera/" target="_blank" rel="noopener noreferrer" className="team-member-name">Gabriela</a>
                   <p className="team-member-role">Operations</p>
                 </div>
                 <div className="team-member team-member--sm">
                   <a href="https://www.instagram.com/cccliyay/?hl=en" target="_blank" rel="noopener noreferrer">
-                    <img src="/team/cecilia.jpg" alt="Cecilia Chen" className="team-member-photo" />
+                    <img src="/team/cecilia.jpg" alt="Cecilia C." className="team-member-photo" />
                   </a>
-                  <a href="https://www.instagram.com/cccliyay/?hl=en" target="_blank" rel="noopener noreferrer" className="team-member-name">Cecilia Chen</a>
+                  <a href="https://www.instagram.com/cccliyay/?hl=en" target="_blank" rel="noopener noreferrer" className="team-member-name">Cecilia</a>
                   <p className="team-member-role">Curator</p>
                 </div>
               </div>
