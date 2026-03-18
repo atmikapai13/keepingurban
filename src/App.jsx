@@ -489,7 +489,7 @@ const scheduleData = [
     ],
   },
   { time: '3:15', endTime: '4:00', title: 'Open Gallery Walk', detail: 'Coffee Break', venue: 'all', type: 'break' },
-  { time: '4:00', endTime: '4:20', title: 'Reverse-engineering Claude Code', detail: '10 mins', venue: 'tata141', type: 'pitch', label: 'Lightning Talk',
+  { time: '4:00', endTime: '4:20', title: 'Reverse-engineering Claude Code', detail: '20 mins', venue: 'tata141', type: 'pitch', label: 'Lightning Talk',
     pitchSpeakers: [
       { company: 'TensorZero', url: 'https://www.tensorzero.com/', logo: '/logo/tensorzero.png', noInvert: true, logoHeight: 40 },
     ],
