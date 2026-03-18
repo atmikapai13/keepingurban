@@ -1236,8 +1236,8 @@ function App() {
           </div>
           <div className="startups-spotlight-video">
             <video autoPlay loop muted playsInline>
+              <source src="/kiu_reel.mp4" type="video/mp4" />
               <source src="/kiu_reel.mov" type="video/quicktime" />
-              <source src="/kiu_reel.mov" type="video/mp4" />
             </video>
           </div>
         </div>
