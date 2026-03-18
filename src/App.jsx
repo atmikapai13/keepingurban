@@ -1235,10 +1235,7 @@ function App() {
             <a href="https://rootaccess.ai/" target="_blank" rel="noopener noreferrer"><img src="/logo/root_access.png" alt="Root Access" className="startup-logo startup-logo-noinvert" /></a>
           </div>
           <div className="startups-spotlight-video">
-            <video autoPlay loop muted playsInline>
-              <source src="/kiu_reel.mov" type="video/quicktime" />
-              <source src="/kiu_reel.mov" type="video/mp4" />
-            </video>
+            <img src="/kiu_reel.gif" alt="Startup Spotlight Reel" />
           </div>
         </div>
       </section>

@@ -788,7 +788,8 @@ body {
   flex: 1.4;
 }
 
-.startups-spotlight-video video {
+.startups-spotlight-video video,
+.startups-spotlight-video img {
   width: 100%;
   border-radius: 8px;
 }
