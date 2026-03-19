@@ -494,6 +494,10 @@ const scheduleData = [
       { company: 'TensorZero', url: 'https://www.tensorzero.com/', logo: '/logo/tensorzero.png', noInvert: true, logoHeight: 40 },
     ],
   },
+  { time: '4:00', endTime: '4:20', title: 'Film Screening: 40 Epochs', detail: '20 mins', venue: 'tata131', type: 'pitch', label: 'Film Screening',
+    pitchDescription: 'Tianyi Sun',
+    pitchSpeakers: [],
+  },
   { time: '4:20', endTime: '5:00', title: 'Robotics Startup Pitches', detail: '2-3 speakers: 20-30 mins', venue: 'tata141', type: 'pitch',
     pitchSpeakers: [
       { company: 'Root Access', url: 'https://rootaccess.ai/', logo: '/logo/root_access.png', noInvert: true, logoHeight: 50 },
@@ -784,12 +788,13 @@ function ScheduleTerminal() {
                       // pitch
                       const isPitchExpanded = expandedPanels.has(event.title)
                       const hasPitchSpeakers = event.pitchSpeakers && event.pitchSpeakers.length > 0
+                      const hasPitchContent = hasPitchSpeakers || event.pitchDescription
                       return (
                         <div
                           key={eventIdx}
-                          className={`schedule-event schedule-event-panel schedule-event-pitch ${event.label === 'Lightning Talk' ? 'schedule-event-lightning' : ''} ${isPitchExpanded ? 'schedule-panel-expanded' : ''}`}
-                          onClick={hasPitchSpeakers ? () => togglePanel(event.title) : undefined}
-                          style={hasPitchSpeakers ? { cursor: 'pointer' } : undefined}
+                          className={`schedule-event schedule-event-panel schedule-event-pitch ${(event.label === 'Lightning Talk' || event.label === 'Film Screening') ? 'schedule-event-lightning' : ''} ${isPitchExpanded ? 'schedule-panel-expanded' : ''}`}
+                          onClick={hasPitchContent ? () => togglePanel(event.title) : undefined}
+                          style={hasPitchContent ? { cursor: 'pointer' } : undefined}
                         >
                           <div className="schedule-panel-scanlines" aria-hidden="true" />
                           <div className="schedule-panel-header">
@@ -802,7 +807,7 @@ function ScheduleTerminal() {
                               </div>
                               <div className="schedule-event-title">{event.title}</div>
                             </div>
-                            {hasPitchSpeakers && (
+                            {hasPitchContent && (
                               <div className="schedule-panel-header-right">
                                 <span className="schedule-panel-expand-hint" aria-hidden="true">
                                   {isPitchExpanded ? '[-]' : '[+]'}
@@ -810,15 +815,20 @@ function ScheduleTerminal() {
                               </div>
                             )}
                           </div>
-                          {isPitchExpanded && hasPitchSpeakers && (
+                          {isPitchExpanded && hasPitchContent && (
                             <div className="schedule-panel-details">
-                              <div className="schedule-panel-logos">
-                                {event.pitchSpeakers.filter(s => s.logo).map((s, i) => (
-                                  <a key={i} href={s.url} target="_blank" rel="noopener noreferrer">
-                                    <img src={s.logo} alt={s.company} className={`schedule-panel-logo${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}${s.rawLogo ? ' schedule-panel-logo-raw' : ''}`} style={{ height: s.logoHeight || 30 }} />
-                                  </a>
-                                ))}
-                              </div>
+                              {event.pitchDescription && (
+                                <div className="schedule-panel-description">{event.pitchDescription}</div>
+                              )}
+                              {hasPitchSpeakers && (
+                                <div className="schedule-panel-logos">
+                                  {event.pitchSpeakers.filter(s => s.logo).map((s, i) => (
+                                    <a key={i} href={s.url} target="_blank" rel="noopener noreferrer">
+                                      <img src={s.logo} alt={s.company} className={`schedule-panel-logo${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}${s.rawLogo ? ' schedule-panel-logo-raw' : ''}`} style={{ height: s.logoHeight || 30 }} />
+                                    </a>
+                                  ))}
+                                </div>
+                              )}
                             </div>
                           )}
                         </div>
