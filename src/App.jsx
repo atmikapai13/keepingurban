@@ -442,7 +442,7 @@ const scheduleData = [
     speakers: [
       { name: 'Adaora Udoji', org: 'ex-VP @ PBS, RLab, Journalist @ ABC & CNN, Filmmaker & Juror @ Sundance, Tribeca, TIFF', photo: '/panelists/interfaces_adaora.png', logo: '/logo/pbs.png', noInvert: true, logo2: '/logo/sundance.png', url: 'https://www.newmuseum.org/person/2019-1-31-adaora-udoji/' },
       { name: 'Niko Koppel', org: 'Backslash Artist, VR Producer and Technologist @ NYT and CNN', photo: '/panelists/interfaces_niko.png', logo: '/logo/backslash.png', url: 'https://www.nikokoppel.com' },
-      { name: 'Mauhan M. Zonoozy', org: '2x Founder @ A Vinyl Bar in Shibuya, ex-Head of Innovation @ Spotify', photo: '/panelists/mauhan.webp', logo: '/logo/spotify.png', noInvert: true, logo2: '/logo/shibuya.jpg', logo2Url: 'https://www.shibuyaaa.com/', url:'https://mauhan.com/' },
+      { name: 'Mauhan M. Zonoozy', org: '2x Founder @ A Vinyl Bar in Shibuya, ex-Head of Innovation @ Spotify', photo: '/panelists/mauhan.jpg', logo: '/logo/spotify.png', noInvert: true, logo2: '/logo/shibuya.jpg', logo2Url: 'https://www.shibuyaaa.com/', url:'https://mauhan.com/' },
     ],
   },
   {
@@ -616,7 +616,7 @@ function ScheduleTerminal() {
 
         {activeTab === 'gallery' ? (
           <div style={{ padding: 'var(--space-md)', textAlign: 'center' }}>
-            <img src="/gallery.jpeg" alt="Gallery Map" style={{ width: '100%', maxWidth: '600px', borderRadius: '4px' }} />
+            <img loading="lazy" src="/gallery.jpeg" alt="Gallery Map" style={{ width: '100%', maxWidth: '600px', borderRadius: '4px' }} />
           </div>
         ) : (
         <div className="schedule-main-layout">
@@ -687,10 +687,10 @@ function ScheduleTerminal() {
                                         {speaker.photo && (
                                           speaker.url ? (
                                             <a href={speaker.url} target="_blank" rel="noopener noreferrer">
-                                              <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo schedule-panel-speaker-photo-link" />
+                                              <img loading="lazy" src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo schedule-panel-speaker-photo-link" />
                                             </a>
                                           ) : (
-                                            <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo" />
+                                            <img loading="lazy" src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo" />
                                           )
                                         )}
                                         {speaker.url ? (
@@ -706,8 +706,8 @@ function ScheduleTerminal() {
                                 {hasLogos && (
                                   <div className="schedule-panel-logos">
                                     {event.speakers.filter(s => s.logo).flatMap((s, i) => [
-                                      <img key={i} src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} />,
-                                      ...(s.logo2 ? [s.logo2Url ? <a key={`${i}-2`} href={s.logo2Url} target="_blank" rel="noopener noreferrer"><img src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} /></a> : <img key={`${i}-2`} src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} />] : []),
+                                      <img loading="lazy" key={i} src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} />,
+                                      ...(s.logo2 ? [s.logo2Url ? <a key={`${i}-2`} href={s.logo2Url} target="_blank" rel="noopener noreferrer"><img loading="lazy" src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} /></a> : <img loading="lazy" key={`${i}-2`} src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} />] : []),
                                     ])}
                                   </div>
                                 )}
@@ -745,8 +745,8 @@ function ScheduleTerminal() {
                                 {isKeynoteExpanded && hasKeynoteLogos && (
                                   <div className="schedule-panel-logos" style={{ marginTop: 0 }}>
                                     {event.speakers.filter(s => s.logo).flatMap((s, i) => [
-                                      <img key={i} src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} />,
-                                      ...(s.logo2 ? [s.logo2Url ? <a key={`${i}-2`} href={s.logo2Url} target="_blank" rel="noopener noreferrer"><img src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} /></a> : <img key={`${i}-2`} src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} />] : []),
+                                      <img loading="lazy" key={i} src={s.logo} alt={s.org} className={`schedule-panel-logo${s.darkLogo ? ' schedule-panel-logo-dark' : ''}${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}`} style={s.logoHeight ? { height: s.logoHeight } : undefined} />,
+                                      ...(s.logo2 ? [s.logo2Url ? <a key={`${i}-2`} href={s.logo2Url} target="_blank" rel="noopener noreferrer"><img loading="lazy" src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} /></a> : <img loading="lazy" key={`${i}-2`} src={s.logo2} alt={s.org} className={`schedule-panel-logo${s.logo2NoInvert ? ' schedule-panel-logo-noinvert' : ''}`} />] : []),
                                     ])}
                                   </div>
                                 )}
@@ -764,10 +764,10 @@ function ScheduleTerminal() {
                                         {speaker.photo && (
                                           speaker.url ? (
                                             <a href={speaker.url} target="_blank" rel="noopener noreferrer">
-                                              <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo schedule-panel-speaker-photo-link" />
+                                              <img loading="lazy" src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo schedule-panel-speaker-photo-link" />
                                             </a>
                                           ) : (
-                                            <img src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo" />
+                                            <img loading="lazy" src={speaker.photo} alt={speaker.name} className="schedule-panel-speaker-photo" />
                                           )
                                         )}
                                         {speaker.url ? (
@@ -824,7 +824,7 @@ function ScheduleTerminal() {
                                 <div className="schedule-panel-logos">
                                   {event.pitchSpeakers.filter(s => s.logo).map((s, i) => (
                                     <a key={i} href={s.url} target="_blank" rel="noopener noreferrer">
-                                      <img src={s.logo} alt={s.company} className={`schedule-panel-logo${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}${s.rawLogo ? ' schedule-panel-logo-raw' : ''}`} style={{ height: s.logoHeight || 30 }} />
+                                      <img loading="lazy" src={s.logo} alt={s.company} className={`schedule-panel-logo${s.noInvert ? ' schedule-panel-logo-noinvert' : ''}${s.rawLogo ? ' schedule-panel-logo-raw' : ''}`} style={{ height: s.logoHeight || 30 }} />
                                     </a>
                                   ))}
                                 </div>
@@ -889,7 +889,7 @@ function GallerySlideshow() {
   return (
     <article className="zone artist-gallery-card gallery-slideshow">
       <div className="gallery-slide-img-wrap">
-        <img src={slide.img} alt={slide.alt} className="zone-image" style={slide.objectPosition ? {objectPosition: slide.objectPosition} : undefined} />
+        <img loading="lazy" src={slide.img} alt={slide.alt} className="zone-image" style={slide.objectPosition ? {objectPosition: slide.objectPosition} : undefined} />
         <button className="gallery-arrow gallery-arrow--prev" onClick={() => setIdx((idx - 1 + gallerySlides.length) % gallerySlides.length)}>&#8592;</button>
         <button className="gallery-arrow gallery-arrow--next" onClick={() => setIdx((idx + 1) % gallerySlides.length)}>&#8594;</button>
         <div className="gallery-dots">
@@ -1374,35 +1374,35 @@ function App() {
             <div className="marquee-track">
               {/* First set of logos */}
               <a href="https://www.nyc.gov/content/oti/pages/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
-                <img src="/logo/nyc_oti.png" alt="NYC Office of Technology & Innovation" />
+                <img loading="lazy" src="/logo/nyc_oti.png" alt="NYC Office of Technology & Innovation" />
               </a>
               <a href="https://opendata.cityofnewyork.us/" target="_blank" rel="noopener noreferrer" className="partner-logo">
-                <img src="/logo/nyc_open_data.png" alt="NYC Open Data" />
+                <img loading="lazy" src="/logo/nyc_open_data.png" alt="NYC Open Data" />
               </a>
               <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
-                <img src="/logo/backslash.png" alt="Backslash" />
+                <img loading="lazy" src="/logo/backslash.png" alt="Backslash" />
               </a>
               <a href="https://opendataweek.nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo">
-                <img src="/logo/open_data_week.png" alt="Open Data Week" />
+                <img loading="lazy" src="/logo/open_data_week.png" alt="Open Data Week" />
               </a>
               <a href="#" className="partner-logo gpsa-logo">
-                <img src="/logo/gpsa.png" alt="GPSA" />
+                <img loading="lazy" src="/logo/gpsa.png" alt="GPSA" />
               </a>
               {/* Duplicate set for seamless loop */}
               <a href="https://www.nyc.gov/content/oti/pages/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
-                <img src="/logo/nyc_oti.png" alt="NYC Office of Technology & Innovation" />
+                <img loading="lazy" src="/logo/nyc_oti.png" alt="NYC Office of Technology & Innovation" />
               </a>
               <a href="https://opendata.cityofnewyork.us/" target="_blank" rel="noopener noreferrer" className="partner-logo">
-                <img src="/logo/nyc_open_data.png" alt="NYC Open Data" />
+                <img loading="lazy" src="/logo/nyc_open_data.png" alt="NYC Open Data" />
               </a>
               <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer" className="partner-logo no-color-hover">
-                <img src="/logo/backslash.png" alt="Backslash" />
+                <img loading="lazy" src="/logo/backslash.png" alt="Backslash" />
               </a>
               <a href="https://opendataweek.nyc/" target="_blank" rel="noopener noreferrer" className="partner-logo">
-                <img src="/logo/open_data_week.png" alt="Open Data Week" />
+                <img loading="lazy" src="/logo/open_data_week.png" alt="Open Data Week" />
               </a>
               <a href="#" className="partner-logo gpsa-logo">
-                <img src="/logo/gpsa.png" alt="GPSA" />
+                <img loading="lazy" src="/logo/gpsa.png" alt="GPSA" />
               </a>
             </div>
           </div>
@@ -1419,51 +1419,51 @@ function App() {
             <div className="speakers-grid">
               <div className="speaker">
                 <a href="https://linkedin.com/in/dpstyles" target="_blank" rel="noopener noreferrer">
-                  <img src="/panelists/dennis.png" alt="Dennis Crowley" className="speaker-photo" />
+                  <img loading="lazy" src="/panelists/dennis.png" alt="Dennis Crowley" className="speaker-photo" />
                 </a>
                 <a href="https://linkedin.com/in/dpstyles" target="_blank" rel="noopener noreferrer" className="speaker-name">Dennis Crowley</a>
                 <p className="speaker-role">Co-Founder @ Foursquare,<br />Hopscotch Labs, Streets FC</p>
               </div>
               <div className="speaker">
                 <a href="https://www.linkedin.com/in/jennyfielding/" target="_blank" rel="noopener noreferrer">
-                  <img src="/panelists/jenny.png" alt="Jenny Fielding" className="speaker-photo" />
+                  <img loading="lazy" src="/panelists/jenny.png" alt="Jenny Fielding" className="speaker-photo" />
                 </a>
                 <a href="https://www.linkedin.com/in/jennyfielding/" target="_blank" rel="noopener noreferrer" className="speaker-name">Jenny Fielding</a>
                 <p className="speaker-role">Co-founder @ Everywhere Ventures,<br />ex-Managing Director @ Techstars</p>
               </div>
               <div className="speaker">
                 <a href="https://www.newmuseum.org/person/2019-1-31-adaora-udoji/" target="_blank" rel="noopener noreferrer">
-                  <img src="/panelists/interfaces_adaora.png" alt="Adaora Udoji" className="speaker-photo" />
+                  <img loading="lazy" src="/panelists/interfaces_adaora.png" alt="Adaora Udoji" className="speaker-photo" />
                 </a>
                 <a href="https://www.newmuseum.org/person/2019-1-31-adaora-udoji/" target="_blank" rel="noopener noreferrer" className="speaker-name">Adaora Udoji</a>
                 <p className="speaker-role">ex-VP @ PBS, RLab,<br />Journalist @ ABC & CNN</p>
               </div>
               <div className="speaker">
                 <a href="https://mauhan.com/" target="_blank" rel="noopener noreferrer">
-                  <img src="/panelists/mauhan.webp" alt="Mauhan M. Zonoozy" className="speaker-photo" />
+                  <img loading="lazy" src="/panelists/mauhan.jpg" alt="Mauhan M. Zonoozy" className="speaker-photo" />
                 </a>
                 <a href="https://mauhan.com/" target="_blank" rel="noopener noreferrer" className="speaker-name">Mauhan M. Zonoozy</a>
                 <p className="speaker-role">2x Founder @ A Vinyl Bar in Shibuya,<br />ex-Head of Innovation @ Spotify</p>
               </div>
               <div className="speaker">
                 <a href="https://www.linkedin.com/in/josh-merel-9222b72a2" target="_blank" rel="noopener noreferrer">
-                  <img src="/panelists/robotics_josh.png" alt="Josh Merel" className="speaker-photo" />
+                  <img loading="lazy" src="/panelists/robotics_josh.png" alt="Josh Merel" className="speaker-photo" />
                 </a>
                 <a href="https://www.linkedin.com/in/josh-merel-9222b72a2" target="_blank" rel="noopener noreferrer" className="speaker-name">Josh Merel</a>
                 <p className="speaker-role">CTO @ Fauna Robotics,<br />ex-Research @ Meta & DeepMind</p>
               </div>
             </div>
             <div className="speakers-logo-cloud">
-              <img src="/logo/techstars.png" alt="Techstars" className="cloud-logo no-color-hover" />
-              <img src="/logo/pbs.png" alt="PBS" className="cloud-logo no-color-hover" />
-              <img src="/logo/spotify.svg" alt="Spotify" className="cloud-logo" style={{transform: 'scale(1.3)'}} />
-              <img src="/logo/fauna_robotics.png" alt="Fauna Robotics" className="cloud-logo no-color-hover" />
-              <img src="/logo/deepmind.webp" alt="DeepMind" className="cloud-logo no-color-hover" />
-              <img src="/logo/Foursquare_logo.png" alt="Foursquare" className="cloud-logo" />
-              <img src="/logo/hopscotch.png" alt="Hopscotch Labs" className="cloud-logo" style={{transform: 'scale(1.3)'}} />
+              <img loading="lazy" src="/logo/techstars.png" alt="Techstars" className="cloud-logo no-color-hover" />
+              <img loading="lazy" src="/logo/pbs.png" alt="PBS" className="cloud-logo no-color-hover" />
+              <img loading="lazy" src="/logo/spotify.svg" alt="Spotify" className="cloud-logo" style={{transform: 'scale(1.3)'}} />
+              <img loading="lazy" src="/logo/fauna_robotics.png" alt="Fauna Robotics" className="cloud-logo no-color-hover" />
+              <img loading="lazy" src="/logo/deepmind.webp" alt="DeepMind" className="cloud-logo no-color-hover" />
+              <img loading="lazy" src="/logo/Foursquare_logo.png" alt="Foursquare" className="cloud-logo" />
+              <img loading="lazy" src="/logo/hopscotch.png" alt="Hopscotch Labs" className="cloud-logo" style={{transform: 'scale(1.3)'}} />
               <span className="cloud-logo-swap">
-                <img src="/logo/everywhere.png" alt="Everywhere Ventures" className="cloud-logo cloud-logo-default" />
-                <img src="/logo/everywhere.jpg" alt="Everywhere Ventures" className="cloud-logo cloud-logo-hover" />
+                <img loading="lazy" src="/logo/everywhere.png" alt="Everywhere Ventures" className="cloud-logo cloud-logo-default" />
+                <img loading="lazy" src="/logo/everywhere.jpg" alt="Everywhere Ventures" className="cloud-logo cloud-logo-hover" />
               </span>
             </div>
           </div>
@@ -1503,21 +1503,30 @@ function App() {
         <h3 className="tracks-header section-marker"><TypewriterText>Startup Spotlight</TypewriterText></h3>
         <div className="startups-spotlight-split">
           <div className="startups-spotlight-logos">
-            <a href="https://www.inpress.app/" target="_blank" rel="noopener noreferrer"><img src="/logo/inpress.webp" alt="Inpress" className="startup-logo" /></a>
-            <a href="https://haptic.works/" target="_blank" rel="noopener noreferrer"><img src="/logo/haptic_nav.webp" alt="Haptic" className="startup-logo startup-logo-noinvert" /></a>
-            <a href="https://itselectric.us/" target="_blank" rel="noopener noreferrer"><img src="/logo/its_electric.png" alt="It's Electric" className="startup-logo startup-logo-noinvert" style={{height: 60}} /></a>
-            <a href="https://www.noware.nyc/" target="_blank" rel="noopener noreferrer"><img src="/logo/noware2.png" alt="Noware" className="startup-logo startup-logo-noinvert" style={{height: 50}}/></a>
-            <a href="https://www.noware.nyc/" target="_blank" rel="noopener noreferrer"><img src="/logo/noware.png" alt="Noware" className="startup-logo startup-logo-noinvert" style={{height: 30}}/></a>
-            <a href="https://www.tensorzero.com/" target="_blank" rel="noopener noreferrer"><img src="/logo/tensorzero.png" alt="TensorZero" className="startup-logo startup-logo-noinvert" style={{height: 30}}/></a>
-            <a href="https://opinionae.com/" target="_blank" rel="noopener noreferrer"><img src="/logo/opinionae.png" alt="Opinionae" className="startup-logo startup-logo-noinvert" /></a>
-            <img src="/logo/vexer.png" alt="Vexer" className="startup-logo" />
-            <a href="https://www.volumes.cloud/" target="_blank" rel="noopener noreferrer"><img src="/logo/volumes.png" alt="Volumes" className="startup-logo startup-logo-noinvert" style={{height: 70}}/></a>
-            <a href="https://rootaccess.ai/" target="_blank" rel="noopener noreferrer"><img src="/logo/root_access.png" alt="Root Access" className="startup-logo startup-logo-noinvert" /></a>
+            <a href="https://www.inpress.app/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/logo/inpress.webp" alt="Inpress" className="startup-logo" /></a>
+            <a href="https://haptic.works/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/logo/haptic_nav.webp" alt="Haptic" className="startup-logo startup-logo-noinvert" /></a>
+            <a href="https://itselectric.us/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/logo/its_electric.png" alt="It's Electric" className="startup-logo startup-logo-noinvert" style={{height: 60}} /></a>
+            <a href="https://www.noware.nyc/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/logo/noware2.png" alt="Noware" className="startup-logo startup-logo-noinvert" style={{height: 50}}/></a>
+            <a href="https://www.noware.nyc/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/logo/noware.png" alt="Noware" className="startup-logo startup-logo-noinvert" style={{height: 30}}/></a>
+            <a href="https://www.tensorzero.com/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/logo/tensorzero.png" alt="TensorZero" className="startup-logo startup-logo-noinvert" style={{height: 30}}/></a>
+            <a href="https://opinionae.com/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/logo/opinionae.png" alt="Opinionae" className="startup-logo startup-logo-noinvert" /></a>
+            <img loading="lazy" src="/logo/vexer.png" alt="Vexer" className="startup-logo" />
+            <a href="https://www.volumes.cloud/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/logo/volumes.png" alt="Volumes" className="startup-logo startup-logo-noinvert" style={{height: 70}}/></a>
+            <a href="https://rootaccess.ai/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/logo/root_access.png" alt="Root Access" className="startup-logo startup-logo-noinvert" /></a>
           </div>
           <div className="startups-spotlight-video">
-            <img src="/kiu_reel.gif" alt="Startup Spotlight Reel" />
+            <img loading="lazy" src="/kiu_reel.gif" alt="Startup Spotlight Reel" />
           </div>
         </div>
+      </section>
+
+      {/* Program Snapshot */}
+      <section className="program" id="program">
+        <h2 className="section-marker"><TypewriterText>What to expect?</TypewriterText></h2>
+        {/* Schedule
+        <h3 className="tracks-header section-marker"><TypewriterText>What&apos;s happenin&apos;?</TypewriterText></h3> */}
+        <ScheduleTerminal />
+
       </section>
 
       {/* Artist Gallery */}
@@ -1529,14 +1538,14 @@ function App() {
             <div className="artist-speakers-row">
               <div className="speaker">
                 <a href="https://www.volvoxlabs.com/" target="_blank" rel="noopener noreferrer">
-                  <img src="/panelists/robotics_michael.png" alt="Michael Schneider" className="speaker-photo" />
+                  <img loading="lazy" src="/panelists/robotics_michael.png" alt="Michael Schneider" className="speaker-photo" />
                 </a>
                 <a href="https://www.volvoxlabs.com/" target="_blank" rel="noopener noreferrer" className="speaker-name">Michael Schneider</a>
                 <p className="speaker-role">CEO / Director @ Media Architecture, Volvox Labs</p>
               </div>
               <div className="speaker">
                 <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer">
-                  <img src="/panelists/interfaces_niko.png" alt="Niko Koppel" className="speaker-photo" />
+                  <img loading="lazy" src="/panelists/interfaces_niko.png" alt="Niko Koppel" className="speaker-photo" />
                 </a>
                 <a href="https://backslash.org/" target="_blank" rel="noopener noreferrer" className="speaker-name">Niko Koppel</a>
                 <p className="speaker-role">AR Visual Journalist, Backslash, VR Producer @ NYT</p>
@@ -1544,12 +1553,12 @@ function App() {
             </div>
             <div className="artist-speakers-row artist-speakers-row--center">
               <div className="speaker">
-                <img src="/panelists/tianyi.JPG" alt="Tianyi Sun" className="speaker-photo" />
+                <img loading="lazy" src="/panelists/tianyi.jpg" alt="Tianyi Sun" className="speaker-photo" />
                 <span className="speaker-name">Tianyi Sun</span>
                 <p className="speaker-role">Backslash Art Award<br />Finalist, The 6th VH AWARD @ Hyundai Artlab</p>
               </div>
               <div className="speaker">
-                <img src="/panelists/collin_mller.png" alt="Collin Miller" className="speaker-photo" />
+                <img loading="lazy" src="/panelists/collin_mller.png" alt="Collin Miller" className="speaker-photo" />
                 <span className="speaker-name">Collin Miller</span>
                 <p className="speaker-role">Creator of Subway Builder,<br />Founder @ Redistricter</p>
               </div>
@@ -1562,15 +1571,6 @@ function App() {
       <section className="program what-counts-section">
         <h3 className="tracks-header section-marker"><TypewriterText>What counts, exactly?</TypewriterText></h3>
         <UrbanTechCarousel />
-      </section>
-
-      {/* Program Snapshot */}
-      <section className="program" id="program">
-        <h2 className="section-marker"><TypewriterText>What to expect?</TypewriterText></h2>
-        {/* Schedule
-        <h3 className="tracks-header section-marker"><TypewriterText>What&apos;s happenin&apos;?</TypewriterText></h3> */}
-        <ScheduleTerminal />
-
       </section>
 
             {/* Register */}
@@ -1648,14 +1648,14 @@ function App() {
           <div className="team-tier" style={{justifyContent: 'center'}}>
             <div className="team-member">
               <a href="https://www.linkedin.com/in/michelle-hui/" target="_blank" rel="noopener noreferrer">
-                <img src="/team/michelle.png" alt="Michelle Hui" className="team-member-photo" />
+                <img loading="lazy" src="/team/michelle.png" alt="Michelle Hui" className="team-member-photo" />
               </a>
               <a href="https://www.linkedin.com/in/michelle-hui/" target="_blank" rel="noopener noreferrer" className="team-member-name">Michelle Hui</a>
               <p className="team-member-role">Lead Organiser</p>
             </div>
             <div className="team-member">
               <a href="https://atmikapai.dev" target="_blank" rel="noopener noreferrer">
-                <img src="/team/atmika.png" alt="Atmika Pai" className="team-member-photo" />
+                <img loading="lazy" src="/team/atmika.jpg" alt="Atmika Pai" className="team-member-photo" />
               </a>
               <a href="https://atmikapai.dev" target="_blank" rel="noopener noreferrer" className="team-member-name">Atmika Pai</a>
               <p className="team-member-role">Lead Organiser</p>
@@ -1668,21 +1668,21 @@ function App() {
               <div className="team-tier">
                 <div className="team-member team-member--sm">
                   <a href="https://www.linkedin.com/in/ninamantegna/" target="_blank" rel="noopener noreferrer">
-                    <img src="/team/nina.jpg" alt="Nina M." className="team-member-photo" />
+                    <img loading="lazy" src="/team/nina.jpg" alt="Nina M." className="team-member-photo" />
                   </a>
                   <a href="https://www.linkedin.com/in/ninamantegna/" target="_blank" rel="noopener noreferrer" className="team-member-name">Nina</a>
                   <p className="team-member-role">Operations</p>
                 </div>
                 <div className="team-member team-member--sm">
                   <a href="https://www.linkedin.com/in/gabriela-yaulli-herrera/" target="_blank" rel="noopener noreferrer">
-                    <img src="/team/gabi.jpg" alt="Gabriela YH" className="team-member-photo" />
+                    <img loading="lazy" src="/team/gabi.jpg" alt="Gabriela YH" className="team-member-photo" />
                   </a>
                   <a href="https://www.linkedin.com/in/gabriela-yaulli-herrera/" target="_blank" rel="noopener noreferrer" className="team-member-name">Gabriela</a>
                   <p className="team-member-role">Operations</p>
                 </div>
                 <div className="team-member team-member--sm">
                   <a href="https://www.instagram.com/cccliyay/?hl=en" target="_blank" rel="noopener noreferrer">
-                    <img src="/team/cecilia.jpg" alt="Cecilia C." className="team-member-photo" />
+                    <img loading="lazy" src="/team/cecilia.jpg" alt="Cecilia C." className="team-member-photo" />
                   </a>
                   <a href="https://www.instagram.com/cccliyay/?hl=en" target="_blank" rel="noopener noreferrer" className="team-member-name">Cecilia</a>
                   <p className="team-member-role">Curator</p>
@@ -1694,19 +1694,19 @@ function App() {
               <div className="team-tier">
                 <div className="team-member team-member--sm">
                   <a href="https://techcrunch.com/2008/07/15/confirmed-twitter-acquires-summize-search-engine/" target="_blank" rel="noopener noreferrer">
-                    <img src="/team/greg.png" alt="Greg Pass" className="team-member-photo" />
+                    <img loading="lazy" src="/team/greg.png" alt="Greg Pass" className="team-member-photo" />
                   </a>
                   <a href="https://techcrunch.com/2008/07/15/confirmed-twitter-acquires-summize-search-engine/" target="_blank" rel="noopener noreferrer" className="team-member-name">Greg Pass</a>
                   <p className="team-member-role">Co-founder @ 4149 & Backslash, ex-CTO @ Twitter</p>
                 </div>
                 <div className="team-member team-member--sm">
-                  <img src="/team/wendy.png" alt="Wendy Ju" className="team-member-photo" />
+                  <img loading="lazy" src="/team/wendy.png" alt="Wendy Ju" className="team-member-photo" />
                   <span className="team-member-name">Wendy Ju</span>
                   <p className="team-member-role">Cornell Tech, ex-Center for Design Research @ Stanford University</p>
                 </div>
                 <div className="team-member team-member--sm">
                   <a href="https://www.fastcompany.com/3067006/how-ariel-kennan-solves-nycs-most-intractable-design-problems" target="_blank" rel="noopener noreferrer">
-                    <img src="/team/ariel.png" alt="Ariel Kennan" className="team-member-photo" />
+                    <img loading="lazy" src="/team/ariel.png" alt="Ariel Kennan" className="team-member-photo" />
                   </a>
                   <a href="https://www.fastcompany.com/3067006/how-ariel-kennan-solves-nycs-most-intractable-design-problems" target="_blank" rel="noopener noreferrer" className="team-member-name">Ariel Kennan</a>
                   <p className="team-member-role">Georgetown's Beeck Center for Social Impact, ex-Design @ Google's Sidewalk Labs</p>
