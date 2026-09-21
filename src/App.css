@@ -767,7 +767,7 @@ body {
     display: contents;
   }
   .startups-spotlight-split {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
   .startup-logo {
     height: 28px !important;
@@ -775,6 +775,11 @@ body {
   }
   .startups-spotlight-logos {
     gap: 12px 14px;
+  }
+  .startups-spotlight-video {
+    width: 60%;
+    max-width: 280px;
+    margin: 0 auto;
   }
 }
 
@@ -1292,11 +1297,26 @@ body {
 
 #open-call {
   padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+#program {
+  margin-top: var(--space-lg);
 }
 
 .startups-section {
   padding-top: var(--space-sm);
   padding-bottom: var(--space-sm);
+}
+
+.startup-spotlight-header {
+  margin-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+  .startup-spotlight-header {
+    margin-bottom: 2rem;
+  }
 }
 
 .what-counts-section {
@@ -1611,6 +1631,12 @@ body {
   max-width: var(--max-width);
   margin: 0 auto;
   overflow: visible;
+}
+
+@media (max-width: 768px) {
+  .register-section {
+    display: none;
+  }
 }
 
 .register-embed {

@@ -907,26 +907,26 @@ function GallerySlideshow() {
 
 // Event Photo Gallery - big auto-rotating image with ASCII pixel-dissolve transition
 const eventGallerySlides = [
-  '/event-images/crowd.JPG',
-  '/event-images/gallery-walk.JPG',
-  '/event-images/mr-dj.JPG',
-  '/event-images/puff.JPG',
-  '/event-images/interfaces2.JPG',
-  '/event-images/not-just-techbros.JPG',
-  '/event-images/michelle-art.JPG',
-  '/event-images/kiu-poster.JPG',
-  '/event-images/dennis.JPG',
-  '/event-images/dennis-jenny2.JPG',
-  '/event-images/dennis-with-robot.jpeg',
-  '/event-images/cornell-tech-startup.JPG',
-  '/event-images/inpress.JPG',
-  '/event-images/opinion-markets.JPG',
-  '/event-images/civic-panel.jpeg',
-  '/event-images/robotics-panel.jpeg',
-  '/event-images/adaora-dennis.jpg',
-  '/event-images/dennis-jenny1.jpg',
-  '/event-images/interfaces.jpg',
-  '/event-images/robotics-panel2.jpg',
+  '/event-images/1dennis-with-robot.jpeg',
+  '/event-images/1gallery-walk.JPG',
+  '/event-images/1kiu-poster.JPG',
+  '/event-images/1michelle-art.JPG',
+  '/event-images/1mr-dj.JPG',
+  '/event-images/1not-just-techbros.JPG',
+  '/event-images/1puff.JPG',
+  '/event-images/1robotics-panel.jpeg',
+  '/event-images/2interfaces2.JPG',
+  '/event-images/3adaora-dennis.jpg',
+  '/event-images/3dennis-jenny1.jpg',
+  '/event-images/3dennis-jenny2.JPG',
+  '/event-images/3dennis.JPG',
+  '/event-images/4opinion-markets.JPG',
+  '/event-images/4robotics-panel2.jpg',
+  '/event-images/5civic-panel.jpeg',
+  '/event-images/6cornell-tech-startup.JPG',
+  '/event-images/8crowd.JPG',
+  '/event-images/9inpress.JPG',
+  '/event-images/9interfaces.jpg',
 ];
 
 const EVENT_GALLERY_INTERVAL = 5000;
@@ -1500,7 +1500,7 @@ function App() {
 
       {/* Startups Spotlight */}
       <section className="program startups-section">
-        <h3 className="tracks-header section-marker"><TypewriterText>Startup Spotlight</TypewriterText></h3>
+        <h3 className="tracks-header section-marker startup-spotlight-header"><TypewriterText>Startup Spotlight</TypewriterText></h3>
         <div className="startups-spotlight-split">
           <div className="startups-spotlight-logos">
             <a href="https://www.inpress.app/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/logo/inpress.webp" alt="Inpress" className="startup-logo" /></a>
