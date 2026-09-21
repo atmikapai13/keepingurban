@@ -1553,7 +1553,7 @@ function App() {
             </div>
             <div className="artist-speakers-row artist-speakers-row--center">
               <div className="speaker">
-                <img loading="lazy" src="/panelists/tianyi.jpg" alt="Tianyi Sun" className="speaker-photo" />
+                <img loading="lazy" src="/panelists/tianyi.png" alt="Tianyi Sun" className="speaker-photo" />
                 <span className="speaker-name">Tianyi Sun</span>
                 <p className="speaker-role">Backslash Art Award<br />Finalist, The 6th VH AWARD @ Hyundai Artlab</p>
               </div>
