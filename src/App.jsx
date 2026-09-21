@@ -905,6 +905,319 @@ function GallerySlideshow() {
   );
 }
 
+// Event Photo Gallery - big auto-rotating image with ASCII pixel-dissolve transition
+const eventGallerySlides = [
+  '/event-images/crowd.JPG',
+  '/event-images/gallery-walk.JPG',
+  '/event-images/mr-dj.JPG',
+  '/event-images/puff.JPG',
+  '/event-images/interfaces2.JPG',
+  '/event-images/not-just-techbros.JPG',
+  '/event-images/michelle-art.JPG',
+  '/event-images/kiu-poster.JPG',
+  '/event-images/dennis.JPG',
+  '/event-images/dennis-jenny2.JPG',
+  '/event-images/dennis-with-robot.jpeg',
+  '/event-images/cornell-tech-startup.JPG',
+  '/event-images/inpress.JPG',
+  '/event-images/opinion-markets.JPG',
+  '/event-images/civic-panel.jpeg',
+  '/event-images/robotics-panel.jpeg',
+  '/event-images/adaora-dennis.jpg',
+  '/event-images/dennis-jenny1.jpg',
+  '/event-images/interfaces.jpg',
+  '/event-images/robotics-panel2.jpg',
+];
+
+const EVENT_GALLERY_INTERVAL = 5000;
+
+// Canvas-based "decrypt" reveal: an image resolves out of a field of
+// scattered glyphs and coarse colored mosaic blocks into the sharp photo,
+// emerging center-outward. Re-runs whenever `src` changes.
+const DECRYPT_CELL = 14; // CSS px per mosaic cell
+const DECRYPT_GLYPHS = '#@&*!/<>~%01';
+const DECRYPT_CENTER_GLYPH_DENSITY = 0.45;
+const DECRYPT_EDGE_GLYPH_DENSITY = 0.03;
+const DECRYPT_GLYPH_FALLOFF = 2.2;
+
+// Cheap deterministic hash -> [0,1), stable per (row,col) so a cell keeps
+// its reveal timing and glyph across frames.
+function decryptHash(r, c, salt) {
+  const x = Math.sin(r * 127.1 + c * 311.7 + salt * 74.7) * 43758.5453;
+  return x - Math.floor(x);
+}
+
+function DecryptingImage({ src, className, alt, duration = 1800, direction = 'out', animateOnMount = true }) {
+  const containerRef = useRef(null);
+  const canvasRef = useRef(null);
+  const imgRef = useRef(null);
+  const cellsRef = useRef(null);
+  const rafRef = useRef();
+  const startRef = useRef(null);
+  const firstRunRef = useRef(true);
+  const coverRef = useRef();
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const canvas = canvasRef.current;
+    if (!container || !canvas) return;
+
+    let cancelled = false;
+    const img = new Image();
+    img.src = src;
+
+    const computeCover = (cw, ch) => {
+      const ir = img.width / img.height;
+      const cr = cw / ch;
+      let sw = img.width;
+      let sh = img.height;
+      if (ir > cr) {
+        sw = img.height * cr;
+      } else {
+        sh = img.width / cr;
+      }
+      const sx = (img.width - sw) / 2;
+      const sy = (img.height - sh) / 2;
+      coverRef.current = { sx, sy, sw, sh };
+    };
+
+    const setup = () => {
+      const cw = container.clientWidth;
+      const ch = container.clientHeight;
+      if (cw === 0 || ch === 0) return;
+
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.round(cw * dpr);
+      canvas.height = Math.round(ch * dpr);
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      computeCover(cw, ch);
+
+      const off = document.createElement('canvas');
+      off.width = cw;
+      off.height = ch;
+      const octx = off.getContext('2d', { willReadFrequently: true });
+      if (!octx) return;
+      const { sx, sy, sw, sh } = coverRef.current;
+      octx.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch);
+      const pixels = octx.getImageData(0, 0, cw, ch).data;
+
+      const cols = Math.ceil(cw / DECRYPT_CELL);
+      const rows = Math.ceil(ch / DECRYPT_CELL);
+      const n = cols * rows;
+      const tBlock = new Float32Array(n);
+      const tSharp = new Float32Array(n);
+      const color = new Uint8ClampedArray(n * 3);
+      const glyph = new Array(n);
+      const hasGlyph = new Uint8Array(n);
+
+      // p-norm shapes the reveal front: p=2 is a circle, p->inf a square.
+      // p=4 gives a "squircle" (rounded cube) - between circle and cube.
+      const P = 4;
+      const diag = Math.pow(2 * Math.pow(0.5, P), 1 / P);
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const i = r * cols + c;
+          const px = Math.min(cw - 1, Math.floor((c + 0.5) * DECRYPT_CELL));
+          const py = Math.min(ch - 1, Math.floor((r + 0.5) * DECRYPT_CELL));
+          const p = (py * cw + px) * 4;
+          color[i * 3] = pixels[p];
+          color[i * 3 + 1] = pixels[p + 1];
+          color[i * 3 + 2] = pixels[p + 2];
+
+          // squircle distance: 0 center -> 1 corner. 'out' resolves the
+          // center first, 'in' resolves the edges first.
+          const dx = (c + 0.5) / cols - 0.5;
+          const dy = (r + 0.5) / rows - 0.5;
+          const dist = Math.pow(Math.pow(Math.abs(dx), P) + Math.pow(Math.abs(dy), P), 1 / P) / diag;
+          const radial = direction === 'in' ? 1 - dist : dist;
+          const order = Math.min(1, 0.65 * radial + 0.35 * decryptHash(r, c, 1));
+          const ts = 0.15 + order * 0.85;
+          tSharp[i] = ts;
+          tBlock[i] = Math.max(0, ts - 0.3);
+
+          const g = decryptHash(r, c, 2);
+          glyph[i] = DECRYPT_GLYPHS[Math.floor(g * DECRYPT_GLYPHS.length)];
+          // Denser glyphs near the image center, nearly empty at the edges.
+          const glyphDensity =
+            DECRYPT_EDGE_GLYPH_DENSITY +
+            (DECRYPT_CENTER_GLYPH_DENSITY - DECRYPT_EDGE_GLYPH_DENSITY) *
+              Math.pow(Math.max(0, 1 - dist), DECRYPT_GLYPH_FALLOFF);
+          hasGlyph[i] = decryptHash(r, c, 3) < glyphDensity ? 1 : 0;
+        }
+      }
+
+      cellsRef.current = { cols, rows, tBlock, tSharp, color, glyph, hasGlyph };
+    };
+
+    const draw = (progress) => {
+      const ctx = canvas.getContext('2d');
+      const cells = cellsRef.current;
+      const cover = coverRef.current;
+      if (!ctx || !cells || !cover) return;
+      const cw = container.clientWidth;
+      const ch = container.clientHeight;
+
+      // Base layer: the sharp, cover-fit image.
+      ctx.clearRect(0, 0, cw, ch);
+      ctx.drawImage(img, cover.sx, cover.sy, cover.sw, cover.sh, 0, 0, cw, ch);
+
+      if (progress >= 1) return; // fully revealed; nothing to overlay
+
+      const { cols, rows, tBlock, tSharp, color, glyph, hasGlyph } = cells;
+      ctx.font = `${DECRYPT_CELL}px monospace`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const i = r * cols + c;
+          const ts = tSharp[i];
+          if (progress >= ts) continue; // resolved -> show sharp image beneath
+
+          const x = c * DECRYPT_CELL;
+          const y = r * DECRYPT_CELL;
+          const cr = color[i * 3];
+          const cg = color[i * 3 + 1];
+          const cb = color[i * 3 + 2];
+          const tb = tBlock[i];
+          const blend = Math.min(0.08, (ts - tb) / 2);
+
+          // Encrypted layer: black cell + optional glyph, cross-fading out
+          // around tb instead of cutting away instantly.
+          const encAlpha = Math.max(0, Math.min(1, (tb + blend - progress) / blend));
+          if (encAlpha > 0) {
+            ctx.fillStyle = `rgba(0,0,0,${encAlpha})`;
+            ctx.fillRect(x, y, DECRYPT_CELL, DECRYPT_CELL);
+            if (hasGlyph[i]) {
+              const br = (v) => Math.min(255, v * 1.6 + 40);
+              const ga = (0.45 + decryptHash(r, c, 4) * 0.45) * encAlpha;
+              ctx.fillStyle = `rgba(${br(cr)},${br(cg)},${br(cb)},${ga})`;
+              ctx.fillText(glyph[i], x + DECRYPT_CELL / 2, y + DECRYPT_CELL / 2 + 1);
+            }
+          }
+
+          // Mosaic layer: solid average-color block, cross-fading in as the
+          // encrypted layer fades out, then dissolving into the sharp photo.
+          if (progress >= tb) {
+            const fadeIn = Math.min(1, (progress - tb) / blend);
+            const fadeOut = (ts - progress) / (ts - tb);
+            const a = Math.max(0, Math.min(fadeIn, fadeOut));
+            if (a > 0) {
+              ctx.fillStyle = `rgba(${cr},${cg},${cb},${a})`;
+              ctx.fillRect(x, y, DECRYPT_CELL, DECRYPT_CELL);
+            }
+          }
+        }
+      }
+    };
+
+    const animate = (ts) => {
+      if (cancelled) return;
+      if (startRef.current === null) startRef.current = ts;
+      const progress = Math.min(1, (ts - startRef.current) / duration);
+      const eased = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+      draw(eased);
+      if (progress < 1) {
+        rafRef.current = requestAnimationFrame(animate);
+      }
+    };
+
+    const start = () => {
+      setup();
+      const isFirst = firstRunRef.current;
+      firstRunRef.current = false;
+      // First image with animateOnMount=false: just show it sharp, no reveal.
+      if (isFirst && !animateOnMount) {
+        draw(1);
+        return;
+      }
+      startRef.current = null;
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    img.onload = () => {
+      if (cancelled) return;
+      imgRef.current = img;
+      start();
+    };
+    // If cached/already loaded, onload may not fire.
+    if (img.complete && img.naturalWidth > 0) {
+      imgRef.current = img;
+      start();
+    }
+
+    // Re-fit (no re-animation) on container resize.
+    const ro = new ResizeObserver(() => {
+      if (!imgRef.current) return;
+      setup();
+      draw(1);
+    });
+    ro.observe(container);
+
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(rafRef.current);
+      ro.disconnect();
+    };
+  }, [src, duration, direction, animateOnMount]);
+
+  return (
+    <div ref={containerRef} className={className} style={{ position: 'relative', overflow: 'hidden', width: '100%', height: '100%' }} role="img" aria-label={alt}>
+      <canvas ref={canvasRef} style={{ display: 'block', width: '100%', height: '100%' }} />
+    </div>
+  );
+}
+
+function EventGallery() {
+  const [idx, setIdx] = useState(0);
+  const timerRef = useRef(null);
+
+  const advance = useCallback(() => {
+    setIdx((i) => (i + 1) % eventGallerySlides.length);
+  }, []);
+
+  useEffect(() => {
+    timerRef.current = setInterval(advance, EVENT_GALLERY_INTERVAL);
+    return () => clearInterval(timerRef.current);
+  }, [advance]);
+
+  const handleClick = () => {
+    clearInterval(timerRef.current);
+    advance();
+    timerRef.current = setInterval(advance, EVENT_GALLERY_INTERVAL);
+  };
+
+  return (
+    <div className="event-gallery">
+      <div
+        className="event-gallery-main"
+        onClick={handleClick}
+        role="button"
+        tabIndex={0}
+        aria-label="Show next event photo"
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleClick();
+          }
+        }}
+      >
+        <DecryptingImage
+          src={eventGallerySlides[idx]}
+          className="event-gallery-image"
+          alt={`Keeping It Urban event photo ${idx + 1}`}
+          duration={2000}
+          direction={idx % 2 === 0 ? 'out' : 'in'}
+        />
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const [mousePos, setMousePos] = useState({ x: -1, y: -1 })
   const heroRef = useRef(null)
@@ -1056,7 +1369,7 @@ function App() {
       <section className="context partners-context">
         {/* Partner Logos - Infinite Scroll Marquee */}
         <div className="partners-section">
-          <h3 className="partners-title section-marker">Partnering with</h3>
+           <h3 className="partners-title section-marker">Partnering with</h3>
           <div className="marquee-container">
             <div className="marquee-track">
               {/* First set of logos */}
@@ -1093,38 +1406,8 @@ function App() {
               </a>
             </div>
           </div>
+          
         </div>
-      </section>
-
-      {/* Program Snapshot */}
-      <section className="program" id="program">
-        <h2 className="section-marker"><TypewriterText>What to expect?</TypewriterText></h2>
-        <div className="context-grid program-stats">
-          <div className="signal">
-            <span className="signal-number">150+</span>
-            <span className="signal-label"><span className="signal-title">Participants</span></span>
-          </div>
-          <div className="signal">
-            <span className="signal-number">20+</span>
-            <span className="signal-label"><span className="signal-title">Speakers</span></span>
-          </div>
-          <div className="signal">
-            <span className="signal-number">15+</span>
-            <span className="signal-label"><span className="signal-title">Artists</span></span>
-          </div>
-          <div className="signal">
-            <span className="signal-number">12+</span>
-            <span className="signal-label"><span className="signal-title">Pitches</span></span>
-          </div>
-          <div className="signal">
-            <span className="signal-number">3</span>
-            <span className="signal-label"><span className="signal-title">Panels</span></span>
-          </div>
-        </div>
-        {/* Schedule
-        <h3 className="tracks-header section-marker"><TypewriterText>What&apos;s happenin&apos;?</TypewriterText></h3> */}
-        <ScheduleTerminal />
-
       </section>
 
       {/* Curatorial Statement */}
@@ -1187,14 +1470,59 @@ function App() {
         </div>
       </section>
 
-      {/* Program continued */}
-      <section className="program">
-        {/* Tracks - Rotating Carousel */}
-        <h3 className="tracks-header section-marker"><TypewriterText>What counts, exactly?</TypewriterText></h3>
-        <UrbanTechCarousel />
+      {/* Event Gallery */}
+      <section className="program stats-section">
+        <h3 className="tracks-header section-marker"><TypewriterText>Gallery</TypewriterText></h3>
+        <div className="context-grid program-stats">
+          <div className="signal">
+            <span className="signal-number">150+</span>
+            <span className="signal-label"><span className="signal-title">Participants</span></span>
+          </div>
+          <div className="signal">
+            <span className="signal-number">20+</span>
+            <span className="signal-label"><span className="signal-title">Speakers</span></span>
+          </div>
+          <div className="signal">
+            <span className="signal-number">15+</span>
+            <span className="signal-label"><span className="signal-title">Artists</span></span>
+          </div>
+          <div className="signal">
+            <span className="signal-number">12+</span>
+            <span className="signal-label"><span className="signal-title">Pitches</span></span>
+          </div>
+          <div className="signal">
+            <span className="signal-number">3</span>
+            <span className="signal-label"><span className="signal-title">Panels</span></span>
+          </div>
+        </div>
+        <EventGallery />
+      </section>
 
-        {/* Artist Gallery */}
-        <h3 className="tracks-header section-marker"><TypewriterText>Artist Spotlight</TypewriterText></h3>
+      {/* Startups Spotlight */}
+      <section className="program startups-section">
+        <h3 className="tracks-header section-marker"><TypewriterText>Startup Spotlight</TypewriterText></h3>
+        <div className="startups-spotlight-split">
+          <div className="startups-spotlight-logos">
+            <a href="https://www.inpress.app/" target="_blank" rel="noopener noreferrer"><img src="/logo/inpress.webp" alt="Inpress" className="startup-logo" /></a>
+            <a href="https://haptic.works/" target="_blank" rel="noopener noreferrer"><img src="/logo/haptic_nav.webp" alt="Haptic" className="startup-logo startup-logo-noinvert" /></a>
+            <a href="https://itselectric.us/" target="_blank" rel="noopener noreferrer"><img src="/logo/its_electric.png" alt="It's Electric" className="startup-logo startup-logo-noinvert" style={{height: 60}} /></a>
+            <a href="https://www.noware.nyc/" target="_blank" rel="noopener noreferrer"><img src="/logo/noware2.png" alt="Noware" className="startup-logo startup-logo-noinvert" style={{height: 50}}/></a>
+            <a href="https://www.noware.nyc/" target="_blank" rel="noopener noreferrer"><img src="/logo/noware.png" alt="Noware" className="startup-logo startup-logo-noinvert" style={{height: 30}}/></a>
+            <a href="https://www.tensorzero.com/" target="_blank" rel="noopener noreferrer"><img src="/logo/tensorzero.png" alt="TensorZero" className="startup-logo startup-logo-noinvert" style={{height: 30}}/></a>
+            <a href="https://opinionae.com/" target="_blank" rel="noopener noreferrer"><img src="/logo/opinionae.png" alt="Opinionae" className="startup-logo startup-logo-noinvert" /></a>
+            <img src="/logo/vexer.png" alt="Vexer" className="startup-logo" />
+            <a href="https://www.volumes.cloud/" target="_blank" rel="noopener noreferrer"><img src="/logo/volumes.png" alt="Volumes" className="startup-logo startup-logo-noinvert" style={{height: 70}}/></a>
+            <a href="https://rootaccess.ai/" target="_blank" rel="noopener noreferrer"><img src="/logo/root_access.png" alt="Root Access" className="startup-logo startup-logo-noinvert" /></a>
+          </div>
+          <div className="startups-spotlight-video">
+            <img src="/kiu_reel.gif" alt="Startup Spotlight Reel" />
+          </div>
+        </div>
+      </section>
+
+      {/* Artist Gallery */}
+      <section className="program">
+        <h3 className="tracks-header section-marker artist-spotlight-header"><TypewriterText>Artist Spotlight</TypewriterText></h3>
         <div className="artist-gallery-split">
           <GallerySlideshow />
           <div className="artist-gallery-speakers">
@@ -1228,26 +1556,21 @@ function App() {
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Startups Spotlight */}
-        <h3 className="tracks-header section-marker"><TypewriterText>Startup Spotlight</TypewriterText></h3>
-        <div className="startups-spotlight-split">
-          <div className="startups-spotlight-logos">
-            <a href="https://www.inpress.app/" target="_blank" rel="noopener noreferrer"><img src="/logo/inpress.webp" alt="Inpress" className="startup-logo" /></a>
-            <a href="https://haptic.works/" target="_blank" rel="noopener noreferrer"><img src="/logo/haptic_nav.webp" alt="Haptic" className="startup-logo startup-logo-noinvert" /></a>
-            <a href="https://itselectric.us/" target="_blank" rel="noopener noreferrer"><img src="/logo/its_electric.png" alt="It's Electric" className="startup-logo startup-logo-noinvert" style={{height: 60}} /></a>
-            <a href="https://www.noware.nyc/" target="_blank" rel="noopener noreferrer"><img src="/logo/noware2.png" alt="Noware" className="startup-logo startup-logo-noinvert" style={{height: 50}}/></a>
-            <a href="https://www.noware.nyc/" target="_blank" rel="noopener noreferrer"><img src="/logo/noware.png" alt="Noware" className="startup-logo startup-logo-noinvert" style={{height: 30}}/></a>
-            <a href="https://www.tensorzero.com/" target="_blank" rel="noopener noreferrer"><img src="/logo/tensorzero.png" alt="TensorZero" className="startup-logo startup-logo-noinvert" style={{height: 30}}/></a>
-            <a href="https://opinionae.com/" target="_blank" rel="noopener noreferrer"><img src="/logo/opinionae.png" alt="Opinionae" className="startup-logo startup-logo-noinvert" /></a>
-            <img src="/logo/vexer.png" alt="Vexer" className="startup-logo" />
-            <a href="https://www.volumes.cloud/" target="_blank" rel="noopener noreferrer"><img src="/logo/volumes.png" alt="Volumes" className="startup-logo startup-logo-noinvert" style={{height: 70}}/></a>
-            <a href="https://rootaccess.ai/" target="_blank" rel="noopener noreferrer"><img src="/logo/root_access.png" alt="Root Access" className="startup-logo startup-logo-noinvert" /></a>
-          </div>
-          <div className="startups-spotlight-video">
-            <img src="/kiu_reel.gif" alt="Startup Spotlight Reel" />
-          </div>
-        </div>
+      {/* Tracks - Rotating Carousel */}
+      <section className="program what-counts-section">
+        <h3 className="tracks-header section-marker"><TypewriterText>What counts, exactly?</TypewriterText></h3>
+        <UrbanTechCarousel />
+      </section>
+
+      {/* Program Snapshot */}
+      <section className="program" id="program">
+        <h2 className="section-marker"><TypewriterText>What to expect?</TypewriterText></h2>
+        {/* Schedule
+        <h3 className="tracks-header section-marker"><TypewriterText>What&apos;s happenin&apos;?</TypewriterText></h3> */}
+        <ScheduleTerminal />
+
       </section>
 
             {/* Register */}
